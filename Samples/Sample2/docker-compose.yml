@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  sample2:
+    image: sample2
+    build:
+      context: ./Sample2
+      dockerfile: Dockerfile
+    ports:
+      - "8000:80"
+  redis:
+    image: "redis"
+    ports:
+      - "6379:6379"
+    volumes:
+      - "d:/data:/data"
+    command: redis-server --appendonly yes

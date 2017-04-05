@@ -1,0 +1,9 @@
+C:\dev\git\GTSDockerTeamTraining\Samples\Sample2\Sample2\bin\Debug\netcoreapp1.1\Sample2.deps.json
+C:\dev\git\GTSDockerTeamTraining\Samples\Sample2\Sample2\bin\Debug\netcoreapp1.1\Sample2.runtimeconfig.json
+C:\dev\git\GTSDockerTeamTraining\Samples\Sample2\Sample2\bin\Debug\netcoreapp1.1\Sample2.runtimeconfig.dev.json
+C:\dev\git\GTSDockerTeamTraining\Samples\Sample2\Sample2\bin\Debug\netcoreapp1.1\Sample2.dll
+C:\dev\git\GTSDockerTeamTraining\Samples\Sample2\Sample2\bin\Debug\netcoreapp1.1\Sample2.pdb
+C:\dev\git\GTSDockerTeamTraining\Samples\Sample2\Sample2\obj\Debug\netcoreapp1.1\Sample2.csprojResolveAssemblyReference.cache
+C:\dev\git\GTSDockerTeamTraining\Samples\Sample2\Sample2\obj\Debug\netcoreapp1.1\Sample2.AssemblyInfo.cs
+C:\dev\git\GTSDockerTeamTraining\Samples\Sample2\Sample2\obj\Debug\netcoreapp1.1\Sample2.dll
+C:\dev\git\GTSDockerTeamTraining\Samples\Sample2\Sample2\obj\Debug\netcoreapp1.1\Sample2.pdb
