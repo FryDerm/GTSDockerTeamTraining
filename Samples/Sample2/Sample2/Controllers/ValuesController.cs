@@ -57,14 +57,14 @@ namespace Sample2.Controllers
         {
         }
 
-	    private string GetRedisConnectionString()
-	    {
+		private string GetRedisConnectionString()
+		{
 			//because of https://github.com/dotnet/corefx/issues/8768
 			var dnsTask = Dns.GetHostAddressesAsync("redis");
 			var addresses = dnsTask.Result;
-		    var address = addresses[0].MapToIPv4().ToString();
+			var address = addresses[0].MapToIPv4().ToString();
 
-		    return address;
-	    }
+			return address;
+		}
     }
 }
