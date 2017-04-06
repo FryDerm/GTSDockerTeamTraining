@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head id="ctl00_Head">
+	<title>
+		Gateway eGalaxy Demo Web Store :: Store Offline
+	</title>
+	<link href="./Content/css/icons.css" rel="stylesheet" type="text/css" />
+	<link href="./Content/themes/base/all.css" rel="stylesheet" />
+	<link href="./content/default/language/css/language.css" rel="stylesheet" />
+
+	<script src="./scripts/jquery-1.11.3.min.js"></script>
+	<script src="./scripts/jquery-ui-1.11.4.min.js"></script>
+	<script src="./scripts/globalize/globalize.js"></script>
+	<script src="./scripts/globalize/cultures/globalize.cultures.js"></script>
+	<script src="./scripts/json2.js"></script>
+	<script src="./scripts/jquery.validate.min.js"></script>
+	<script src="./scripts/jsrender.js"></script>
+	<script src="./scripts/jquery.blockUI.js"></script>
+	<script src="./scripts/common.js"></script>
+	<script src="./scripts/placeholder.polyfill.js"></script>
+	<script src="./content/eGalaxyWebAPI.js"></script>
+	<script src="./content/default/language/scripts/language.js"></script>
+
+
+	<style id="antiClickjack">
+		body {
+			display: none !important;
+		}
+	</style>
+	<script type="text/javascript">
+			if (self === top) {
+				var antiClickjack = document.getElementById("antiClickjack");
+				antiClickjack.parentNode.removeChild(antiClickjack);
+			} else {
+				top.location = self.location;
+			}
+	</script>
+
+	<link href="./App_Themes/GTS/_reset.css" type="text/css" rel="stylesheet" />
+	<link href="./App_Themes/GTS/Ajax.css" type="text/css" rel="stylesheet" />
+	<link href="./App_Themes/GTS/BlockDisplay.css" type="text/css" rel="stylesheet" />
+	<link href="./App_Themes/GTS/Calendar.css" type="text/css" rel="stylesheet" />
+	<link href="./App_Themes/GTS/Cart.css" type="text/css" rel="stylesheet" />
+	<link href="./App_Themes/GTS/default.css" type="text/css" rel="stylesheet" />
+	<link href="./App_Themes/GTS/Donation.css" type="text/css" rel="stylesheet" />
+	<link href="./App_Themes/GTS/FlyoutCart.css" type="text/css" rel="stylesheet" />
+	<link href="./App_Themes/GTS/JointMembership.css" type="text/css" rel="stylesheet" />
+	<link href="./App_Themes/GTS/Loyalty.css" type="text/css" rel="stylesheet" />
+	<link href="./App_Themes/GTS/LoyaltyPrograms.css" type="text/css" rel="stylesheet" />
+	<link href="./App_Themes/GTS/Master.css" type="text/css" rel="stylesheet" />
+	<link href="./App_Themes/GTS/MyAccount.css" type="text/css" rel="stylesheet" />
+	<link href="./App_Themes/GTS/Package.css" type="text/css" rel="stylesheet" />
+	<link href="./App_Themes/GTS/Transportation.css" type="text/css" rel="stylesheet" />
+	<link href="./App_Themes/GTS/Upsell.css" type="text/css" rel="stylesheet" />
+	<link href="./App_Themes/GTS/ViewItems.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body id="ctl00_HtmlBodyControl" dir="ltr" class="&#32;dir-ltr">
+
+	<div id="page">
+		<div id="MasterLayout">
+			<div id="Header">
+				<div class="language-selection">
+					<div class="current-language-wrapper">
+					</div>
+					<div class="language-options">
+					</div>
+				</div>
+			</div>
+			<div id="container">
+				<div id="sub-header">
+					<div class="logo"></div>
+					<span class="title"></span>
+				</div>
+				<div id="info-block">
+					<div class="info-block-text"></div>
+				</div>
+
+				<div>
+					<div class="ContentCell">
+						<div id="ContentWrapper">
+							<div id="ContentSubHeader">
+
+							</div>
+							<div id="ContentHeading">
+								The store is currently offline
+							</div>
+
+							<div id="MessageNotification">
+
+
+							</div>
+
+
+							<div id="ViewItems">
+
+								<div>
+
+
+
+
+								</div>
+							</div>
+
+
+							<div class="clear"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="SubFooter">
+
+			</div>
+
+			<div class="footer">
+
+
+
+				<div class="footerContainer">
+					<div id="footerLogo">
+						<p>
+							Copyright © 2015 Gateway Ticketing Systems, Inc.
+						</p>
+					</div>
+				</div>
+			</div><!-- Footer Div END -->
+
+		</div>
+	</div>
+
+</body>
+</html>

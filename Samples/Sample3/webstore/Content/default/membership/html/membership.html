@@ -1,0 +1,161 @@
+<div id="membership-details">
+    <div class="details-page-name">
+        <span class="icon gts-large-gray-user"></span>
+        <h1 class="name"></h1>
+    </div>
+    <div class="clear"></div>
+
+    <div class="info-column">
+        <div class="stat-row details-stats">
+        </div>
+
+        <div class="info">
+            <ul class="actions">
+                <li id="summary-link" class="selected" data-target=".summary">[L:MembershipSummaryHeading]</li>
+                <li id="associated-link" data-target=".associated">[L:AssociatedMembershipsHeading]</li>
+                <li id="renewal-link" data-target=".renewal">[L:MembershipRenewalHeading]</li>
+            </ul>
+            
+        </div>
+    </div>
+    
+    <div class="main-content">
+        <div class="summary">
+            <div class="slide-wrapper">
+                <h2>[L:MembershipSummaryHeading]</h2>
+                <div id="membership-summary"></div>
+            </div>
+        </div>
+                
+        <div class="associated">
+            <div class="slide-wrapper">
+                <h2>[L:AssociatedMembershipsHeading]</h2>
+                <div id="associated-memberships"></div>
+            </div>
+        </div>
+        
+        <div class="renewal">
+            <div class="slide-wrapper">
+                <h2>[L:MembershipRenewalHeading]</h2>
+                <div class="clearfix"></div>
+                <div id="renew-items" >
+                    <div class="renew-error"></div>
+                    <div id="renew-options-wait" class="progress wait">
+                        <p>[L:MembershipRenewalLoadingMessage]</p>
+                        <img src="../images/GTS/ajax-loading.gif" />
+                    </div>
+                    <ul id="plu-items" class="renewal-options-list">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script id="sub-header-template" type="text/x-jsrender">
+</script>
+
+<script id="membership-summary-template" type="text/x-jsrender">
+    <ul class="members">
+        {{for Members}}
+            <li>
+                <div class="member-name">{{>FirstName}} {{>LastName}}</div>
+                {{if HasDateOfBirth}}
+                    <div class="date-of-birth">{{>DateOfBirth}}</div>
+                {{/if}}
+                <div>{{>Street1}}</div>
+                <div>{{>Street2}}</div>
+                <div>{{>Street3}}</div>
+                <div>{{>City}} {{>State}} {{>Postal}}</div>
+                <div class="membership-id">{{>VisualId}}</div>
+            </li>
+        {{/for}}
+    </ul>
+</script>
+
+<script id="associated-memberships-template" type="text/x-jsrender">
+    {{for AssociatedMemberships}}
+        <div class="associated-membership">
+            <ul class="members">
+                {{for Members}}
+                    <li>
+                        <div class="member-name">{{>FirstName}} {{>LastName}}</div>
+                        {{if HasDateOfBirth}}
+                            <div class="date-of-birth">{{>DateOfBirth}}</div>
+                        {{/if}}
+                        <div>{{>Street1}}</div>
+                        <div>{{>Street2}}</div>
+                        <div>{{>Street3}}</div>
+                        <div>{{>City}} {{>State}} {{>Postal}}</div>
+                        <div class="membership-id">{{>VisualId}}</div>
+                    </li>
+                {{/for}}
+            </ul>
+        </div>
+    {{/for}}
+</script>
+
+<script id="renewal-options-template" type="text/x-jsrender">
+     <li class="plu-item-wrap"  data-visualid="{{>VisualIdToRenew}}">
+        <div class="member-info left">
+             {{if Products.length > 1}}
+                <div class="corner-icon icon gts-renewal-member"></div>
+            {{else}}
+                <div class="corner-icon icon gts-renewal-member"></div>
+            {{/if}}
+            <div class="member">{{>MemberName}}</div>
+            <div class="product-title">{{>ProductName}}</div>
+        
+            <div class="sub-title">VisualID: {{>VisualIdToRenew}}</div>
+         
+        </div>
+        <div class="renewable-products right">
+           {{if Products.length > 0}}
+             {{for Products}}
+                <div class="plu-item" data-plu="{{>Plu}}" >
+                    <div class="plu-details">
+                        <div class="plu-information">
+                            <div class="plu-name">{{>Name}}</div>
+                            <p>
+                                {{>Description}}
+                                {{if LongDescription != null}}
+                                    <a href="#" class="plu-more-info-link">[L:RenewalOptionMoreDetails]</a>
+                                {{/if}}
+                            </p>
+                            {{if LongDescription != null}}
+                                <div class="plu-more-info">
+                                    {{>LongDescription}}
+                                </div>
+                            {{/if}}
+                        </div>
+                        <div class="plu-price">
+                            <span>{{>PriceDisplay}}</span>
+                        </div>
+                        <div class="plu-controls">
+                            <input type="button" class="large-button add-to-cart" value="[L:RenewalOptionAddToCart]" />
+                            <img class="loading" src="../images/GTS/ajax-loader.gif" alt="loading" />
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            {{/for}}
+            
+             {{else}}
+             <div class="no-renewal-items">
+                 <h4>[L:NoRenewalOptionAvailableMessage] </h4>
+             </div>
+            {{/if}}
+
+        </div>
+    </li>
+</script>
+
+<script id="membership-stats-template" type="text/x-jsrender">
+    <dl>
+        <dt>{{>StatusDescription}}</dt>
+        <dd>[L:MembershipStatusLabel]</dd>
+
+        <dt>{{>ExpirationDate}}</dt>
+        <dd>[L:MembershipExpirationLabel]</dd>
+    </dl>
+</script>

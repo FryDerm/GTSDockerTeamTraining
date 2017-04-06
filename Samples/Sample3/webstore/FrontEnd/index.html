@@ -1,0 +1,94 @@
+<!--html
+ head
+  title
+  link(href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800',rel='stylesheet',type='text/css')
+  link(rel="stylesheet", href="gts.min.css", type="text/css")
+  script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular.min.js")
+  script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js")
+  script(src="gts.js")
+  
+ body
+  include ../components/page/html/page.view.jade
+  
+  div(style="display:none")
+   include ../components/viewItems/html/viewItems.view.jade
+   --><div style="display:none"><div data-component="page"><link href="//cloud.typography.com/7455652/690902/css/fonts.css" rel="stylesheet" type="text/css"/><div class="row"><div ng-controller="CalendarModalController" class="calendar-modal"><div ng-class="{hidden : !(loading || showModal)}" class="modal"><div ng-if="loading" class="loading"><img src="http://localhost:8080/demo/img/ajax-loading.gif"/></div><div ng-if="showModal" class="row"><div class="c c-100-all"><div class="p-all-all"><div ng-if="!eventTimes.length" ng-class="{hidden : !showCalendar}" class="calendar"><div class="calendar-header"><div class="row month-name">January</div><div class="row day-names"><div class="c c-14-all">Sun</div><div class="c c-14-all">Mon</div><div class="c c-14-all">Tue</div><div class="c c-14-all">Wed</div><div class="c c-14-all">Thu</div><div class="c c-14-all">Fri</div><div class="c c-14-all">Sat</div></div></div><div class="row calendar-body"><div class="row"><div ng-repeat="day in days" ng-click="selectDay(day)" ng-class="{empty : day.other, available : day.available}" data-target="{{day.target}}" class="c c-14-all day">{{day.date}}</div></div></div></div><div ng-if="eventTimes.length" ng-class="{hidden : !eventTimes.length}" class="event-times"><div ng-repeat="event in eventTimes" class="row time p-t-all p-b-all b-b-all"><div class="c c-33-all">{{event.time}}</div><div class="c c-33-all">{{event.name}}</div><div class="c c-33-all"><button type="button" ng-click="selectEvent(event)">Select</button></div></div></div><div class="row p-t-all"><div class="c c-rev"><a ng-click="close()" class="close">x</a></div></div></div></div></div></div></div></div><!-- header--><header ng-controller="HeaderController"><div class="header-top"><div class="container"><div ng-if="screen.a"><div class="c c-80-all c-rev"><ul><li><a>Visit</a></li><li><a>Animals & Experiences</a></li><li><a>Support Us</a></li><li><a>Conservation</a></li><li><a>Members</a></li><li><a>Education</a></li><li><a>Espanol</a></li></ul></div></div><div ng-if="!screen.a" class="mobile-logo"><div class="c c-20-all"><img src="http://secure4.gatewayticketing.com/MontereyBayAquarium/images/MBANEW/assets/img/logo@2x.png"/></div></div></div></div><div class="header-bottom"><div class="row container"><div class="c c-100-all c-80-a c-rev"><div class="title"><h1>Admission Tickets</h1></div></div><div ng-if="screen.a" class="c c-20-all c-rev"><div class="logo-sizing"><img src="http://www.montereybayaquarium.org/assets/img/logo.png"/></div></div></div></div></header><!--.logo
+ div.p-t-all.p-b-all.p-l-b.p-l-c
+  img(src="http://gatewayticketing.com/Portals/0/Gateway-Logo.png")--><div class="container"><div class="row"><div class="c c-80-all c-100-c c-rev"><div ng-controller="ViewItemsController" class="row view-items"><img src="http://www.montereybayaquarium.org/-/m/images/hero/octopus-blue-ocean.jpg" class="hero"/><div class="content"><div class="p-all-all"><div ng-repeat="item in items" class="item-category m-b-all"><div ng-if="!item.isEvent" class="row category-name"><h2>{{item.parentScdName}}</h2></div><div ng-repeat="product in item.plu" class="row item"><div ng-if="!item.isEvent" class="row p-all-all"><div class="c c-50-all"><p class="name">{{product.name}}</p><p class="desc">{{product.shortName}}</p></div><div class="c c-25-all"><p>{{product.price}}</p></div><div style="position:relative" class="c c-25-all"><div ng-click="increment(false, product, item)" class="c quantity-control">-</div><div class="quantity-input"><input type="text" ng-model="product.quantityValue" name="{{product.elQuantityInput.name}}" id="{{product.elQuantityInput.id}}"/></div><div ng-click="increment(true, product, item)" class="c c-rev quantity-control">+				</div></div></div></div></div></div></div><!--div.item-category.m-b-all(ng-repeat="item in items")
+ div.row.category-name
+  h2 {{item.parentScdName}}
+ div.row.headers
+  div.p-l-all.p-r-all
+   div.c.c-50-all
+    p Description
+   div.c.c-25-all
+    p Price
+   div.c.c-25-all
+    p Quantity
+    
+ div.row.errors(ng-if="item.quantityError")
+  div.p-l-all
+   div.c.c-50-all.c-100-c.c-rev.m-t-all
+    p.error Please enter your quantity.
+    
+ div.row.item(ng-repeat="product in item.plu")
+  div.row.p-all-all
+   div.c.c-50-all
+    p.name {{product.name}}
+    p.desc {{product.shortName}}
+   div.c.c-25-all
+    p {{product.price}}
+   div.c.c-25-all(style="position:relative")
+    div.c.quantity-control(ng-click="increment(false, product, item)") -
+    div.quantity-input
+     input(type="text", ng-model="product.quantityValue", name="{{product.elQuantityInput.name}}", id="{{product.elQuantityInput.id}}")
+    div.c.c-rev.quantity-control(ng-click="increment(true, product, item)") +
+    
+ div(ng-if="item.isEvent")
+  div.row.event-controls.m-t-all
+   div.c.c-50-all.c-100-c
+    div.event-date(ng-if="item.hasDateTime")
+     span.light Event Date: 
+     |{{item.eventDateTime}}
+     
+   div.c.c-50-all.c-100-c
+    button(type="button", ng-click="selectEvent(item)")
+     span(ng-if="!item.hasDateTime") Select A Date/Time
+     span(ng-if="item.hasDateTime") Change Date/Time
+     
+     
+ div.row.add-to-cart.m-t-all(ng-if="(item.isEvent && item.hasDateTime) || !item.isEvent")
+  div.c.c-rev.c-50-all.c-100-c
+   button(type="button", ng-click="doSomething(item)")
+    |{{item.elAddToCart.value}}
+    
+   button.ng-ph-hidden(style="display:none", type="submit", id="{{item.elAddToCart.id}}", name="{{item.elAddToCart.name}}", value="{{item.elAddToCart.value}}")--></div><!--div.p
+ div.item-category.mb(ng-repeat="item in items")
+  div.row.category-name
+   h2 {{item.parentScdName}}
+   
+  div.row(ng-if="item.isEvent")
+  
+   div(ng-if="item.eventDateTime")
+    p {{item.eventDateTime}} - 
+     span() change
+     
+   div(ng-if="!item.eventDateTime")
+    p(ng-click="selectEvent(item)") click
+    
+  div.row.item(ng-repeat="product in item.plu")
+   div.p
+    div.row
+     div.c.a75
+      h2.product-name {{product.name}}
+       span.description  {{product.shortName}}
+       
+     div.c.a25
+      +input-number(ng-model="product.quantityValue", ng-class="{error : product.quantityError}", type="text", id="{{product.elQuantityInput.id}}", name="{{product.elQuantityInput.name}}", maxlength="4")
+  div.p
+   div.row
+    div.c.c-rev.a25.c100
+     +button-submit(type="submit", value="{{item.elAddToCart.value}}", id="{{item.elAddToCart.id}}", name="{{item.elAddToCart.name}}", ng-click="submit(item)")
+      |{{item.elAddToCart.value}}--></div><div class="c c-20-all c-100-c c-rev"><div ng-controller="NavigationController" class="navigation"><div class="nav-sizing"><ul><li ng-repeat="link in links" ng-class="{active : link.link.class == 'active'}" class="row link"><a href="{{link.link.href}}">{{link.link.text}}</a></li></ul></div></div></div></div></div></div></div><!--include ../components/viewItems/html/viewItems.view.jade
+include ../components/navigation/html/navigation.view.jade
+include ../components/header/html/header.view.jade-->

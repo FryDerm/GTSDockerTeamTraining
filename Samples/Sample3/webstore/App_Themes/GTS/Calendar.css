@@ -1,0 +1,507 @@
+
+#CalendarSelector *
+{
+	font-family: Verdana;
+	font-size: 11px;
+}
+
+#CalendarSelector select
+{
+	color: #434343;
+}
+#CalendarSelector table
+{
+	border: none;
+	width: 225px;
+	padding: 3px;
+	margin: 0 auto;
+}
+#CalendarSelector table th
+{
+	background-color: #ffffff;
+	font-weight: normal;
+	color: #434343;
+}
+#CalendarSelector table td
+{
+	padding: 5px;
+}
+
+#CalendarSelector .Calendar
+{
+	padding-top: 15px;
+	border: none !important;
+}
+
+#CalendarSelector .SelectedDay
+{
+	background-color: #07375c !important;
+}
+#CalendarSelector .DayAvailable
+{
+	background-color: #434343;
+	font-weight: bold;
+}
+#CalendarSelector .DayAvailable:hover
+{
+	background-color: #07375c;
+}
+#CalendarSelector .DayAvailable a
+{
+	text-decoration: none;
+	color: #ffffff !important;
+}
+#CalendarSelector .DayUnavailable
+{
+	background-color: #eee;
+	color: #999999;
+	font-weight: bold;
+}
+#CalendarSelector .OtherMonthDay
+{
+	 background-color: #ffffff;
+	 color: #c0c0c0;
+}
+
+#calendar-legend
+{
+	margin-left: 10px;
+}
+
+#LegendAvailable
+{
+	width: 20px;
+	height: 15px;
+	margin-right: 5px;
+	background-color: #434343;
+}
+#LegendNoAvailability
+{
+	width: 20px;
+	height: 15px;
+	margin-left: 10px;
+	margin-right: 5px;
+	background-color: #eee;
+}
+
+#EventsDateTimeSelector #EventTimes 
+{	 
+	overflow-y: auto;
+	height: 300px;
+/*	width: 90%;*/
+	text-align: center;
+	padding-right: 2px;
+/*	border: 2px #f1f1f1 solid;*/
+	margin-top: 20px;
+}
+	
+#EventsDateTimeSelector .CalendarWithLegendTable
+{
+	font-family: Verdana;
+	margin-top: 20px;
+}
+
+#EventsDateTimeSelector #EventTimes table
+{
+	margin-left: 30px;;
+
+}
+
+#EventsDateTimeSelector #EventTimes th
+{
+	color: #ffffff;
+	font-size: 10px;
+}
+
+#EventsDateTimeSelector #EventTimes .AlternatingItem
+{
+	background-color: #c0c0c0;
+}
+
+#EventsDateTimeSelector #EventTimes #EventTimeRow:hover
+{
+	background-color: #B5CBDD;
+}
+#EventsDateTimeSelector #EventTimes input[type=submit]
+{
+	color: #ffffff;
+	font-weight: bold;
+	font-size: 9px;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+
+#TopheaderRow
+{
+	font-size: 12pt;
+	line-height: 12pt;
+	font-weight: bold;
+	vertical-align: middle;
+}
+
+#TopheaderRow td 
+{
+	padding-bottom: 15px;
+	background-color: #21b1e7;
+	color: white;
+}
+.event-time-cell, .event-name-cell, .availability-cell, .qty-cell
+{
+	text-align: center !important;
+	vertical-align: middle !important;
+	padding: 10px 5px;
+}
+
+.event-time-cell, .availability-cell
+{
+	width: 70px;
+}
+
+.event-name-cell
+{
+	min-width: 160px;
+}
+
+.Calendar table tr td, .DayAvailable {
+    padding: 0px !important;
+}
+.DayAvailable > a, .DayAvailable > a:hover
+{
+    height: 20px !important;   
+    padding-top: 5px;
+    vertical-align: middle;
+    width: 25px !important;
+    display: block;
+}
+
+#CalendarSelector
+{
+	margin-bottom: 15px;
+}
+
+/* MultiTimeEvent Calendar */
+
+.ModalPopUpCancel
+{
+	margin-left: 15px;
+	float: left;
+	margin-top: -47px !important;
+}
+
+#MultiTimeEventsSelector .CalendarWithLegendTable 
+{	
+	margin: 35px 6px 10px 6px /* space between the calendar and eventselector */
+}
+
+#MultiTimeEventsSelector #CalendarSelector table
+{
+	width: 215px;
+	padding: 3px;
+	margin: 0 auto;
+}
+
+#MultiTimeEventsSelector .CalendarHeader
+{
+	display: none;
+
+}
+
+.MultiTimeModalPopup
+{
+	width:800px;
+	background-color:#ffffff;
+	color: #000000;
+}
+
+.MultiTimeModalPopup ~ div
+{
+	display: none;
+}
+
+#MultiTimeEventHeader
+{
+	width: 90%;
+	color: #ffffff;
+}
+
+#MultiTimeEvents table
+{
+	width: 100%;
+}
+
+#MultiTimeEventsSelector .ContinueButtonCell
+{
+	text-align: right;
+}
+
+.MultiTimeEventScroll
+{
+	max-height: 300px;
+	overflow:auto;
+}
+
+/* table cell */
+
+#MultiTimeEvents {
+	width: 510px;
+	margin-top: 20px;
+}
+
+.MultiTimeEventTimeRow td, .MultiTimeEventTimeAltRow td
+{
+	margin: 0px !important;
+	vertical-align: middle;
+	text-align: center;		
+}
+
+.MultiTimeEventTimeRow td:last-child, .MultiTimeEventTimeAltRow td::last-child
+{
+	padding: 0px;	
+}
+
+.MultiTimeEventTimeAltRow
+{
+	background-color:#eee;
+}
+
+.MultiTimeEventTimeRow:hover, .MultiTimeEventTimeAltRow:hover
+{
+	background-color: #e1e1e1;
+	border:dashed 1px #333333;
+}
+
+.displayTime
+{
+	width: 90px;
+	text-align: center;
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+.displayWithEndTime
+{
+	width: 140px !important;
+}
+
+.MultiTimeEventNameCell,
+#MultiTimeEventNameCell {
+	width: 150px;
+	padding: 4px 0px 3px 0px!important;
+}
+
+.MultiTimeEventStatus,
+#MultiTimeEventStatus,
+.MultiTimeEventAvailability,
+#MultiTimeEventAvailability {
+	width: 80px;
+	padding: 4px 0px 3px 0px!important;
+}
+
+.MultiTimeExtCell,
+#MultiTimeQuantityCell {
+	width: 100px;
+	padding: 4px 0px 3px 0px!important;
+}
+
+#spacer
+{
+	width: 15px;
+	padding: 0px
+}
+
+#MultiTimeEventHeaderRow {
+	color: #ffffff;
+	text-align: center;
+	background-color: #00619E;
+}
+
+#MultiTimeEventHeaderRow th {
+	border-bottom: 0px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+
+#MultiTimeEventHeaderRow  .spacer
+{
+	width: 18px;
+	padding: 0px
+}
+
+
+#MultiTimeEventBody
+{
+
+}
+
+.MultiTimeEventTopHeader
+{
+	font-size: 12pt;
+	font-weight: bold;
+	padding-bottom: 15px;
+	text-align: center;
+}
+
+.MultiTimeExtCell div
+{
+	padding-right: 0px !important;
+}
+
+
+.MultiTimeEventHeaderRow 
+{
+	text-align: left !important;
+}
+
+.MultiTimeQtyWrapper div#numeric-down {
+margin-right: 10px;
+margin-top: 8px;
+margin-left: 10px;
+}
+
+.MultiTimeQtyWrapper div#numeric-box {
+float: left;
+width: 40px;
+}
+
+.MultiTimeQtyWrapper div#numeric-box  input{
+margin-bottom: 0px;
+}
+
+.MultiTimeQtyWrapper input[type=text] {
+width: 40px !important;
+}
+
+.MultiTimeQtyWrapper div#numeric-up {
+margin-left: 85px;
+margin-top: -17px;
+}
+
+.MultiTimeQtyWrapper input {
+vertical-align: middle;
+}
+
+.MultiTimeQtyWrapper div#numeric-down, .MultiTimeQtyWrapper div#numeric-up {
+cursor: pointer;
+float: left;
+height: 12px;
+width: 12px;
+}
+
+.MultiTimeEventContinueButton
+{
+	margin-top: 0px;
+	margin-bottom: 10px;
+}
+
+#MultiTimeEventsSelector table {
+border-collapse: separate;
+border-spacing: 0;
+}
+
+/*  end */
+
+/* ----------------------------------------------------------------------------
+	AjaxPopup CSS
+---------------------------------------------------------------------------- */
+.modalBackground
+{
+	background-color: #eee;		
+	opacity: 0.9;			
+}	
+			
+.modalPopup, .MultiTimeModalPopup		
+{		
+	background-color: #ffffff;			
+	border-style: none;			
+	padding: 20px 30px 20px 30px;	
+	-webkit-box-shadow: 0 0 15px #BBB;
+	-moz-box-shadow: 0 0 15px #BBB;
+	box-shadow: 0 0 15px #BBB;		
+}	
+
+.modalPopup ~ div, .MultiTimeModalPopup ~ div  {
+	display: none;
+}
+
+.modalPopup input, .MultiTimeModalPopup input {
+	margin-bottom: 10px;
+}
+
+div.updateprogress 
+{
+	position:absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 200%;
+	z-index: 1000;
+	background-color: Gray;
+	filter: alpha(opacity=40); 
+	-moz-opacity: .40; 
+}	
+
+div.updateProgressImage
+{
+	text-align: center;
+}	
+
+/* RTL Styling  */
+.dir-rtl #LegendAvailable
+{
+	margin-left: 5px;
+
+.dir-rtl #LegendNoAvailability
+{
+	margin-right: 10px;
+	margin-left: 5px;
+}
+.dir-rtl #EventsDateTimeSelector #EventTimes table
+{
+	margin-right: 30px;;
+}
+.dir-rtl .ModalPopUpCancel
+{
+	margin-right: 10px;
+}
+.dir-rtl .MultiTimeEventNameCell
+{
+	text-align: right !important;
+}
+.dir-rtl #MultiTimeEventNameCell
+{
+	padding-right: 15px;
+    text-align: right;
+}
+.dir-rtl .MultiTimeEventHeaderRow 
+{
+	text-align: right !important;
+}
+.dir-rtl .MultiTimeQtyWrapper div#numeric-down, .dir-rtl .MultiTimeQtyWrapper div#numeric-up {
+    float: right;
+}
+.dir-rtl .MultiTimeQtyWrapper div#numeric-box{
+    float: right;
+}
+.dir-rtl #MultiTimeEventsSelector .ContinueButtonCell
+{
+	text-align: left;
+}
+.dir-rtl .MultiTimeEventTimeRow td, .dir-rtl .MultiTimeEventTimeAltRow td
+{
+	text-align: left;	
+}
+.dir-rtl .MultiTimeExtCell
+{
+	padding-left: 15px !important;
+}
+.dir-rtl .MultiTimeExtCell div
+{
+	padding-left: 0px !important;
+}
+.dir-rtl td.PLUQuantityItem div
+{
+	padding-left: 0px !important;
+}
+
+
+

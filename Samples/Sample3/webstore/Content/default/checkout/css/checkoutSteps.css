@@ -1,0 +1,583 @@
+﻿#checkout {
+    width: 95%;
+	clear: both;
+	margin: 30px auto;
+}
+
+#ErrorMessage
+{
+	margin-bottom: 20px;
+}
+
+.NavCell
+{
+	display: none;
+}
+
+#ContentWrapper
+{
+
+}
+
+#checkout .step h2
+{
+	font-size: 1.4em;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #d6d4d4;
+	color: #555454;
+	text-transform: uppercase;
+}
+
+#checkout .step h3
+{
+	margin-bottom: 25px;
+	
+}
+
+#checkout .step h4
+{
+	font-size: 1.2em;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #d6d4d4;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+	width: 100%;
+	float: left;
+	clear: both;
+}
+
+#checkout .step .new-child form
+{
+	margin-top: 10px;
+}
+
+#checkout .step .form-field
+{
+	clear: both;
+	margin-bottom: 10px;
+}
+
+#checkout .step .form-field .required input
+{
+	/*border-left: #f37e20 solid 3px;*/
+}
+
+#checkout .navigation
+{
+	margin-top: 30px;
+}
+
+#checkout .navigation img
+{
+	display: none;
+	float: right;
+	margin-right: 20px;
+	margin-top: 12px;
+	
+}
+
+#checkout .next, #checkout .place-order
+{
+	float: right;
+}
+
+#checkout .previous
+{
+	float: left;
+	background-color: #555;
+}
+
+.joint-members h4
+{
+	text-transform: lowercase;
+}
+
+.step-pass,
+#step-payment,
+#primary-pass-selection-step,
+#PersonalMessageWrap,
+#step-dual
+{
+	display: none;
+}
+
+.step-pass .primary-member
+{
+	float: left;
+	width: 430px;
+	display: inline-block;
+	margin-top: 20px;
+	padding: 20px;
+	padding-bottom: 20px;
+	line-height: 20px;
+	background: #fbfbfb;
+	border: 1px solid #d6d4d4;
+}
+
+.step-pass .joint-members
+{
+    margin-top: 15px;
+}
+
+.step-pass .adults,
+.step-pass .children,
+.step-pass .addons,
+.step-pass .guests
+{
+	display: none;
+	float: right;
+    text-align: left;
+	clear: right;
+	margin: 20px 0 15px 0px;
+	text-align: right;
+}
+
+.step-pass .adults h4,
+.step-pass .children h4,
+.step-pass .addons h4,
+.step-pass .guests h4
+{
+	margin-bottom: 10px;
+    text-transform: lowercase;
+}
+
+.step-pass .guests p
+{
+	margin-left: 15px;
+}
+
+.step-pass .adults .adult
+{
+	
+}
+
+.step-pass .children .child
+{
+
+}
+
+.step-pass .addons .addon
+{
+	
+}
+
+.step-pass .new-addon .form-field-input.required input
+{
+	border: 1px solid #AAA;
+	border-left: 4px solid #F09609;
+}
+
+
+.step-pass .children .child.available,
+.step-pass .adults .adult.available,
+.step-pass .addons .addon.available,
+.step-pass .addons .addon.available 
+{
+	display: none;
+	cursor: pointer;
+	color: #fff;
+	background-color: #434343;
+	float:right;
+	margin-top: 10px;
+
+}
+
+/*.step-pass .addons .addon-additions
+{
+	display: none;
+	cursor: pointer;
+	color: #fff;
+	background-color: #434343;
+	float:right;
+	margin-top: 10px;
+
+}*/
+
+.step-pass .children .child.available .name,
+.step-pass .adults .adult.available .name,
+.step-pass .addons .addon.available .name
+{
+	color: #fff;
+	padding-right: none;
+	padding: 10px 30px;
+	text-align: center;
+}
+
+.step-pass .children .child.available:hover,
+.step-pass .adults .adult.available:hover,
+.step-pass .addons .addon.available:hover
+{
+	
+}
+
+.step-pass .name
+{
+	color: #000;
+    text-align: left;
+	white-space: nowrap;
+	text-transform: capitalize;
+	font-size: 12pt;
+}
+
+.step-pass .adult-additions .name,
+.step-pass .child-additions .name,
+.step-pass .addon-additions .name
+{
+	cursor: pointer;
+    display: inline-block;
+}
+
+.step-pass .adult .icon.x,
+.step-pass .child .icon.x
+{
+	margin-right: 7px;
+	display: inline-block;
+	background-color: #990000;
+	width: 20px;
+	text-align: center;
+	color: #fff;
+	border-radius: 50%;
+	height: 20px;
+	vertical-align: middle;
+	cursor: pointer;
+
+}
+
+.step-pass .icon-bounds
+{
+	overflow: hidden;
+	height: 41px;
+	width: 200px;
+}
+
+.step-pass .new-adult-wrapper,
+.step-pass .new-child-wrapper,
+.step-pass .new-addon-wrapper
+{
+	display: none;
+}
+
+.step-pass .new-adult,
+.step-pass .new-child,
+.step-pass .new-addon
+{
+	position: fixed;
+	top: 150px;
+	-webkit-box-shadow: 0 0 15px #BBB;
+	-moz-box-shadow: 0 0 15px #BBB;
+	box-shadow: 0 0 15px #BBB;
+	background-color: white;
+	margin: 0 auto;
+	padding: 20px;
+	
+}
+
+.step-pass .new-child .header h4,
+.step-pass .new-addon .header h4 {
+    display: inline;
+}
+
+.step-pass .not-naming
+{
+    /* background-color: #eee; */
+	color: red;
+    cursor: pointer;
+	/* background: #00619E; */
+	/* float: left; */
+	margin-bottom: 20px;
+	text-align: center;
+	text-decoration: underline;
+	clear: both;
+}
+
+.step-pass .new-child .child-age,
+.step-pass .new-addon .addon-age
+{
+    font-size: 1.4em;
+    color: black;
+    font-style: italic;
+}
+
+.step-pass .new-adult form,
+.step-pass .new-child form,
+.step-pass .new-addon form
+{
+	
+}
+
+.step-pass .new-adult .navigation,
+.step-pass .new-child .navigation,
+.step-pass .new-addon .navigation
+{
+	
+}
+
+.step-pass .new-adult .navigation .add,
+.step-pass .new-child .navigation .add,
+.step-pass .new-addon .navigation .add
+{
+	float: right;
+}
+
+.step-pass .new-adult .navigation .cancel,
+.step-pass .new-child .navigation .cancel,
+.step-pass .new-addon .navigation .cancel
+{
+	float: left;
+}
+
+/*.step-pass .new-adult .header,
+.step-pass .new-child .header,
+.step-pass .new-addon .header,
+.step-pass .primary-member .header
+{
+	color: white;
+	padding: 5px 10px;
+	margin-bottom: 12px;
+}*/
+
+/*.step-pass .new-adult .header,
+.step-pass .primary-member .header
+
+{
+	background-color: #00619E;
+	color: white;
+}*/
+
+/*.step-pass .new-child .header
+{
+	background-color: #00619E;
+	color: white;
+}
+
+.step-pass .new-addon .header
+{
+	background-color: #F09609;
+	color: white;
+}*/
+
+.step-pass ul.existing-contacts, 
+#contact-address .existing-contacts
+{
+    list-style: none;
+}
+
+#contact-address {
+    width: 100%;
+    clear: both;
+}
+
+#contact-address .existing-contacts {
+    display: block;
+}
+
+.step-pass ul.existing-contacts li, 
+#contact-address .existing-contacts li
+{
+      float: left;
+      padding-top: 12px;
+      margin: 10px;
+      border: solid 1px #cfcfcf;
+      border-radius: 9px 9px 9px 9px;
+      padding: 10px;
+      height: 100px;
+}
+
+.step-pass ul.existing-contacts li .existing-contact,
+#contact-address .existing-contacts li .existing-contact
+{
+    border-left: 4px solid #A2C139;
+    padding-left: 12px;
+}
+
+.step-pass ul.existing-contacts li .member-name, #contact-address .existing-contacts li .member-name  {
+    font-size: 1.4em;
+}
+
+.step-pass ul.existing-contacts li input[type=button],
+#primary-pass-selection-step ul.primary-pass-options li input[type=button], #contact-address .existing-contacts li input[type=button]
+{
+    background-color: #DADADA;
+    color: #333;
+    cursor: pointer;
+    padding: 5px 8px;
+    margin: 15px 0 10px 0;
+    border: none;
+	text-transform: capitalize;
+}
+
+.step-pass ul.existing-contacts li input[type=button]:hover,
+#primary-pass-selection-step ul.primary-pass-options li input[type=button]:hover, #contact-address .existing-contacts li input[type=button] :hover
+{
+    background-color: #E2E2E2;
+}
+
+#contact-address .existing-contacts li input[type=button].unlink {
+    color: red;
+	background: none;
+	text-transform: capitalize;
+	text-decoration: underline;
+	padding: 0px;
+}
+
+#contact-address .existing-contacts li input[type=button].link {
+
+}
+
+#primary-pass-selection-step ul.primary-pass-options
+{
+    list-style: none;
+    margin-top: 12px;
+    min-height: 280px;
+}
+
+#primary-pass-selection-step ul.primary-pass-options li
+{
+    display: inline-block;
+    width: 250px;
+    height: 100px;
+    float: left;
+    margin: 12px 50px 24px 12px;
+    padding: 12px;
+}
+
+#primary-pass-selection-step ul.primary-pass-options li .pass-info
+{
+    padding-left: 12px;
+    border-left: 4px solid #A2C139;
+}
+
+#primary-pass-selection-step ul.primary-pass-options li.selected
+{
+    color: #222;
+}
+
+#primary-pass-selection-step ul.primary-pass-options li .pass-name
+{
+    font-size: 1.4em;
+}
+
+#primary-pass-selection-step ul.primary-pass-options li .member-name
+{
+    margin-left: 1px;
+}
+
+.ui-widget-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #eee;
+	opacity: .9;
+}
+
+
+
+/* RTL Styling */
+.dir-rtl #checkout .step h4
+{
+	float: right;
+}
+.dir-rtl #checkout .navigation img
+{
+	float: left;
+	margin-left: 20px;
+	margin-right: auto;
+}
+.dir-rtl #checkout .next, .dir-rtl #checkout .place-order
+{
+	float: left;
+}
+.dir-rtl #checkout .previous
+{
+	float: right;
+}
+.dir-rtl .step-pass .primary-member
+{
+	float: right;
+}
+.dir-rtl .step-pass .adults,
+.dir-rtl .step-pass .children,
+.dir-rtl .step-pass .addons,
+.dir-rtl .step-pass .guests
+{
+	float: left;
+	clear: left;
+	text-align: left;
+}
+.dir-rtl .step-pass .guests p
+{
+	margin-right: 15px;
+	margin-left: auto;
+}
+.dir-rtl .step-pass .new-addon .form-field-input.required input
+{
+	border-right: 4px solid #F09609;
+	border-left: none;
+}
+.dir-rtl .step-pass .children .child.available,
+.dir-rtl .step-pass .adults .adult.available,
+.dir-rtl .step-pass .addons .addon.available,
+.dir-rtl .step-pass .addons .addon.available 
+{
+	float:left;
+}
+.dir-rtl .step-pass .children .child.available .name,
+.dir-rtl .step-pass .adults .adult.available .name,
+.dir-rtl .step-pass .addons .addon.available .name
+{
+	padding-left: none;
+	padding-right: auto;
+}
+.dir-rtl .step-pass .adult .icon.x,
+.dir-rtl .step-pass .child .icon.x
+{
+	float: left;
+	margin-left: -7px;
+	margin-right: auto;
+}
+.dir-rtl .step-pass .new-adult .navigation .add,
+.dir-rtl .step-pass .new-child .navigation .add,
+.dir-rtl .step-pass .new-addon .navigation .add
+{
+	float: left;
+}
+.dir-rtl .step-pass .new-adult .navigation .cancel,
+.dir-rtl .step-pass .new-child .navigation .cancel,
+.dir-rtl .step-pass .new-addon .navigation .cancel
+{
+	float: right;
+}
+.dir-rtl .step-pass ul.existing-contacts li, 
+.dir-rtl #contact-address .existing-contacts li
+{
+    float: right;
+}
+.dir-rtl .step-pass ul.existing-contacts li .existing-contact,
+.dir-rtl #contact-address .existing-contacts li .existing-contact
+{
+    border-right: 4px solid #A2C139;
+	border-left: none;
+    padding-right: 12px;
+	padding-left: auto;
+}
+.dir-rtl #primary-pass-selection-step ul.primary-pass-options li
+{
+    float: right;
+ }
+.dir-rtl #primary-pass-selection-step ul.primary-pass-options li .pass-info
+{
+    padding-right: 12px;
+	padding-left: auto;
+    border-right: 4px solid #A2C139;
+	border-left: none;
+}
+.dir-rtl #primary-pass-selection-step ul.primary-pass-options li .member-name
+{
+    margin-right: 1px;
+	margin-left: auto;
+}
+.dir-rtl .ui-widget-overlay {
+	right: 0;
+}

@@ -1,0 +1,2 @@
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="PaymentPlanSelector.ascx.cs" Inherits="Gateway.Web.UI.Controls.PaymentPlanSelector" %>
+<asp:Panel ID="PaymentPlanPanel" runat="server" CssClass="PlaymentPlanSelector" />

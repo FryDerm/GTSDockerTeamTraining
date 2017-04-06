@@ -1,0 +1,138 @@
+﻿#SalesChannelNav
+{
+	display: none;
+}
+
+#view-items
+{
+	margin-left: 30px;
+	margin-bottom: 50px;
+}
+
+/* Common colors:
+	Blue: #1BA1E2
+*/
+
+/* Common styling */
+.plu-item .plu-price
+{
+	font-family: "Segoe UI Light", "Helvetica", Garuda, Arial, sans-serif;
+}
+
+/* PLU Item */
+.plu-item .plu-information span
+{
+	font-size: 2.265em;
+	color: #222;
+}
+
+.plu-item
+{
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.plu-item .plu-image
+{
+	display: inline-block;
+	float: left;
+	width: 200px;
+	text-align: center;
+}
+
+.plu-item .plu-image img
+{
+	max-width: 200px;
+	width: auto;
+	-webkit-box-shadow: 0 0 10px #111111;
+	-moz-box-shadow: 0 0 10px #111111;
+	box-shadow: 0px 0px 10px #111111;
+}
+
+.plu-item .plu-details
+{
+	display: inline-block;
+	float: left;
+	width: 450px;
+	margin-left: 10px;
+}
+
+.plu-item .plu-information
+{
+	display: inline-block;
+	float: left;
+	margin: 0 20px;
+}
+
+.plu-item .plu-price
+{
+	margin-left: 20px;
+	clear: left;
+}
+
+.plu-item .plu-price span
+{
+	display: inline-block;
+	float: left;
+	color: #444;
+	font-size: 2.265em;
+}
+
+.plu-item .plu-controls
+{
+	display: inline-block;
+	float: right;
+	width: 160px;
+}
+
+.plu-item .plu-controls .add-to-cart
+{
+	display: block;
+	color: white;
+	background-color: #1BA1E2;
+	font-size: 1.4em;
+	padding: 8px 25px;
+	margin-top: 15px;
+	border: none;
+	cursor: pointer;
+}
+
+.plu-item .plu-information .plu-more-info
+{
+	display: none;
+}
+
+
+
+
+/*  Right to left styling here  */
+.dir-rtl #view-items
+{
+	margin-right: 30px;
+}
+.dir-rtl .plu-item .plu-image
+{
+	float: right;
+}
+.dir-rtl .plu-item .plu-details
+{
+	float: right;
+	margin-right: 10px;
+}
+.dir-rtl .plu-item .plu-information
+{
+	float: right;
+}
+.dir-rtl .plu-item .plu-price
+{
+	margin-right: 20px;
+	clear: right;
+}
+.dir-rtl .plu-item .plu-price span
+{
+	float: right;
+}
+.dir-rtl .plu-item .plu-controls
+{
+	float: left;
+}

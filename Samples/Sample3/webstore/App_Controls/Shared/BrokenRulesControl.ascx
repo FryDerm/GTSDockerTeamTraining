@@ -1,0 +1,2 @@
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="BrokenRulesControl.ascx.cs" Inherits="Gateway.Web.UI.Controls.BrokenRulesControl" %>
+<span data-list="error-list"><asp:BulletedList ID="PLUErrorsBulletedList" runat="server" CssClass="pluErrorsBulletedList message errorMessage" /></span>

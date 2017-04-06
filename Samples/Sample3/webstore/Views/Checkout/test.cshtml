@@ -1,0 +1,18 @@
+﻿@{
+	Layout = null;
+}
+<link href="~/Content/default/checkout/css/checkoutSteps.css" rel="stylesheet" type="text/css"/>
+<link href="~/Content/default/checkout/css/checkout.css" rel="stylesheet" type="text/css"/>
+
+<div id="checkout">
+    <div id="ErrorMessage">@ViewBag.ErrorMessage</div>
+    <div id="steps"></div>
+    <input id="UICulture" type="hidden" value="@ViewBag.CurrentCulture"/>
+</div>
+
+<script type="text/javascript" src="~/scripts/jquery.ba-hashchange.js"></script>
+<script type="text/javascript" src="@Url.Action("Script", new { scriptFile = "checkout.js" })"></script>
+<script type="text/javascript" src="@Url.Action("Script", new { scriptFile = "checkoutSteps.js" })"></script>
+<script type="text/javascript" src="@Url.Action("Script", new { scriptFile = "passStep.js" })"></script>
+<script type="text/javascript" src="@Url.Action("Script", new { scriptFile = "primaryPassSelectionStep.js" })"></script>
+<script type="text/javascript" src="@Url.Action("Script", new { scriptFile = "paymentStep.js" })"></script>

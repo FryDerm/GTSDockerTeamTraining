@@ -1,0 +1,13 @@
+﻿@using Gateway.Web
+<!DOCYTYPE html>
+<html ng-cloak>
+
+<head>
+    @Html.Partial("FrontEndIncludes")
+</head>
+
+<body>
+    @Html.Raw(File.ReadAllText(Server.MapPath("~/FrontEnd/" + StateManager.SalesChannel.Merchant.WebTheme + "/accountLogon.html")))
+</body>
+
+</html>

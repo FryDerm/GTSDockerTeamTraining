@@ -1,0 +1,6 @@
+﻿ @model List<string>
+ @{ Layout = null; }
+  @foreach (string file in Model)
+ { 
+	 <link href="@file" type="text/css" rel="stylesheet" />
+ }

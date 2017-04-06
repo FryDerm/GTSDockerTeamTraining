@@ -1,0 +1,73 @@
+﻿.language-selection
+{
+	float: left;
+}
+
+.language-selection .language-options,
+.current-language
+{
+	cursor: pointer;
+	margin: 5px 5px 0 5px;
+}
+
+.language-selection .language-options
+{
+	display: none;
+	list-style: none;
+	margin-top: 0;
+	border: 1px solid #f4f4f4;
+}
+
+.current-language
+{
+	width: 100px;	
+	padding: 5px 10px;
+}
+
+.language-selection .flag
+{
+	float: left;
+	height: 14px;
+	margin-right: 5px;
+}
+
+.current-language .more
+{
+	float: right;
+	width: 0;
+	height: 0;
+	right: 10px;
+	top: 50%;
+	margin-top: 4px;
+	border: solid 5px transparent;
+	border-top: solid 5px #111;
+}
+
+.language-selection .language-options .language-option
+{
+	padding: 5px 10px;
+	border-top: 1px solid #f4f4f4;
+}
+
+.language-selection .language-options .language-option:hover
+{
+	background-color: #DDD;
+}
+
+
+
+/* Right to left styling */
+.dir-rtl .language-selection
+{
+	float: right;
+}
+.dir-rtl .language-selection .flag
+{
+	float: right;
+	margin-left: 5px;
+}
+.dir-rtl .current-language .more
+{
+	float: left;
+	left: 10px;
+}

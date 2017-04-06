@@ -1,0 +1,18 @@
+﻿body
+{
+	font-family: Tahoma, Arial, Sans-Serif;
+	font-size: 12px;
+	background-color: #ffffff;
+}
+
+td
+{
+	vertical-align: top;
+}
+
+#CVVPopUp table
+{
+	background-color: #ffffff;
+	margin: 0 auto;
+	width: 520px;
+}

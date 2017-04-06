@@ -1,0 +1,27 @@
+﻿<!-- ~~~~~~~~~~ PAYMENTPLANS :: PaymentPlansLogin ~~~~~~~~~~ -->
+<Page>
+	<Name>PaymentPlansLogin.aspx</Name>
+	<NavigationRules>
+		<NavigationRule>
+			<PreviousPage>PassLookup.aspx</PreviousPage>
+			<NextPage>/Shop/ViewPassRenewals.aspx</NextPage>
+		</NavigationRule>
+		<NavigationRule>
+			<PreviousPage>*</PreviousPage>
+			<NextPage>/Shop/ViewItems.aspx</NextPage>
+		</NavigationRule>
+	</NavigationRules>
+</Page>
+<!-- ~~~~~~~~~~ PAYMENTPLANS :: PaymentPlanAgreement ~~~~~~~~~~ -->
+<Page>
+	<Name>PaymentPlanAgreement.aspx</Name>
+	<Requirements>
+		<Requirement Type="PaymentPlanSelected" />
+	</Requirements>
+	<NavigationRules>
+		<NavigationRule>
+			<PreviousPage>*</PreviousPage>
+			<NextPage>/CheckOut/ReviewOrder.aspx</NextPage>
+		</NavigationRule>
+	</NavigationRules>
+</Page>

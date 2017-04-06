@@ -1,0 +1,57 @@
+﻿<!-- ~~~~~~~~~~ SHOP :: ViewItems ~~~~~~~~~~ -->
+<Page>
+	<Name>ViewItems.aspx</Name>
+	<Requirements>
+		<Requirement Type="CustomerAuthenticated">
+			<Condition>RequireCustomerAuthenticated</Condition>
+			<Redir>
+				<Url>/Account/MyAccount.aspx</Url>
+			</Redir>
+		</Requirement>
+	</Requirements>
+	<NavigationRules>
+		<NavigationRule>
+			<PreviousPage>*</PreviousPage>
+			<NextPage>/Shop/ViewCart.aspx</NextPage>
+		</NavigationRule>
+	</NavigationRules>
+</Page>
+<!-- ~~~~~~~~~~ SHOP :: ViewPassRenewals ~~~~~~~~~~ -->
+<Page>
+	<Name>ViewPassRenewals.aspx</Name>
+	<Requirements>
+		<Requirement Type="CustomerAuthenticated">
+			<Condition>RequireCustomerAuthenticated</Condition>
+			<Redir>
+				<Url>/Account/MyAccount.aspx</Url>
+			</Redir>
+		</Requirement>
+	</Requirements>
+	<NavigationRules>
+		<NavigationRule>
+			<PreviousPage>*</PreviousPage>
+			<NextPage>/Shop/ViewCart.aspx</NextPage>
+		</NavigationRule>
+	</NavigationRules>
+</Page>
+<!-- ~~~~~~~~~~ SHOP :: ViewEvents ~~~~~~~~~~ -->
+<Page>
+	<Name>ViewEvents.aspx</Name>
+	<NavigationRules>
+		<NavigationRule>
+			<PreviousPage>*</PreviousPage>
+			<NextPage>/Shop/ViewCart.aspx</NextPage>
+		</NavigationRule>
+	</NavigationRules>
+</Page>
+<!-- ~~~~~~~~~~ SHOP :: ViewCart ~~~~~~~~~~ -->
+<Page>
+	<Name>ViewCart.aspx</Name>
+	<Anchor />
+	<NavigationRules>
+		<NavigationRule>
+			<PreviousPage>*</PreviousPage>
+			<NextPage>/Checkout/DeliveryInfo.aspx</NextPage>
+		</NavigationRule>
+	</NavigationRules>
+</Page>

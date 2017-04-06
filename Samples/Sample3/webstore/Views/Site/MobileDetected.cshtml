@@ -1,0 +1,48 @@
+﻿@{
+	Layout = null;
+
+	var themeCSS = Url.Content("~/Content/themes/" + ViewBag.Theme + ".min.css");
+	var siteCSS = Url.Content("~/Content/themes/" + ViewBag.Theme + ".site.css");
+	var siteJS = Url.Content("~/Content/themes/" + ViewBag.Theme + ".site.js");
+}
+<!DOCTYPE html>
+
+<html ng-cloak>
+<head>
+	<title>[L:Title]</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<link rel="stylesheet" href="@Url.Content("~/Content/jquery.mobile.structure-1.3.0.min.css")" />
+	
+	<link href="@Url.Content("~/content/base.css")" rel="stylesheet" type="text/css" />
+	<link href="@siteCSS" rel="stylesheet" type="text/css" />
+	<link href="@themeCSS" rel="stylesheet" type="text/css" />
+
+	<script src="@Url.Content("~/scripts/jquery-1.11.3.min.js")"></script>
+	<script src="@Url.Content("~/scripts/jquery.mobile-1.3.0.min.js")"></script>
+
+	<style type="text/css">
+		body {
+			background-color: #fff;
+		}
+
+		@@media only screen and (min-width: 320px) {
+			.ui-page {
+				width: 320px !important;
+				margin: 0 auto !important;
+				position: relative !important;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div id="main" data-role="page" data-theme="c">
+		<div id="header" class="page-header"></div>
+		<div id="content" data-role="content">
+			<p>[L:Text]</p>
+			<a href="@ViewBag.MobileUrl" data-role="button" data-theme="b" data-ajax="false">[L:UseMobile]</a>
+			<a href="@Server.UrlDecode(ViewBag.OriginalUrl)" data-theme="b" data-role="button" data-ajax="false">[L:UseDesktop]</a>
+		</div>
+		<div id="footer"></div>
+	</div>
+</body>
+</html>

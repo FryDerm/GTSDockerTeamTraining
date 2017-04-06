@@ -1,0 +1,71 @@
+﻿@model Gateway.WebStore.ViewModels.Shopping.PassRenewalOptionsViewModel
+@{
+    Layout = null;
+}
+
+<link rel="stylesheet" href="@Url.Content("~/Content/default/renew/css/renew.css")" />
+<script>
+
+    var data = [
+        @foreach (var product in Model.Products)
+        {
+            <text>
+            {
+                plu : "@product.Plu",
+                name : "@product.Name",
+                desc : "@product.Description",
+                longDesc : "@product.LongDescription",
+                price: "@product.PriceDisplay"
+
+            },
+            </text>
+        }
+    ];
+
+</script>
+
+<!--
+<div id="renew-items" data-visualid="@Model.VisualIdToRenew">
+    <div class="renew-error"></div>
+    <div id="plu-items">
+        @foreach (var product in Model.Products)
+        {  
+            <div class="plu-item" data-plu="@product.Plu">
+                <div class="plu-details">
+                    <div class="plu-information">
+                        <span>@product.Name</span>  
+                        <p>
+                            @product.Description
+                            @if (!string.IsNullOrEmpty(product.LongDescription))
+                            {
+                                <a href="#" class="plu-more-info-link">more details</a>
+                            }
+                        </p>
+                        @if (!string.IsNullOrEmpty(product.LongDescription))
+                        {
+                            <div class="plu-more-info">
+                                @product.LongDescription
+                            </div>
+                        }
+                    </div>
+                    <div class="plu-price">
+                        <span>@product.PriceDisplay</span>
+                    </div>
+                    <div class="plu-controls">
+                        <input type="button" class="large-button add-to-cart" value="Add to Cart" />
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        }
+    </div>
+</div>-->
+
+<!--<script src="@Url.Action("Script", "Site", new { pageName = "renew" })" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        gts.renewModule.init({ cartUrl: "@Url.Content("~/shop/ViewCart.aspx")" });
+    });
+</script>-->
+
+@Html.Raw(File.ReadAllText(Server.MapPath("~/FrontEnd/" + Gateway.Web.StateManager.SalesChannel.Merchant.WebTheme + "/renewal.html")))

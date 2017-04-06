@@ -1,0 +1,210 @@
+2017-02-27 14:51:58.656        0  Main  Program startup, D:\GatewayTicketingSystems\pos\POSServiceConsole.exe, no version information
+2017-02-27 14:51:58.660       15  Main  MDAC version 6.3.9600.16384
+2017-02-27 14:51:58.663        0  Main  NTDLL.DLL version 10.0.14393.206 (rs1_release.160915-0644)
+2017-02-27 14:51:58.671     -     1D2C  POSServiceConsole        ERROR: TConsoleApp.TInternalServiceThread.Execute: The service could not be started: CoInitialize has not been called (EOleSysError - error code 0x800401F0)
+2017-02-27 14:51:58.725       63  1D2C  ERROR: Exception The service could not be started: CoInitialize has not been called, EOleSysError
+2017-02-27 14:51:58.730        0  1D2C  Call stack:
+:0052DEB1 [POSServiceConsole.exe] System::Win::Comobj::OleError
+:7483A832 [KERNELBASE.dll]
+:0052DEB1 [POSServiceConsole.exe] System::Win::Comobj::OleError
+:0052DDE8 [POSServiceConsole.exe] System::Win::Comobj::EOleSysError::EOleSysError
+Recursive call (2 times):
+:0052DEB1 [POSServiceConsole.exe] System::Win::Comobj::OleError
+:0052DEC5 [POSServiceConsole.exe] System::Win::Comobj::OleCheck
+:0099A19E [POSServiceConsole.exe] Data::Win::Adodb::CreateADOObject
+:0099ACA3 [POSServiceConsole.exe] Data::Win::Adodb::TADOConnection::TADOConnection
+:00A016FE [POSServiceConsole.exe] Gtsdataaccess::TGTSDBConnection::TGTSDBConnection
+:00A00820 [POSServiceConsole.exe] Gtsdataaccess::CreateGTSDBConnection
+:00A00E06 [POSServiceConsole.exe] Gtsdataaccess::CreateAndInitConnection
+:00D03529 [POSServiceConsole.exe] Gtsdatapipe::TGTSSQLDataPipe::TGTSSQLDataPipe
+:00E81709 [POSServiceConsole.exe] Gtssqlprovider::TGTSSQLProvider::Initialize
+:00A19757 [POSServiceConsole.exe] Gtspersistencemanager::TGTSPersistenceManager::GetMeAProvider
+:00A1A4FC [POSServiceConsole.exe] Gtspersistencemanager::TGTSPersistenceManager::Load
+:00A09F34 [POSServiceConsole.exe] Gtsbusinessobjectlist::TGTSBusinessObjectList::Fetch
+:00A10752 [POSServiceConsole.exe] Gtsbusinessobject::TGTSBusinessObject::Load
+:0040A4C7 [POSServiceConsole.exe] System::__linkproc__ IsClass
+:00A18219 [POSServiceConsole.exe] Gtspersistencemanager::TBODataStoreItem::Populate
+:00A187F5 [POSServiceConsole.exe] Gtspersistencemanager::TBODataStore::GetItem
+:00A18FFF [POSServiceConsole.exe] Gtspersistencemanager::TBODataStore::PopulateCache
+:00A1BDBC [POSServiceConsole.exe] Gtspersistencemanager::TGTSPersistenceManager::PopulateCache
+:00E42761 [POSServiceConsole.exe] Pmcacheconfigurationoptionretriever::TPMCacheConfigurationOptionRetriever::GetConfigurationOptionList
+:00E426AE [POSServiceConsole.exe] Pmcacheconfigurationoptionretriever::TPMCacheConfigurationOptionRetriever::GetOptionValue
+:00E428CC [POSServiceConsole.exe] Pmcacheconfigurationoptionretriever::TPMCacheConfigurationOptionRetriever::GetBooleanValue
+:00A3D187 [POSServiceConsole.exe] Generalconfigsslversionsgetter::TGeneralConfigSSLVersionsGetter::GetSSLVersions
+:00DB4DE9 [POSServiceConsole.exe] Gts::Microservice::Processor::TMicroServiceProcessor__2<Posserviceconfiguration::TPOSServiceConfig *, Posserviceconfiguration::TPOSServiceConfigPersister *>::GetSSLVersions
+:00DB4E35 [POSServiceConsole.exe] Gts::Microservice::Processor::TMicroServiceProcessor__2<Posserviceconfiguration::TPOSServiceConfig *, Posserviceconfiguration::TPOSServiceConfigPersister *>::Start
+:00C8CBC9 [POSServiceConsole.exe] Gts::Apps::Businessserviceprocessor::TBusinessServiceProcessor::StartService
+:015BBE5C [POSServiceConsole.exe] Posserviceconsoleapp::TConsoleApp::TInternalServiceThread::BeforeExecute
+:00874BB1 [POSServiceConsole.exe] Gts::Threading::Threads::TCustomMessageQueueThread::DoBeforeExecute
+:00874E1E [POSServiceConsole.exe] Gts::Threading::Threads::TCustomMessageQueueThread::Execute
+:00874FD2 [POSServiceConsole.exe] Gts::Threading::Threads::TCustomMessageQueueThread::Execute
+:00874FF2 [POSServiceConsole.exe] Gts::Threading::Threads::TCustomMessageQueueThread::Execute
+:008737A8 [POSServiceConsole.exe] Gts::Threading::Threads::TCustomMessageQueueBaseThread::Execute
+:004CDB18 [POSServiceConsole.exe] System::Classes::ThreadProc
+:004CDB78 [POSServiceConsole.exe] System::Classes::ThreadProc
+:0040BFD2 [POSServiceConsole.exe] System::ThreadWrapper
+:741C62C4 [KERNEL32.DLL]
+:77240FD9 [ntdll.dll]
+:77240FA4 [ntdll.dll]
+
+Modules:
+$00400000 (00400000,00001000,011E6800) D:\GatewayTicketingSystems\pos\POSServiceConsole.exe
+$74760000 (74760000,00001000,00172C00) C:\Windows\System32\KERNELBASE.dll
+$741B0000 (741B0000,00010000,00064000) C:\Windows\System32\KERNEL32.DLL
+$771E0000 (771E0000,00001000,0010A800) C:\Windows\SYSTEM32\ntdll.dll
+
+2017-02-27 14:51:58.740       16  1D2C  Main Thread ID = 00004064, Current Thread ID = 00001D2C
+Registers:
+EAX = 05D5FAA8  CS = 0023  EIP = 7483A832  Flags = 00000212
+EBX = 800401F0  SS = 002B  ESP = 05D5FAA8    EBP = 05D5FB04
+ECX = 00000007  DS = 002B  ESI = 05D5FB84    FS  = 0053
+EDX = 00000000  ES = 002B  EDI = 057236B0    GS  = 002B
+Code at CS:EIP
+8B 4C 24 54 33 CC E8 B8 F3 01 00 8B E5 5D C2 10 
+Stack:
+0EEDFADE 00000001 00000000 7483A832 00000007 
+00000000 00000000 77240FA4 0040A105 0571450C 
+008D9F11 057235FC 00000011 00000000 0535ADD0 
+77240FA4 FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFF 
+
+2017-02-27 14:52:25.377    26719  Main  Closing logfile
+2017-02-27 14:52:29.232        0  Main  Program startup, D:\GatewayTicketingSystems\pos\POSServiceConsole.exe, no version information
+2017-02-27 14:52:29.241       16  Main  MDAC version 6.3.9600.16384
+2017-02-27 14:52:29.249        0  Main  NTDLL.DLL version 10.0.14393.206 (rs1_release.160915-0644)
+2017-02-27 14:52:29.261     -     4060  POSServiceConsole        ERROR: TConsoleApp.TInternalServiceThread.Execute: The service could not be started: CoInitialize has not been called (EOleSysError - error code 0x800401F0)
+2017-02-27 14:52:29.317       63  4060  ERROR: Exception The service could not be started: CoInitialize has not been called, EOleSysError
+2017-02-27 14:52:29.326        0  4060  Call stack:
+:0052DEB1 [POSServiceConsole.exe] System::Win::Comobj::OleError
+:7483A832 [KERNELBASE.dll]
+:0052DEB1 [POSServiceConsole.exe] System::Win::Comobj::OleError
+:0052DDE8 [POSServiceConsole.exe] System::Win::Comobj::EOleSysError::EOleSysError
+Recursive call (2 times):
+:0052DEB1 [POSServiceConsole.exe] System::Win::Comobj::OleError
+:0052DEC5 [POSServiceConsole.exe] System::Win::Comobj::OleCheck
+:0099A19E [POSServiceConsole.exe] Data::Win::Adodb::CreateADOObject
+:0099ACA3 [POSServiceConsole.exe] Data::Win::Adodb::TADOConnection::TADOConnection
+:00A016FE [POSServiceConsole.exe] Gtsdataaccess::TGTSDBConnection::TGTSDBConnection
+:00A00820 [POSServiceConsole.exe] Gtsdataaccess::CreateGTSDBConnection
+:00A00E06 [POSServiceConsole.exe] Gtsdataaccess::CreateAndInitConnection
+:00D03529 [POSServiceConsole.exe] Gtsdatapipe::TGTSSQLDataPipe::TGTSSQLDataPipe
+:00E81709 [POSServiceConsole.exe] Gtssqlprovider::TGTSSQLProvider::Initialize
+:00A19757 [POSServiceConsole.exe] Gtspersistencemanager::TGTSPersistenceManager::GetMeAProvider
+:00A1A4FC [POSServiceConsole.exe] Gtspersistencemanager::TGTSPersistenceManager::Load
+:00A09F34 [POSServiceConsole.exe] Gtsbusinessobjectlist::TGTSBusinessObjectList::Fetch
+:00A10752 [POSServiceConsole.exe] Gtsbusinessobject::TGTSBusinessObject::Load
+:0040A4C7 [POSServiceConsole.exe] System::__linkproc__ IsClass
+:00A18219 [POSServiceConsole.exe] Gtspersistencemanager::TBODataStoreItem::Populate
+:00A187F5 [POSServiceConsole.exe] Gtspersistencemanager::TBODataStore::GetItem
+:00A18FFF [POSServiceConsole.exe] Gtspersistencemanager::TBODataStore::PopulateCache
+:00A1BDBC [POSServiceConsole.exe] Gtspersistencemanager::TGTSPersistenceManager::PopulateCache
+:00E42761 [POSServiceConsole.exe] Pmcacheconfigurationoptionretriever::TPMCacheConfigurationOptionRetriever::GetConfigurationOptionList
+:00E426AE [POSServiceConsole.exe] Pmcacheconfigurationoptionretriever::TPMCacheConfigurationOptionRetriever::GetOptionValue
+:00E428CC [POSServiceConsole.exe] Pmcacheconfigurationoptionretriever::TPMCacheConfigurationOptionRetriever::GetBooleanValue
+:00A3D187 [POSServiceConsole.exe] Generalconfigsslversionsgetter::TGeneralConfigSSLVersionsGetter::GetSSLVersions
+:00DB4DE9 [POSServiceConsole.exe] Gts::Microservice::Processor::TMicroServiceProcessor__2<Posserviceconfiguration::TPOSServiceConfig *, Posserviceconfiguration::TPOSServiceConfigPersister *>::GetSSLVersions
+:00DB4E35 [POSServiceConsole.exe] Gts::Microservice::Processor::TMicroServiceProcessor__2<Posserviceconfiguration::TPOSServiceConfig *, Posserviceconfiguration::TPOSServiceConfigPersister *>::Start
+:00C8CBC9 [POSServiceConsole.exe] Gts::Apps::Businessserviceprocessor::TBusinessServiceProcessor::StartService
+:015BBE5C [POSServiceConsole.exe] Posserviceconsoleapp::TConsoleApp::TInternalServiceThread::BeforeExecute
+:00874BB1 [POSServiceConsole.exe] Gts::Threading::Threads::TCustomMessageQueueThread::DoBeforeExecute
+:00874E1E [POSServiceConsole.exe] Gts::Threading::Threads::TCustomMessageQueueThread::Execute
+:00874FD2 [POSServiceConsole.exe] Gts::Threading::Threads::TCustomMessageQueueThread::Execute
+:00874FF2 [POSServiceConsole.exe] Gts::Threading::Threads::TCustomMessageQueueThread::Execute
+:008737A8 [POSServiceConsole.exe] Gts::Threading::Threads::TCustomMessageQueueBaseThread::Execute
+:004CDB18 [POSServiceConsole.exe] System::Classes::ThreadProc
+:004CDB78 [POSServiceConsole.exe] System::Classes::ThreadProc
+:0040BFD2 [POSServiceConsole.exe] System::ThreadWrapper
+:741C62C4 [KERNEL32.DLL]
+:77240FD9 [ntdll.dll]
+:77240FA4 [ntdll.dll]
+
+Modules:
+$00400000 (00400000,00001000,011E6800) D:\GatewayTicketingSystems\pos\POSServiceConsole.exe
+$74760000 (74760000,00001000,00172C00) C:\Windows\System32\KERNELBASE.dll
+$741B0000 (741B0000,00010000,00064000) C:\Windows\System32\KERNEL32.DLL
+$771E0000 (771E0000,00001000,0010A800) C:\Windows\SYSTEM32\ntdll.dll
+
+2017-02-27 14:52:29.334       15  4060  Main Thread ID = 000028AC, Current Thread ID = 00004060
+Registers:
+EAX = 05DAFAA8  CS = 0023  EIP = 7483A832  Flags = 00000212
+EBX = 800401F0  SS = 002B  ESP = 05DAFAA8    EBP = 05DAFB04
+ECX = 00000007  DS = 002B  ESI = 05DAFB84    FS  = 0053
+EDX = 00000000  ES = 002B  EDI = 057736B0    GS  = 002B
+Code at CS:EIP
+8B 4C 24 54 33 CC E8 B8 F3 01 00 8B E5 5D C2 10 
+Stack:
+0EEDFADE 00000001 00000000 7483A832 00000007 
+00000000 00000000 77240FA4 0040A105 0576450C 
+008D9F11 057735FC 00000011 00000000 0542ADD0 
+77240FA4 FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFF 
+
+2017-02-27 14:52:56.545    27296  Main  Closing logfile
+2017-02-27 14:53:08.562        0  Main  Program startup, D:\GatewayTicketingSystems\pos\POSServiceConsole.exe, no version information
+2017-02-27 14:53:08.571       16  Main  MDAC version 6.3.9600.16384
+2017-02-27 14:53:08.579        0  Main  NTDLL.DLL version 10.0.14393.206 (rs1_release.160915-0644)
+2017-02-27 14:53:08.591     -     1C60  POSServiceConsole        ERROR: TConsoleApp.TInternalServiceThread.Execute: The service could not be started: CoInitialize has not been called (EOleSysError - error code 0x800401F0)
+2017-02-27 14:53:08.646       63  1C60  ERROR: Exception The service could not be started: CoInitialize has not been called, EOleSysError
+2017-02-27 14:53:08.655        0  1C60  Call stack:
+:0052DEB1 [POSServiceConsole.exe] System::Win::Comobj::OleError
+:7483A832 [KERNELBASE.dll]
+:0052DEB1 [POSServiceConsole.exe] System::Win::Comobj::OleError
+:0052DDE8 [POSServiceConsole.exe] System::Win::Comobj::EOleSysError::EOleSysError
+Recursive call (2 times):
+:0052DEB1 [POSServiceConsole.exe] System::Win::Comobj::OleError
+:0052DEC5 [POSServiceConsole.exe] System::Win::Comobj::OleCheck
+:0099A19E [POSServiceConsole.exe] Data::Win::Adodb::CreateADOObject
+:0099ACA3 [POSServiceConsole.exe] Data::Win::Adodb::TADOConnection::TADOConnection
+:00A016FE [POSServiceConsole.exe] Gtsdataaccess::TGTSDBConnection::TGTSDBConnection
+:00A00820 [POSServiceConsole.exe] Gtsdataaccess::CreateGTSDBConnection
+:00A00E06 [POSServiceConsole.exe] Gtsdataaccess::CreateAndInitConnection
+:00D03529 [POSServiceConsole.exe] Gtsdatapipe::TGTSSQLDataPipe::TGTSSQLDataPipe
+:00E81709 [POSServiceConsole.exe] Gtssqlprovider::TGTSSQLProvider::Initialize
+:00A19757 [POSServiceConsole.exe] Gtspersistencemanager::TGTSPersistenceManager::GetMeAProvider
+:00A1A4FC [POSServiceConsole.exe] Gtspersistencemanager::TGTSPersistenceManager::Load
+:00A09F34 [POSServiceConsole.exe] Gtsbusinessobjectlist::TGTSBusinessObjectList::Fetch
+:00A10752 [POSServiceConsole.exe] Gtsbusinessobject::TGTSBusinessObject::Load
+:0040A4C7 [POSServiceConsole.exe] System::__linkproc__ IsClass
+:00A18219 [POSServiceConsole.exe] Gtspersistencemanager::TBODataStoreItem::Populate
+:00A187F5 [POSServiceConsole.exe] Gtspersistencemanager::TBODataStore::GetItem
+:00A18FFF [POSServiceConsole.exe] Gtspersistencemanager::TBODataStore::PopulateCache
+:00A1BDBC [POSServiceConsole.exe] Gtspersistencemanager::TGTSPersistenceManager::PopulateCache
+:00E42761 [POSServiceConsole.exe] Pmcacheconfigurationoptionretriever::TPMCacheConfigurationOptionRetriever::GetConfigurationOptionList
+:00E426AE [POSServiceConsole.exe] Pmcacheconfigurationoptionretriever::TPMCacheConfigurationOptionRetriever::GetOptionValue
+:00E428CC [POSServiceConsole.exe] Pmcacheconfigurationoptionretriever::TPMCacheConfigurationOptionRetriever::GetBooleanValue
+:00A3D187 [POSServiceConsole.exe] Generalconfigsslversionsgetter::TGeneralConfigSSLVersionsGetter::GetSSLVersions
+:00DB4DE9 [POSServiceConsole.exe] Gts::Microservice::Processor::TMicroServiceProcessor__2<Posserviceconfiguration::TPOSServiceConfig *, Posserviceconfiguration::TPOSServiceConfigPersister *>::GetSSLVersions
+:00DB4E35 [POSServiceConsole.exe] Gts::Microservice::Processor::TMicroServiceProcessor__2<Posserviceconfiguration::TPOSServiceConfig *, Posserviceconfiguration::TPOSServiceConfigPersister *>::Start
+:00C8CBC9 [POSServiceConsole.exe] Gts::Apps::Businessserviceprocessor::TBusinessServiceProcessor::StartService
+:015BBE5C [POSServiceConsole.exe] Posserviceconsoleapp::TConsoleApp::TInternalServiceThread::BeforeExecute
+:00874BB1 [POSServiceConsole.exe] Gts::Threading::Threads::TCustomMessageQueueThread::DoBeforeExecute
+:00874E1E [POSServiceConsole.exe] Gts::Threading::Threads::TCustomMessageQueueThread::Execute
+:00874FD2 [POSServiceConsole.exe] Gts::Threading::Threads::TCustomMessageQueueThread::Execute
+:00874FF2 [POSServiceConsole.exe] Gts::Threading::Threads::TCustomMessageQueueThread::Execute
+:008737A8 [POSServiceConsole.exe] Gts::Threading::Threads::TCustomMessageQueueBaseThread::Execute
+:004CDB18 [POSServiceConsole.exe] System::Classes::ThreadProc
+:004CDB78 [POSServiceConsole.exe] System::Classes::ThreadProc
+:0040BFD2 [POSServiceConsole.exe] System::ThreadWrapper
+:741C62C4 [KERNEL32.DLL]
+:77240FD9 [ntdll.dll]
+:77240FA4 [ntdll.dll]
+
+Modules:
+$00400000 (00400000,00001000,011E6800) D:\GatewayTicketingSystems\pos\POSServiceConsole.exe
+$74760000 (74760000,00001000,00172C00) C:\Windows\System32\KERNELBASE.dll
+$741B0000 (741B0000,00010000,00064000) C:\Windows\System32\KERNEL32.DLL
+$771E0000 (771E0000,00001000,0010A800) C:\Windows\SYSTEM32\ntdll.dll
+
+2017-02-27 14:53:08.663       15  1C60  Main Thread ID = 00000670, Current Thread ID = 00001C60
+Registers:
+EAX = 05D7FAA8  CS = 0023  EIP = 7483A832  Flags = 00000212
+EBX = 800401F0  SS = 002B  ESP = 05D7FAA8    EBP = 05D7FB04
+ECX = 00000007  DS = 002B  ESI = 05D7FB84    FS  = 0053
+EDX = 00000000  ES = 002B  EDI = 057C36B0    GS  = 002B
+Code at CS:EIP
+8B 4C 24 54 33 CC E8 B8 F3 01 00 8B E5 5D C2 10 
+Stack:
+0EEDFADE 00000001 00000000 7483A832 00000007 
+00000000 00000000 77240FA4 0040A105 057B450C 
+008D9F11 057C35FC 00000011 00000000 0547ADD0 
+77240FA4 FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFF 
+
+2017-02-27 14:53:22.625    14047  Main  Closing logfile

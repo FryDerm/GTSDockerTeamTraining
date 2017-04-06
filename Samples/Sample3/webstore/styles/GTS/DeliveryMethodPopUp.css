@@ -1,0 +1,28 @@
+﻿body
+{
+	font-family: Tahoma, Arial, Sans-Serif;
+	font-size: 12px;
+}
+
+td
+{
+	vertical-align: top;
+}
+
+#DeliveryMethodPopUp table
+{
+	background-color: #ffffff;
+	margin: 0 auto;
+	width: 520px;
+}
+
+#DeliveryMethodInfoHeader
+{
+	font-size: 13px;
+	font-weight: bold;	
+}
+
+#DeliveryMethodDescription
+{
+	font-size: 13px;
+}

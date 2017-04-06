@@ -1,0 +1,14 @@
+﻿<!DOCYTYPE html>
+<html ng-cloak>
+
+<head>
+@Html.Partial("FrontEndIncludes")
+</head>
+
+<body>
+
+@Html.Raw(File.ReadAllText(Server.MapPath("~/FrontEnd/" + Gateway.Web.StateManager.SalesChannel.Merchant.WebTheme + "/dualMemberships.html")))
+
+</body>
+
+</html>

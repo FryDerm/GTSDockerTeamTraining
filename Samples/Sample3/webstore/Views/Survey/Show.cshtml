@@ -1,0 +1,329 @@
+﻿@using Gateway.WebStore.Models.Surveys
+@model Gateway.WebStore.Models.Surveys.Survey
+
+@{
+	ViewBag.Title = "Survey";
+}
+
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/surveys.css")" />
+
+<script language="javascript" type="text/javascript">
+
+	var maxPages = @Model.Pages.Count;
+	var currentPage = 1;
+	
+	$(document).ready(function() {
+		PM.updatePage();
+		PM.updateButtons();
+		PM.bindQuestions();
+	});
+	
+	// PM object is for Page Management routines.
+	var PM = {
+		updateButtons: function() {
+			if (currentPage == maxPages && currentPage == 1) {
+				$("#nextButton").attr("disabled", "true");
+				$("#prevButton").attr("disabled", "true");
+				$("#submitButton").show();
+			} else if (currentPage == maxPages) {
+				$("#nextButton").attr("disabled", "true");
+				$("#prevButton").removeAttr("disabled");
+				$("#submitButton").show();
+			} else if (currentPage == 1) {
+				$("#nextButton").removeAttr("disabled");
+				$("#prevButton").attr("disabled", "true");
+				$("#submitButton").hide();
+			} else {
+				$("#nextButton").removeAttr("disabled");
+				$("#prevButton").removeAttr("disabled");
+				$("#submitButton").hide();
+			}
+		},
+	
+		updatePage: function() {
+			var pageId = "#page" + currentPage;
+			$(".surveyPages").hide();
+			$(pageId).show();
+		},
+	
+		nextPage: function() {
+			++currentPage;
+			PM.updatePage();
+			PM.updateButtons();
+		},
+	
+		prevPage: function() {
+			--currentPage;
+			PM.updatePage();
+			PM.updateButtons();
+		},
+		
+		saveAnswer: function () {
+			$.ajax({
+				url: '@Url.Action("SaveAnswer", "SurveyResult")',
+				type: 'POST',
+				data: {
+					orderId: $('input[name=orderId]').attr('value'),
+					surveyId: $('input[name=surveyId]').attr('value'),
+					questionId: $(this).attr('id'),
+					questionNumber: $(this).data('id'),
+					value: this.value
+				},
+				dataType: 'json',
+				success: function(data) {
+					//update the screen
+				}
+			});
+		},
+	
+		bindQuestions: function() {
+			$('input').bind('change', PM.saveAnswer);
+			$('select').bind('change', PM.saveAnswer);
+		}
+	};
+
+
+	//-------------------------------------------------------------------------
+	//	Returns false if any required questions on the current page are not
+	//	answered.
+	//
+	//	The action is used to determine what to do if the page is valid. E.g. 
+	//	if the action is 'nextpage' then if all the required questions are
+	//  answered, the PM.nextPage() method is called. If the action is
+	// "submit" and all the required questions are answered, then true is
+	// returned.
+	function Validate(requiredPageQuestionList, pageToValidate, action)
+	{
+		var isValid = "true"; // were all the required questions answered?
+		var answered = "true"; // if a question is answered or not
+
+		// parse the given function argument to determine which
+		// questions on which page are required.
+		var splitPageResult = requiredPageQuestionList.split(","); 
+		// e.g.:	splitResult[0] = 1-1~2~
+		//			splitResult[1] = 2-3~
+		//			splitResult[2] = 3-
+		//			splitResult[3] = 4-6~7~
+		// where "1-1~2~" represent page1-question1~question2
+		// which means question 1 & 2 are required on page 1.
+
+
+		// Using the global "currentPage" variable, determine
+		// which questions on the current page need to be 
+		// validated.
+		for(i = 0; i < splitPageResult.length; i++)
+		{
+			// separate the data, so splitResult[0] represents the page, 
+			// and splitResult[1] represents the questions
+			pageQuestions = splitPageResult[i].split("-");
+			//eg:	splitResult[0] = 1
+			//		splitResult[1] = 1~2
+
+			// only need to be concerned with the current page
+			if(pageQuestions[0] == pageToValidate)
+			{
+				// "questions" array will hold the questions that
+				// are required on the current page.
+				questions = pageQuestions[1].split("~");
+
+				// loop through each question, determine what element type
+				// is used, and identify if the user specified an answer.
+				for(j = 0; j < questions.length; j++)
+				{
+					elementId = questions[j];
+					var formInputElem =  document.getElementById(elementId);
+
+					if(formInputElem != null)
+					{
+						var inputType = formInputElem.type;
+
+						switch(inputType)
+						{
+							case "radio" :
+								answered = ValidateRadioButtons(elementId);
+								break;
+							case "text" :
+								answered = ValidateText(formInputElem);
+								break;
+							case "select" :
+							case "select-one" :
+							case "select-multiple" :
+								answered = ValidateSelectDropDown(formInputElem);
+								break;
+						}
+
+						// display error message because a required question was not answered
+						if(!answered)
+						{
+							document.getElementById('clientSideErrorMessage').style.visibility = 'visible'; 
+							isValid = false;
+						}
+					}
+				}
+			}
+		}
+
+		// If all required questions were answered, move on to the action and 
+		// hide the error message.
+		if(isValid)
+		{
+			document.getElementById('clientSideErrorMessage').style.visibility = 'hidden'; 
+			
+			switch(action)
+			{
+				case 'nextpage' :
+					PM.nextPage();
+					break;
+				case 'submit' :
+					return true;
+					break;
+			}
+		}
+
+		// return false if required question(s) were not answered. this will
+		// prevent the form submit from being submitted if questions still need
+		// to be answered.
+		return false;
+	}
+
+	//-----------------------------------------------------------------------------
+	// NAME: ValidateRadioButtons
+	//-----------------------------------------------------------------------------
+	// Given a name of a group of radio buttons, return true if one 
+	// of the radio buttons are checked. otherwise return false.
+	//-----------------------------------------------------------------------------
+	function ValidateRadioButtons(radioButtonsName) {
+		// loop through each element in the form, and find elements matching the 
+		// given name.
+		for (x = 0; x < document.forms[0].elements.length; x++) {
+			if (document.forms[0].elements[x].name == radioButtonsName) {
+				// when a matching element is found, determine if it is checked.
+				if (document.forms[0].elements[x].checked) {
+					return true;
+				}
+			}
+		}
+
+		// no matching elements where found. Or of the matching elements which
+		// were found, none were checked.
+		return false;
+	}
+
+	//-----------------------------------------------------------------------------
+	// NAME: ValidateText
+	//-----------------------------------------------------------------------------
+	// Given a text form element, return false if there is no value entered in
+	// the text element or if the text element is null. Otherwise return true.
+	//-----------------------------------------------------------------------------
+	function ValidateText(textElement) {
+
+		if (textElement == null || textElement.value.length == 0) {
+			return false;
+		}
+
+		return true;
+	}
+
+	//-----------------------------------------------------------------------------
+	// NAME: ValidateSelectDropDown
+	//-----------------------------------------------------------------------------
+	// Given a select dropdown form element, return false if there is no option 
+	// selected, or if the select element is null. Otherwise return true.
+	// ASSUMES THAT THE FIRST ELEMENT IN THE DROPDOWN IS NOT A VALID SELECTION.
+	//-----------------------------------------------------------------------------
+	function ValidateSelectDropDown(selectElem) {
+		if (selectElem == null || selectElem.selectedIndex == 0) {
+			return false;
+		}
+
+		return true;
+	}
+
+</script>
+
+<div id="legend">[L:RequiredFieldsMessage]</div>
+<div id="errorMessage">@ViewBag.Error</div>
+<div id="clientSideErrorMessage" class="errorMessage" style="visibility:hidden">[L:RequiredFieldsErrorMessage]</div>
+
+@using (Html.BeginForm("Complete", "SurveyResult"))
+{
+	<input type="hidden" name="surveyId" value="@Model.Id" />
+	<input type="hidden" name="orderId" value="@Model.OrderId" />
+	
+	var requiredPageQuestionList = "";
+
+	foreach (var page in Model.Pages)
+	{
+		requiredPageQuestionList += "," + page.PageNumber.ToString() + "-";
+
+		var pageId = "page" + page.PageNumber.ToString();
+		<div id="@pageId" class="surveyPages">
+			<h2>[L:PageHeader] @page.PageNumber</h2>
+		@foreach (var question in page.Questions)
+		{
+			<p>
+				@question.Text&nbsp;
+				@if (question.Required)
+				{
+					<span>*</span>
+					requiredPageQuestionList += question.ID.ToString() + "~";
+				}
+				<br/>
+				@switch (question.Type)
+				{
+					case QuestionType.Text:
+						<input type="text" id="@question.ID" name="@question.ID" data-id="@question.Number" value="@question.Answer" />
+																							break;
+					case QuestionType.Numberic:
+						<input type="text" id="@question.ID" name="@question.ID" data-id="@question.Number" value="@question.Answer" />
+																							break;
+					case QuestionType.Boolean:
+					if (question.Answer.Equals("Yes"))
+					{
+							<input type="radio" id="@question.ID" name="@question.ID" data-id="@question.Number" value="Yes" checked="checked" />
+							<text>Yes</text>
+							<input type="radio" id="@question.ID" name="@question.ID" data-id="@question.Number" value="No" />
+							<text>No</text>
+					}
+					else if (question.Answer.Equals("No"))
+					{
+							<input type="radio" id="@question.ID" name="@question.ID" data-id="@question.Number" value="Yes" />
+							<text>Yes</text>
+							<input type="radio" id="@question.ID" name="@question.ID" data-id="@question.Number" value="No" checked="checked" />
+							<text>No</text>
+					}
+					else
+					{
+							<input type="radio" id="@question.ID" name="@question.ID" data-id="@question.Number" value="Yes" />
+							<text>Yes</text>
+							<input type="radio" id="@question.ID" name="@question.ID" data-id="@question.Number" value="No" />
+							<text>No</text>							
+					}
+					break;
+				case QuestionType.MultipleChoice:
+					<select id="@question.ID" name="@question.ID" data-id="@question.Number">
+					@foreach (var value in question.Values)
+					{
+						if (question.Answer.Equals(value))
+						{
+							<option value="@value" selected="selected">@value</option>
+						}
+						else
+						{
+							<option value="@value">@value</option>
+						}
+					}
+					</select>
+					break;
+				default:
+					throw new ArgumentOutOfRangeException();
+			}
+			</p>
+		 }
+		</div>
+	}
+
+	<input type="button" id="prevButton" value="[L:PreviousPageButton]" onclick="PM.prevPage()" />
+	<input type="button" id="nextButton" value="[L:NextPageButton]" onclick="Validate('@requiredPageQuestionList',currentPage,'nextpage')" />
+	<input type="submit" id="submitButton" value="[L:SendResponseButton]" onclick="return Validate('@requiredPageQuestionList',currentPage,'submit')" />
+}

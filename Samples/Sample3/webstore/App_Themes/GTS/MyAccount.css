@@ -1,0 +1,24 @@
+﻿#MyAccount table
+{
+	border-collapse: collapse;
+	width: 100%;
+	margin-top: 15px;
+}
+#MyAccount table td
+{
+	padding: 15px;
+	border: 1px solid #9E9E9E;
+}
+#MyAccount h2
+{
+	margin-top: 0;
+}
+#MyAccount .option
+{
+	background-color: #E3E3E3;
+	width: 40%;
+}
+#MyAccount .description
+{
+	background-color: #F0F0F0;
+}

@@ -1,0 +1,46 @@
+﻿#legend
+{
+	color: black;
+	font-size: 14px;
+}
+
+#errorMessage
+{
+	color: red;
+}
+
+#SalesChannelNav
+{
+	width:0px;
+	overflow:hidden;
+	white-space:nowrap;
+}
+
+#CategoryGroupNav
+{
+	width:0px;
+	overflow:hidden;
+	white-space:nowrap;
+}
+
+.NavCell
+{
+	border-right: 0px;
+}
+
+#SurveyCompleteMessage
+{
+	font-size: 18px;
+	font-weight:bold;
+}
+
+#ExistsCompletedMessage
+{
+	font-size: 18px;
+	font-weight:bold;
+}
+
+#ExistsThankYouMessage
+{
+	font-size: 14px;
+}

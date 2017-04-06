@@ -1,0 +1,605 @@
+﻿/* blockUI message */
+div.blockMsg {
+	border: none;
+	padding: 15px;
+	background-color: #000;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	color: #fff;
+}
+.input-validation-error {
+	border: red 2px solid;
+}
+
+.form-field-label {
+	display: inline-block;
+	float: left;
+	width: 160px;
+}
+
+.form-field-input {
+	float: left;
+}
+
+.name-form-field {
+	float: left;
+	margin-bottom: 10px;
+	clear: both;
+}
+
+.input-disabled {
+    background: #e1e1e1;
+    color: #666;
+}
+
+.endorsement-form-field
+{
+	margin-top: 10px;
+}
+
+.expiration-cvv-form-field
+{
+	margin-top: 10px;
+}
+
+#CVVHelp
+{
+	margin-left: 10px;
+	padding-left: 5px;
+	color: #00619E;
+}
+
+#CVVHelp:hover {
+	color: #FF0004;
+}
+
+.address-form-field
+{
+	margin-top: 10px;
+}
+
+.additional-address
+{
+	margin-left: 10px;
+	padding-left: 5px;
+	color: #00619E;
+}
+
+.additional-address:hover {
+	color: #FF0004;
+}
+
+.shipping-additional-address
+{
+	margin-left: 10px;
+	padding-left: 5px;
+	color: #00619E;
+}
+
+.shipping-additional-address:hover {
+	color: #FF0004;
+}
+
+.address2-form-field
+{
+	margin-top: 10px;
+}
+
+.shipping-address2-form-field
+{
+	margin-top: 10px;
+}
+
+.city-form-field
+{
+	margin-top: 10px;
+}
+
+.country-form-field
+{
+	margin-top: 10px;
+}
+
+.state-form-field
+{
+	margin-top: 10px;
+}
+
+.zip-form-field
+{
+	margin-top: 10px;
+}
+
+.email-form-field
+{
+	margin-top: 10px;
+}
+
+.phone-form-field
+{
+	margin-top: 10px;
+}
+
+.delivery-form-field
+{
+	margin-top: 10px;
+}
+
+#TermsAndConditionsSelection
+{
+	margin-top: 10px;
+}
+
+#TermsAndConditionsSelection
+{
+	margin: 20px 0px 10px 0px;
+}
+
+#TermsAndConditionsSelection a:hover
+{
+	color: #FF0004;
+}
+
+#NewsletterSurvey
+{
+	margin-top: 10px;
+}
+
+#TermsAndConditionsSelection input,
+#NewsletterSurvey input,
+#Newsletter input,
+#Survey input
+{
+	margin: 3px 7px 3px 4px;
+}
+
+.form-field-clear
+{
+    clear: left;
+}
+
+.form-field-additional {
+	display: inline;
+}
+.guest-names-text { margin-bottom: 20px; }
+.guest-name { margin-bottom: 10px; clear: both; }
+.guest-product-name {padding: 10px 0;}
+.guest-name input[type=text] { float: left; margin-right: 5px; padding-left: 5px; }
+.clear { clear: both; }
+.name-form-field input[type="text"] { margin-right: 10px;  }
+#delivery-update-indicator { display: none; vertical-align: middle; padding-left: 4px; }
+#MiddleName { width: 100px; }
+#CVV { width: 45px;}
+#ExpirationMonth, #ExpirationYear { min-width: inherit; }
+.address2-form-field
+{
+	display: none;
+}
+.shipping-address2-form-field
+{
+	display: none;
+}
+.shipping-information-header {
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+#Cart
+
+{
+    float: right;
+    padding: 12px 18px;
+    background-color: #EEE;
+    color: #434343;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	clear: both;
+}
+#TotalLabel
+{
+    font-size: 1.4em;
+    vertical-align: top;
+    display: inline-block;
+    margin-right: 24px;
+    margin-top: 9px;
+}
+#TotalValue
+{
+    display: inline-block;
+    font-family: "Segoe UI Light", "Helvetica", Garuda, Arial, sans-serif;
+    font-size: 2.264em;
+}
+#MessageNotification 
+{
+	display: none;
+	margin: 10px 0;
+	padding: 5px;
+	color: white;
+	background-color: red;
+}
+
+#ConfirmOrderDialog
+{
+	padding-top: 20px;
+}
+.heading
+{
+    font-weight: bold;
+	margin-bottom: 15px;
+	border-bottom: 1px solid #434343;
+	padding-bottom: 5px;
+}
+
+#ConfirmOrderDialog .text
+{
+    font-size: 14px;
+	line-height: 16px;
+}
+.block
+{
+    margin-bottom: 15px;
+}
+.ui-dialog-titlebar
+{
+    background-color: #434343 !important;
+    background-image: none !important;
+    color: #fff !important;
+	border-radius: 0px !important;
+	border: none;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+	border: 1px solid #d3d3d3 !important;
+	border-radius: 0px !important;
+	background: #e6e6e6 url(images/ui-bg_glass_75_e6e6e6_1x400.png) 50% 50% repeat-x !important;
+	font-weight: 400 !important;
+	color: #555 !important;
+}
+
+/* Donations */
+#donation-info
+{
+    margin: 24px;
+}
+
+#donation-info  p
+{
+    margin: 6px 1px;
+}
+
+#donation-info input[type=button]
+{
+    margin: 6px 0;
+}
+
+#donation-editable-amount
+{
+    outline: none;
+    width: 100px;
+}
+
+.step-navigation a{
+	display: inline-block;
+	color: white;
+	font-family: "Segoe UI", "Helvetica", Garuda, Arial, sans-serif;
+	font-size: 12pt;
+	text-transform: uppercase;
+	background-color: #434343;
+	border: none;
+	text-decoration: none;
+	cursor: pointer;
+	margin-top: 15px;
+	padding: 8px 20px;
+}
+
+.step-navigation a:hover{
+	background-color: #555;
+}
+
+
+/* RTL Styling */
+.dir-rtl .form-field-label {
+	float: right;
+}
+.dir-rtl .form-field-input {
+	float: right;
+}
+.dir-rtl .name-form-field {
+	float: right;
+}
+.dir-rtl #CVVHelp
+{
+	margin-right: 10px;
+	padding-right: 5px;
+	margin-left: auto;
+	padding-left: auto;
+}
+.dir-rtl .additional-address
+{
+	margin-right: 10px;
+	padding-right: 5px;
+	margin-left: auto;
+	padding-left: auto;
+}
+.dir-rtl .form-field-clear
+{
+    clear: right;
+}
+.dir-rtl .guest-name input[type=text] { float: right; margin-left: 5px; margin-right: auto; }
+.dir-rtl .name-form-field input[type="text"] { margin-left: 10px; margin-right: auto; }
+.dir-rtl #delivery-update-indicator { display: none; vertical-align: middle; padding-right: 4px; padding-left: auto; }
+.dir-rtl #Cart
+{
+    float: left;
+}
+.dir-rtl #TotalLabel
+{
+    margin-left: 24px;
+	margin-right: auto;
+}
+
+/* Dual Relationship related CSS */
+
+/* START CSS for Structure */
+
+ .left{float: left}
+ .right{float:right}
+ 
+ .contact-container {
+     width: 39%;
+     vertical-align: top;
+ }
+
+ .create-button-container {
+    text-align: center;
+    vertical-align: middle;
+    width: 26%;
+}
+
+.relationship-container {
+    width: 33%;
+}
+ 
+div#step-dual {
+  width: 900px;
+}
+
+.red.btn.fa-trash-o {
+    border-left: 8px solid #ff5050;
+}
+
+.dual-relationship-item {
+   
+}
+/* END CSS for Structure */
+
+/* START CSS for Message Display */
+
+.success-message, .error-message, .warning-message {
+    font-size: 24px;
+    /*height: 40px;
+    left: 0;
+    margin-top: -100px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    z-index: 9999;*/
+    padding: 20px;
+}
+
+.success-message .fa, .error-message .fa, .warning-message .fa {
+    font-size: 40px;
+    padding-right: 10px;
+    vertical-align: middle;
+}
+
+.success-message {
+    background: none repeat scroll 0 0 #e1ffe1;
+    border: 2px solid #badeb1;
+    color: #274e37;
+}
+.warning-message {
+    background: none repeat scroll 0 0 #fffce1;
+    border: 2px solid #e1db8b;
+    color: #5c5c2d;
+}
+
+.error-message {
+    background: none repeat scroll 0 0 #ffd7d7;
+    border: 2px solid #e9b9bb;
+    color: #733032;
+}
+
+.success-message i, .error-message i, .warning-message i {
+    font-size: 24px;
+}
+
+/* END CSS for Message Display */
+
+
+/* START CSS for Buttons */
+.btn {
+    
+    border: solid 1px #333333;
+    border-left: solid 8px #32cd32;
+    color: inherit;
+    cursor: pointer;
+    display: inline-block;
+    font-family: inherit;
+    font-size: inherit;
+    letter-spacing: 1px;
+    margin: 10px 0;
+    outline: medium none;
+    position: relative;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition:background 0.2s ease 0s, color 0.2s ease 0s;
+    padding: 15px 15px 15px 60px;
+    height: 40px;
+}
+
+.btn.disabled {
+    cursor: not-allowed;
+}
+.btn:before {
+    font-family: FontAwesome;
+    font-size: 200%;
+    font-size-adjust: none;
+    font-style: normal;
+    height: 100%;
+    left: 0;
+    line-height: 2.1;
+    position: absolute;
+    text-indent: 12px;
+    top: 0;
+    width: 60px;
+}
+
+.dual-relationship-text {
+  font-size: 18px;
+  line-height: 2em;
+}
+.btn:after {
+    content: "";
+    position: absolute;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -ms-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    z-index: -1;
+}
+
+/* css to change the background color of buttons/links */
+
+
+.left.contact-container {
+    float: left;
+}
+
+.center .btn {
+    width: 60px;
+    padding-top: 30px;
+    padding-bottom: 0;
+}
+
+.center.create-button-container {
+    float: left;
+    text-align: center;
+    vertical-align: middle;
+    margin-top: 10%;                                                                
+
+}
+
+.center.create-button-container a {
+    vertical-align: middle;
+}
+.center #create-relationship-button:hover {
+    background: #32cd32;
+    color: #ffffff;
+}
+
+.center #clear-relationship-button:hover {
+    background-color: #FF5050;
+    border-left: solid 8px #FF5050;
+    color: #FFFFFF;
+}
+
+.right.relationship-container {
+   
+    vertical-align: middle;
+}
+
+#dual-relationship-list,
+#dual-contact-list {
+    list-style-type: none;
+    width: 100%;
+}
+
+.contact-listitem {
+  background: #efefef none repeat scroll 0 0;
+  border: 2px solid #414141;
+  margin: 20px 0;
+}
+
+.contact-listitem .btn {
+    font-size: 14px;
+    margin: 0px;
+    cursor: context-menu;
+}
+
+.btn.fa-users {
+  /*margin: 10px !important;*/
+}
+
+.unlink-relationship-link {
+  color: #fff;
+  font-size: 36px;
+  margin-left: -15px;
+  margin-top: -95px;
+  position: absolute;
+}
+
+.unlink-relationship-link > i {
+    color: #333;
+}
+.btn, .button {
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -moz-transition: all 0.3s ease-in-out 0s;
+    -ms-transition: all 0.3s ease-in-out 0s;
+    -o-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.btn.pink:before, .btn.grey:before {
+    line-height: 1.5;
+    font-size: 32px;
+}
+.btn.pink, .pink {
+    background: none repeat scroll 0 0 #fa5ba5;
+    color: #fdc6dc !important;
+}
+
+.btn.grey, .grey{
+    background: none repeat scroll 0 0 #999999;
+    color: #fffce1 !important;
+}
+
+.selected {}
+
+.selected:before {
+  
+}
+
+#dual-relationship-list .btn:hover {
+    background: none repeat scroll 0 0 #32cd32;
+    color: #ffffff;
+}
+
+.disabled.dual-relationship-item {
+    background-color: #ccc !important;
+    color: #fff;
+    border-left: 8px solid #333;
+}
+
+/* END CSS for Buttons */
+    
+.member-name {
+  font-size: 14px;
+  height: 20px;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 240px;
+}
+
+.product-info {
+  font-size: 12px;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 240px;
+}
+
+.product-info > span {
+  display: block;
+}

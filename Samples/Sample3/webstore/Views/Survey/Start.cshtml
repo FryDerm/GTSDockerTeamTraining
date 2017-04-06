@@ -1,0 +1,14 @@
+﻿@using Gateway.Business.Web.Services.WsHtml
+@using Gateway.Mvc.HtmlHelpers
+
+@{
+    Layout = null;
+}
+
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/surveys.css")" />
+
+<div id="SurveyLandingPageContent">
+	@Html.HtmlContent(HtmlContentType.SurveyLandingPage)
+</div>
+
+<a href="@Url.Action("Show", "Survey", new { id = ViewBag.SurveyId, orderId = ViewBag.OrderId })" class="SurveyStartLink">[L:SurveyStartLink]</a>

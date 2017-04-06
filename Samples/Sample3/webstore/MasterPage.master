@@ -1,0 +1,159 @@
+<%@ Master Language="C#" AutoEventWireup="true" Inherits="Gateway.WebStore.MasterPage" Codebehind="MasterPage.master.cs" %>
+<%@ Import Namespace="Gateway.Web" %>
+<%@ Register Src="App_Controls/Navigation.ascx" TagName="Navigation" TagPrefix="uc1" %>
+<%@ Register Src="App_controls/LogInInfo.ascx" TagName="LogInInfo" TagPrefix="uc2" %>
+<%@ Register Src="App_controls/LogOffLink.ascx" TagName="LogOffLink" TagPrefix="uc3" %>
+<%@ Register Src="App_controls/CategoryGroupNavigation.ascx" TagName="CategoryGroupNavigation" TagPrefix="uc4" %>
+<%@ Register src="App_Controls/FlyoutCart.ascx" tagname="FlyoutCart" tagprefix="uc5" %>
+<%@ Register Assembly="Gateway" Namespace="Gateway.Web.UI.Controls" TagPrefix="cc1" %>
+
+<!DOCTYPE html>
+<html ng-cloak>
+
+<head id="Head" runat="server">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<title id="Title" runat="server"><%=this.Page.Title%></title>
+	<asp:PlaceHolder runat="server">
+		<%
+			var theme = StateManager.SalesChannel.Merchant.WebTheme;
+	    %>
+        <link href="<%=ResolveUrl("~/Content/themes/base/minified/font-awesome.min.css") %>" rel="stylesheet" />
+		<link href="<%=ResolveUrl("~/FrontEnd/" + theme + "/fonts/typicons.min.css") %>" rel="stylesheet" type="text/css" />
+        <link href="<%=ResolveUrl("~/FrontEnd/" + theme + "/" + theme + "-core.min.css")%>" rel="stylesheet" type="text/css" />
+        <link href="<%=ResolveUrl("~/FrontEnd/" + theme + "/" + theme + "-customer.min.css")%>" rel="stylesheet" type="text/css" />
+        <link href="<%=ResolveUrl("~/Content/themes/base/jquery-ui.min.css") %>" rel="stylesheet" type="text/css" />
+        
+		<script src="<%=ResolveUrl("~/scripts/jquery-1.12.4.min.js") %>"></script>
+        <script src="<%=ResolveUrl("~/scripts/jquery-ui-1.12.1.js") %>"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.min.js"></script>		
+		<script src="<%=ResolveUrl("~/scripts/masks/angular-input-masks-standalone.min.js")%>"></script>
+
+		<%--This needs to get removed.  Temporarily here for now--%>
+		<script src="<%=ResolveUrl("~/scripts/ngFileUpload_8.0.1/ng-file-upload-all.min.js") %>"></script>
+
+        <script src="<%=ResolveUrl("~/frontend/" + theme + "/" + theme + "-core.js")%>"></script>
+        <script src="<%=ResolveUrl("~/frontend/" + theme + "/" + theme + "-customer.js")%>"></script>
+		
+		<%--Anti click jacking code for older browsers--%>
+		<style id="antiClickjack">body{display:none !important;}</style>
+		
+		<script type="text/javascript">
+			if (self === top) {
+				var antiClickjack = document.getElementById("antiClickjack");
+				antiClickjack.parentNode.removeChild(antiClickjack);
+			} else {
+				top.location = self.location;
+			}
+		</script>
+		
+		<script src="<%=ResolveUrl("~/scripts/jquery.inputmask/inputmask.min.js") %>"></script>
+		<script src="<%=ResolveUrl("~/scripts/jquery.inputmask/jquery.inputmask.min.js") %>"></script>
+		<script src="<%=ResolveUrl("~/scripts/jquery.inputmask/inputmask.extensions.min.js") %>"></script>
+		<script src="<%=ResolveUrl("~/scripts/jquery.inputmask/inputmask.date.extensions.min.js") %>"></script>
+
+	</asp:PlaceHolder>
+	
+	<asp:ContentPlaceHolder ID="HeadContent" runat="server" />
+	
+</head>
+
+<body id="HtmlBodyControl" runat="server" style="display:none;">
+	<form id="MasterForm" runat="server">
+	    <div id="page" data-replace="Page">
+		    <div id="MasterLayout">
+						    <div id="Header">
+				    <div class="language-selection">
+					    <div class="current-language-wrapper">
+					    </div>
+					    <div class="language-options">
+					    </div>
+						        </div>
+                                <div class="LogInInfo">
+							            <div id="LogInInformation">
+								            <uc2:LogInInfo ID="LogInInfo" runat="server" />
+							            </div>
+							            <div id="LogOff">
+								            <uc3:LogOffLink ID="LogOffLink" runat="server" />
+							            </div>
+					            </div>
+                                <div data-replace="Header" data-parser="wshtml">
+							        <cc1:HtmlContent id="HeaderHtmlContent" Kind="Header" runat="server" />
+                                </div>
+						    </div>
+			    <div id="container">
+                            <div id="sub-header">
+					    <div class="logo"></div>
+					    <span class="title"></span>
+					    <div class="view-cart">
+					    <asp:HyperLink ID="ViewCartHyperLink" runat="server" />
+                            </div>
+							    </div>
+				    <div id="info-block">
+					    <div class="info-block-text"></div>
+						    </div>
+
+				    <div>
+					    <div class="NavCell">
+
+						    <div id="CategoryGroupNav" data-replace="CategoryGroupNav">
+							    <uc4:CategoryGroupNavigation ID="CategoryGroupNavigation" runat="server" />
+						    </div>
+
+						    <div id="SalesChannelNav" data-replace="SalesChannelNav">
+							    <uc1:Navigation ID="Navigation" runat="server" />
+						    </div>
+					    </div>
+					    <div class="ContentCell">
+						    <div id="ContentWrapper">
+
+							    <div data-replace="PageData">
+
+								    <div data-replace="SubHeader" data-parser="wshtml">
+									    <cc1:HtmlContent id="SubHeaderHtmlContent" Kind="SubHeader" runat="server" />
+								    </div>
+											    <div id="ContentHeading">
+												    <span data-html="page-title"><asp:Label ID="ContentHeadingLabel" runat="server" /></span>
+											    </div>
+								
+								    <div id="MessageNotification">
+									    <asp:Label ID="StatusMessageLabel" CssClass="message statusMessage" runat="server" Visible="false" EnableViewState="false" />
+									    <span data-text="error-message">
+									    <asp:Label ID="ErrorMessageLabel" CssClass="message errorMessage" runat="server" Visible="false" EnableViewState="false" /></span>
+								    </div>
+
+							    </div>
+									
+							    <asp:ContentPlaceHolder id="ContentPlaceHolder" runat="server" />
+							
+                                <div class="clear"></div>
+						    </div>
+			    </div>
+				    </div>
+			    </div>
+
+			    <div id="SubFooter" data-replace="subFooter" data-parser="wshtml">
+				    <cc1:HtmlContent id="SubFooterHtmlContent" Kind="SubFooter" runat="server" />
+			    </div>
+
+		    <div class="footer">       
+                    <div data-replace="Footer" data-parser="wshtml">
+				        <cc1:HtmlContent id="FooterHtmlContent" Kind="Footer" runat="server" /> 
+                    </div>
+
+            <div class="footerContainer"> 
+             <div id="footerLogo">
+                        <p>
+						    Copyright © 2014 Gateway Ticketing Systems, Inc.
+                        </p>
+                    </div>
+            </div>
+        </div><!-- Footer Div END -->    	
+									
+						    </div>				
+		    </div>
+	</form>
+	<cc1:ThemeEditorHtmlContent id="LanguageHtmlContent" Path="~/content/default/{0}/html/{0}.html" Section="Language" runat="server" />
+
+</body>
+</html>

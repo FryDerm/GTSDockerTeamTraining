@@ -1,0 +1,166 @@
+﻿#ViewCart
+{
+	width: 90%;
+	clear: both;
+	margin: 30px auto;
+}
+
+#DeliveryInfo
+{
+	width: 90%;
+	clear: both;
+	margin: 10px auto;
+}
+
+#ReviewOrder
+{
+	width: 90%;
+	clear: both;
+	margin: 30px auto;
+}
+
+#Cart table {
+	width: 100%;
+}
+#Cart .DiscountAndFooterTable {
+	width: 100%;
+}
+#Cart #CartFooter table {
+	width: 225px;
+}
+.CartTable {
+	background: #f4f4f4;
+}
+.CartTable tr td, .CartTable tr th {
+/*vertical-align: middle;
+	border: solid 1px #000000;	*/	
+}
+#Cart input[type=text] {
+	text-align: center;
+}
+.CartHeaderCell {
+	color: #ffffff;
+}
+.CartHeaderNameCell {
+	text-align: left;
+}
+.CartHeaderPriceCell {
+	text-align: right;
+}
+.CartHeaderTotalCell {
+	text-align: right;
+}
+.CartItemCell {
+	padding: 10px;
+}
+.CartItemNameCell {
+	padding: 10px;
+}
+.cart-item-link {
+	text-decoration: none;
+	color: #434343;
+}
+.cart-item-link:hover {
+	color: red;
+}
+.CartPriceCell {
+	text-align: right;
+}
+.CartQuantityCell {
+	text-align: center;
+}
+.CartTotalCell {
+	text-align: right;
+}
+.CartAccrualPointsCell {
+	text-align: center;
+}
+.CartRemoveCell {
+	text-align: center;
+}
+.IndentedItem {
+	Padding-left: 20px;
+}
+#Cart #CartFooter {
+	margin-top: 10px;
+}
+#Cart #CartFooter table input {
+	margin-bottom: 10px;
+}
+
+#Discount {
+	margin-top: 10px;
+}
+
+#Discount input[type=submit].dark,
+#CartFooter input[type=submit].dark {
+	margin-top: 10px;
+	font-size: 10pt;
+	padding: 5px 10px;
+}
+
+
+.NewRosterInfoHyperLink {
+    width: 100%;
+    display: inline-block;
+    margin: 3px;
+}
+
+/* 6.5 CSS addition */
+
+#CartFooter .value-cell {
+    text-align: right;
+}
+
+#CartFooterButtons {
+    display: block;
+    padding: 10px 0;
+}
+
+.left.continue-block {
+    float: left;
+    width: 50%;
+}
+
+.right.checkout-block {
+    float: left;
+    text-align: right;
+    width: 50%;
+}
+
+/* Discount */
+.discount-label {
+    float: left;
+    width: 80px;
+}
+
+.discount-textbox {
+    float: left;
+    margin: 0 10px;
+    width: 120px;
+}
+
+.discount-textbox input {
+    width: 120px !important;
+}
+
+
+/* Right to left styling */
+.dir-rtl .CartHeaderNameCell {
+	text-align: right;
+}
+.dir-rtl .IndentedItem {
+	Padding-right: 20px;
+}
+.dir-rtl .CartHeaderPriceCell {
+	text-align: left;
+}
+.dir-rtl .CartHeaderTotalCell {
+	text-align: left;
+}
+.dir-rtl .CartPriceCell {
+	text-align: left;
+}
+.dir-rtl .CartTotalCell {
+	text-align: left;
+}

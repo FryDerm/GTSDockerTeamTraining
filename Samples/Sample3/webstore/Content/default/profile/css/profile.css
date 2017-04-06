@@ -1,0 +1,467 @@
+.NavCell
+{
+    display: none;
+}
+
+#sub-header ul
+{
+    display: none;
+}
+
+#SalesChannelNav
+{
+    width: 220px;
+    white-space: normal;
+}
+#account-profile
+{
+    width: 90%;
+	clear: both;
+	margin: 30px auto;
+}
+
+#EditAccountInfo
+{
+	width: 90%;
+	clear: both;
+	margin: 30px auto;
+}
+
+#account-profile h1
+{
+    font-size: 1.4em;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #d6d4d4;
+	color: #555454;
+	text-transform: uppercase;
+}
+
+#account-profile input[type=text]
+{
+    font-size: 1em;
+    color: #434343;
+    padding: 5px;
+	width: 350px;
+}
+
+#account-profile .ticket-lookup
+{
+    
+}
+
+#account-profile .ticket-lookup a
+{
+
+}
+
+#account-profile .ticket-lookup p
+{
+	margin-bottom: 5px;
+}
+
+#account-profile .ticket-lookup-error, .ticket-lookup-not-found, .ticket-lookup-required-fields-missing
+{
+    margin-bottom: 12px;
+    color: #E51400;
+}
+
+#account-profile #ticket-lookup-input
+{
+    width: 350px;
+	margin-bottom: 5px;
+}
+
+#account-profile .ticket-lookup-not-found, .ticket-lookup-required-fields-missing{
+    display: none;
+}
+
+#account-profile .ticket-lookup-results
+{
+    display: none;
+    font-size: 1.4em;
+    margin-top: 12px;
+}
+
+#account-profile .ticket-lookup-results .header
+{
+    font-family: "Segoe UI Light", "Helvetica", Garuda, Arial, sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+
+#account-profile .ticket-info
+{
+    display: none;
+    margin: 12px 0;
+}
+
+#account-profile .ticket-info a
+{
+    font-size: 1em;
+    padding: 2px 7px;
+    height: 28px;
+}
+
+#account-profile .ticket-lookup .loading
+{
+    display: none;
+    margin-left: 12px;
+}
+
+#account-profile .ticket-field .ticket-label {
+    display: inline-block;
+    float: left;
+    width: 150px;
+	font-size: 12pt;
+	margin-bottom: 2px;
+}
+
+#account-profile .ticket-field .ticket-value {
+    display: inline-block;
+    float: left;
+    width: 300px;
+}
+
+#account-profile .ticket-field {
+    clear: both;
+	font-size: 12pt;
+}
+
+.manage-section
+{
+	
+}
+
+.manage-section .manage-title
+{
+	font-size: 2.618em;
+	margin-bottom: 20px;
+}
+
+.manage-section .manage-content
+{
+    margin-left: 30px;
+}
+
+.manage-section .manage-title .icon
+{
+	float: left;
+}
+
+.manage-section .manage-title .heading
+{
+    display: inline-block;
+    float: left;
+    width: 345px;
+    margin-top: 35px;
+}
+
+.manage-section p
+{
+	clear: left;
+	width: 475px;
+	margin: 20px 5px 30px 0;
+}
+
+.manage-section a.large-button
+{
+	background-color: #444;
+}
+
+.manage-section a .icon
+{
+	display: none;
+}
+
+.main-content h2
+{
+    font-size: 1.2em;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #d6d4d4;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+
+.memberships ul
+{
+    margin: 24px 0 48px 0px;
+    list-style: none;
+}
+
+.memberships ul li
+{
+    background-color: #434343;
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.memberships ul li .title
+{
+    display: inline-block;
+    width: 400px;
+    font-size: 1.4em;
+    color: white;
+}
+
+.memberships ul li .sub-title
+{
+    color: #888;
+    font-size: 1.3em;
+    font-style: italic;
+    padding-top: 20px;
+}
+
+.memberships ul li .members
+{
+    border-left: 2px solid #A2C139;
+    margin: 12px 0 0 12px;
+    padding-left: 12px;
+    font-size: 1.4em;
+    color: #EEE;
+}
+
+.memberships ul li .corner-icon
+{
+    float: right;
+    margin: 0;
+	display: none;
+}
+
+.memberships ul li .member.primary
+{
+    font-weight: bold;
+}
+
+/* Content switching */
+
+.details-page-name
+{
+
+}
+
+
+.info-column
+{s
+    float: left;
+}
+
+.info-column .info
+{
+
+	
+}
+
+.info-column .info .stat-row .count,
+.info-column .info .stat-row .count-label
+{
+    display: inline-block;
+    font-size: 2.618em;
+    margin-right: 5px;
+}
+
+.info-column .info .stat-row dl dd
+{
+    font-weight: bold;
+    color: #999;
+    text-transform: uppercase;
+    font-size: .865em;
+    margin-bottom: 5px;
+    margin-left: 0;
+}
+
+.info-column .info .stat-row dl dt
+{
+    margin: 12px 0 0 0;
+    font-size: 1.618em;
+    word-wrap: break-word;
+}
+
+.info-column .actions
+{
+    list-style: none;
+	float: left;
+	margin-top: 20px;
+}
+
+.info-column .actions li
+{
+    padding: 15px;
+    cursor: pointer;
+    color: White;
+    background-color: #00619E;
+	float: left;
+	margin-right: 5px;
+}
+
+.info-column .actions li a
+{
+    color: white;
+    display: block;
+}
+
+.info-column .actions li .icon
+{
+    float: left;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.info-column .actions li:hover
+{
+    -moz-transition-duration: .25s;
+    -webkit-transition-duration: .25s;
+    -o-transition-duration: .25s;
+    transition-duration: .25s;
+    background-color: #2889C6;
+}
+
+.info-column .actions li.selected
+{
+    background-color: #eee;
+	color: #000;
+}
+
+.main-content
+{
+    display: inline-block;
+    float: left;
+	margin-top: 20px;
+	padding: 20px;
+	padding-bottom: 20px;
+	line-height: 20px;
+	background: #fbfbfb;
+	border: 1px solid #d6d4d4;
+}
+}
+
+.details-stats
+{
+    display: none;
+}
+
+.main-content .order-history,
+.main-content .memberships,
+.main-content .loyalty-account
+{
+    display: none;
+}
+
+.active-memberships,
+.associated-memberships
+{
+    display: none;
+}
+
+.active-memberships .large-button.icon-button,
+.associated-memberships .large-button.icon-button
+{
+    margin-top: 17px;
+	font-size: .5em;
+	padding: 5px 10px;
+    -webkit-box-shadow: 0 0 10px #333;
+	-moz-box-shadow: 0 0 10px #333;
+	box-shadow: 0 0 10px #333;
+}
+
+.active-memberships .large-button.icon-button .button-text,
+.associated-memberships .large-button.icon-button .button-text
+{
+	padding: 0px;
+}
+
+.active-memberships .icon-button .icon-section,
+.associated-memberships .icon-button .icon-section
+{
+    display: none;
+}
+
+/* Ticket lookup input section */
+
+.lookup-input-wrap {
+    display: inline-block;
+    width: 450px;
+}
+
+.button-wrap {
+    display: inline-block;
+}
+
+.related-membername {
+  border-left: 2px solid #cc4d4d;
+  color: #dfdfdf;
+  margin: 10px 0 5px 10px;
+  padding: 5px;
+  text-indent: 10px;
+}
+
+/* RTL Styling  */
+.dir-rtl #account-profile .ticket-lookup .loading
+{
+    margin-right: 12px;
+	margin-left: auto;
+}
+.dir-rtl #account-profile .ticket-field .ticket-label {
+    float: right;
+}
+.dir-rtl #account-profile .ticket-field .ticket-value {
+    float: right;
+}
+.dir-rtl .manage-section .manage-content {
+    margin-right: 30px;
+	margin-left: auto;
+}
+.dir-rtl .manage-section .manage-title .icon {
+	float: right;
+}
+.dir-rtl .manage-section .manage-title .heading{
+    float: right;
+}
+.dir-rtl .manage-section p{
+	clear: right;
+}
+.dir-rtl .memberships ul li .members
+{
+    border-right: 2px solid #A2C139;
+	border-left: none;
+    padding-right: 12px;
+	padding-left: auto;
+}
+.dir-rtl .memberships ul li .corner-icon
+{
+    float: left;
+}
+.dir-rtl .info-column{
+    float: right;
+}
+.dir-rtl .info-column .info .stat-row .count,
+.dir-rtl .info-column .info .stat-row .count-label
+{
+    margin-left: 5px;
+	margin-right: auto;
+}
+.dir-rtl .info-column .info .stat-row dl dd
+{
+    margin-right: 0;
+	margin-left: auto;
+}
+.dir-rtl .info-column .actions
+{
+	float: right;
+}
+.dir-rtl .info-column .actions li
+{
+	float: right;
+	margin-left: 5px;
+	margin-right: auto;
+}
+.dir-rtl .info-column .actions li .icon
+{
+    float: right;
+    margin-left: 5px;
+	margin-right: auto;
+}
+.dir-rtl .main-content
+{
+    float: right;
+}

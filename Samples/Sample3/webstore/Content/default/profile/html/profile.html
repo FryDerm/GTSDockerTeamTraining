@@ -1,0 +1,236 @@
+<div id="account-profile">
+    <div class="details-page-name">
+        <span class="icon gts-large-gray-user"></span>
+        <h1 class="name"></h1>
+    </div>
+    <div class="clear"></div>
+
+    <div class="info-column">
+        <div class="info">
+            <ul class="actions">
+                <li id="edit-information-link" class="selected" data-target=".edit-information">[L:AccountInformationHeading]</li>
+                <li id="order-history-link" data-target=".order-history">[L:OrderHistoryHeading]</li>
+                 <li id="loyalty-account-link" data-target=".loyalty-account">[L:LoyaltyAccountHeading]</li>
+                <li id="memberships-link" data-target=".memberships">[L:Memberships]</li>
+                
+            </ul>
+            <div class="stat-row details-stats">
+            </div>
+        </div>
+    </div>
+    
+    <div class="main-content">
+        <div class="edit-information">
+            <div class="slide-wrapper">
+                <h2>[L:AccountInformationHeading]</h2>
+                <div class="manage-section account-info">
+                    <p>[L:AccountInformationDescription]</p>
+                    <a href="../Account/EditAccountInfo.aspx" class="large-button">
+                        [L:AccountInformationButton]
+                        <span class="icon gts-small-right-arrow"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="order-history">
+            <div class="slide-wrapper">
+                <h2>[L:OrderHistoryHeading]</h2>
+                <div class="manage-section order-history">
+                    <p>[L:OrderHistoryDescription]</p>
+                    <a href="../Account/OrderHistory.aspx" class="large-button">
+                        [L:OrderHistoryButton]
+                        <span class="icon gts-small-right-arrow"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="loyalty-account">
+            <div class="slide-wrapper">
+                <h2>[L:LoyaltyAccountHeading]</h2>
+                <div class="manage-section loyalty-account">
+                </div>
+            </div>
+        </div>
+
+        <div class="memberships">
+            <div class="slide-wrapper">
+                <div class="active-memberships">
+                    <h2>[L:ActiveMemberships]</h2>
+                    <ul>
+                    </ul>
+                </div>
+
+                <div class="associated-memberships">
+                    <h2>[L:AssociatedMemberships]</h2>
+                    <ul>
+                    </ul>
+                </div>
+
+                <h2>[L:TicketLookupHeading]</h2>
+                <div class="ticket-lookup">
+                    <p>[L:TicketLookupDescription]</p>
+                    <div class="ticket-lookup-error"></div>
+                    <div class="ticket-lookup-not-found">[L:AccountNotFound]</div>
+                    <div class="ticket-lookup-required-fields-missing">[L:AccountRequiredFieldsMissing]</div>
+
+                    <div class="lookup-input-wrap">
+                    </div>
+                    <div class="button-wrap">
+                        <a class="ticket-lookup-button large-button" href="#" >[L:TicketLookupButton]</a>
+                        <img class="loading" src="../images/GTS/ajax-loader.gif" />
+                    </div>
+                    
+                    <div class="ticket-lookup-results"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script id="sub-header-template" type="text/x-jsrender">
+
+</script>
+
+<script id="account-stats-template" type="text/x-jsrender">
+    
+</script>
+
+<script id="active-membership-template" type="text/x-jsrender">
+    <li data-id="{{>VisualId}}">
+        {{if Members.length > 1}}
+            <div class="corner-icon icon gts-large-group"></div>
+        {{else}}
+            <div class="corner-icon icon gts-large-individual"></div>
+        {{/if}}
+        <div class="title">{{>Name}}</div>
+        <div class="sub-title">[L:PassExpires] {{>ExpirationDate}}</div>
+       
+        {{if Members.length > 1}}
+            <div class="members">
+                {{for Members}}
+                        {{if IsPrimary}}
+                        <div class="member primary">{{>FirstName}} {{>LastName}}</div>
+                        {{else}}
+                        <div class="member">{{>FirstName}} {{>LastName}}</div>
+                        {{/if}}
+                {{/for}}
+            </div>
+           
+        {{/if}}
+        {{if RelationshipWith != null}}
+            <div class="related-membername">[L:RelationshipWith] {{>RelationshipWith}}</div>
+        {{/if}}
+        <a href="../Membership/{{>VisualId}}" class="large-button icon-button">
+            <span class="button-text">[L:ManageMembership]</span>
+            <span class="icon-section">
+                <span class="icon gts-small-right-arrow"></span>
+            </span>
+        </a>
+    </li>
+</script>
+
+<script id="associated-membership-template" type="text/x-jsrender">
+    <li data-id="{{>VisualId}}">
+        {{if Members.length > 1}}
+            <div class="corner-icon icon gts-large-group"></div>
+        {{else}}
+            <div class="corner-icon icon gts-large-individual"></div>
+        {{/if}}
+        <div class="title">{{>Name}}</div>
+        <div class="sub-title">[L:PassExpires] {{>ExpirationDate}}</div>       
+        <div class="members">
+            {{for Members}}
+                    {{if IsPrimary}}
+                    <div class="member primary">{{>FirstName}} {{>LastName}}</div>
+                    {{else}}
+                    <div class="member">{{>FirstName}} {{>LastName}}</div>
+                    {{/if}}
+            {{/for}}
+        </div>
+        {{if RelationshipWith != null}}
+            <div class="related-membername">[L:RelationshipWith] {{>RelationshipWith}}</div>
+        {{/if}}
+    </li>
+</script>
+
+<script id="ticket-lookup-result-template" type="text/x-jsrender">
+		<div class="ticket-info" data-id={{>VisualId}}>
+		<div class="ticket-field">
+            <div class="ticket-label">[L:TicketLookupHeaderName]</div>
+            <div class="ticket-value">{{>Description}}</div>
+		</div>
+		<div class="ticket-field">
+            <div class="ticket-label">[L:TicketLookupHeaderMemberName]</div>
+            <div class="ticket-value">{{>Name}}</div>
+		</div>
+		<div class="ticket-field">
+            <div class="ticket-label">[L:TicketLookupHeaderDateOfBirth]</div>
+            <div class="ticket-value">{{>DOB}}</div>
+		</div>
+		<div class="ticket-field">
+            <div class="ticket-label">[L:TicketLookupHeaderExpiration]</div>
+            <div class="ticket-value">{{>ExpirationDate}}</div>
+		</div>
+		<div class="ticket-field">
+            <div class="ticket-label">[L:TicketLookupHeaderStatus]</div>
+            <div class="ticket-value">{{>Status}}</div>
+		</div>
+        {{if IsRenewable}}
+        <a class="large-button dark" href="../Shopping/Renew/{{>VisualId}}">[L:TicketLookupRenewButton]</a>
+        {{/if}}
+	</div>
+</script>
+
+<script id="ticket-lookup-render-template" type="text/x-jsrender">
+    {{if useVisualId}}
+        <div id="visualid-input">
+            <input id="ticket-lookup-input" type="text" value="" placeholder="[L:TicketLookupInput]" title="[L:TicketLookupInput]" />
+        </div>
+    {{/if}}
+    {{if useAccount}}
+        <div id="account-input">
+            <input id="lookup-account-input" type="text" value="" placeholder="[L:TicketLookupAccountInput]" title="[L:TicketLookupAccountInput]" />
+        </div>
+    {{/if}}
+    {{if useBirthDate}}
+        <div id="birthdate-input">
+            <input id="lookup-birthdate-input" type="text" value="" placeholder="[L:TicketLookupBirthDateInput]" title="[L:TicketLookupBirthDateInput]" />
+        </div>
+    {{/if}}
+    {{if useLastName}}
+        <div id="lastname-input">
+            <input id="lookup-lastname-input" type="text" value="" placeholder="[L:TicketLookupLastNameInput]" title="[L:TicketLookupLastNameInput]" />
+        </div>
+    {{/if}}
+</script>
+
+<script id="ticket-loyalty-render-template" type="text/x-jsrender">
+    {{if hasLoyaltyAccountConfig}}
+        {{if hasUserAssociatedLoyaltyAccountConfig}}
+        <div class="enrollment-wrap">
+            <p>To view the loyalty programs you are enrolled in. </p>
+            <a href="../account/LoyaltyView.aspx" class="large-button">
+                View&nbsp;Enrolled&nbsp;Loyalty&nbsp;programs
+                <span class="icon gts-small-right-arrow"></span>
+            </a>
+        </div>
+        {{else}}
+   
+        <div class="non-enrollment-wrap">
+            <p>You are not enrolled in any loyalty program. Click on the enroll button to the left to enroll in a loyalty program. </p>
+            <a href="../LoyaltyPrograms/LoyaltySelector.aspx" class="large-button">
+                Enroll
+                <span class="icon gts-small-right-arrow"></span>
+            </a>
+
+        </div>
+        {{/if}}  
+    {{else}}
+        <div class="noloyalty-account">
+            <p>No loyalty programs.</p>
+        </div>
+     {{/if}} 
+</script>

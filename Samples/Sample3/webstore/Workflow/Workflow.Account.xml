@@ -1,0 +1,154 @@
+﻿<!-- ~~~~~~~~~~ ACCOUNT :: AccountLogin ~~~~~~~~~~ -->
+<Page>
+	<Name>AccountLogin.aspx</Name>
+	<MaintainAnchor />
+	<Requirements>
+		<Requirement Type="HasGuestNames">
+			<Condition>RequiresGuestNames</Condition>
+			<Redir>
+				<Url>/Checkout/GuestNames.aspx</Url>
+			</Redir>
+		</Requirement>
+		<Requirement Type="HasPromptForGuestNames">
+			<Condition>RequiresPromptForGuestNames</Condition>
+			<Redir>
+				<Url>/Checkout/PromptForGuestNames.aspx</Url>
+			</Redir>
+		</Requirement>
+	</Requirements>
+	<NavigationRules>
+		<NavigationRule>
+			<PreviousPage>DeliveryInfo.aspx</PreviousPage>
+			<NextPage>/Checkout/BillingInfo.aspx</NextPage>
+		</NavigationRule>
+		<NavigationRule>
+			<PreviousPage>TransportationGuestNames.aspx</PreviousPage>
+			<NextPage>/Shop/ViewCart.aspx</NextPage>
+		</NavigationRule>
+		<NavigationRule>
+			<PreviousPage>GuestNames.aspx</PreviousPage>
+			<NextPage>/Checkout/BillingInfo.aspx</NextPage>
+		</NavigationRule>
+		<NavigationRule>
+			<PreviousPage>PromptForGuestNames.aspx</PreviousPage>
+			<NextPage>/Checkout/BillingInfo.aspx</NextPage>
+		</NavigationRule>
+		<NavigationRule>
+			<PreviousPage>ViewItems.aspx</PreviousPage>
+			<NextPage>/Shop/ViewItems.aspx</NextPage>
+		</NavigationRule>
+		<NavigationRule>
+			<PreviousPage>OrderHistory.aspx</PreviousPage>
+			<NextPage>/Account/OrderHistory.aspx</NextPage>
+		</NavigationRule>
+		<NavigationRule>
+			<PreviousPage>*</PreviousPage>
+			<NextPage>/Account/MyAccount.aspx</NextPage>
+		</NavigationRule>
+	</NavigationRules>
+</Page>
+<!-- ~~~~~~~~~~ ACCOUNT :: ChangePassword ~~~~~~~~~~ -->
+<Page>
+	<Name>ChangePassword.aspx</Name>
+	<MaintainAnchor />
+	<Requirements>
+		<Requirement Type="UserAuthenticated">
+			<Redir>
+				<Url>/Account/AccountLogin.aspx</Url>
+			</Redir>
+		</Requirement>
+	</Requirements>
+	<NavigationRules>
+		<NavigationRule>
+			<PreviousPage>*</PreviousPage>
+			<NextPage>/Account/ChangePasswordConfirmation.aspx</NextPage>
+		</NavigationRule>
+	</NavigationRules>
+</Page>
+<!-- ~~~~~~~~~~ ACCOUNT :: ChangePasswordConfirmation ~~~~~~~~~~ -->
+<Page>
+	<Name>ChangePasswordConfirmation.aspx</Name>
+	<MaintainAnchor />
+	<Requirements>
+		<Requirement Type="UserAuthenticated">
+			<Redir>
+				<Url>/Account/AccountLogin.aspx</Url>
+			</Redir>
+		</Requirement>
+	</Requirements>
+	<NavigationRules>
+		<NavigationRule>
+			<PreviousPage>*</PreviousPage>
+			<NextPage>/Shop/ViewItems.aspx</NextPage>
+		</NavigationRule>
+		<NavigationRule>
+			<PreviousPage>GroupSalesLogin.aspx</PreviousPage>
+			<NextPage>/Shop/GroupSalesVerifyLimits.aspx</NextPage>
+		</NavigationRule>
+	</NavigationRules>
+</Page>
+<!-- ~~~~~~~~~~ ACCOUNT :: CreateAccount ~~~~~~~~~~ -->
+<Page>
+	<Name>CreateAccount.aspx</Name>
+	<NavigationRules>
+		<NavigationRule>
+			<PreviousPage>ViewItems.aspx</PreviousPage>
+			<NextPage>/Shop/ViewItems.aspx</NextPage>
+		</NavigationRule>
+		<NavigationRule>
+			<PreviousPage>*</PreviousPage>
+			<NextPage>/Account/MyAccount.aspx</NextPage>
+		</NavigationRule>
+	</NavigationRules>
+</Page>
+<!-- ~~~~~~~~~~ ACCOUNT :: MyAccount ~~~~~~~~~~ -->
+<Page>
+	<Name>MyAccount.aspx</Name>
+	<Requirements>
+		<Requirement Type="UserAuthenticated">
+			<Redir>
+				<Url>/Account/AccountLogin.aspx</Url>
+			</Redir>
+		</Requirement>
+	</Requirements>
+</Page>
+<!-- ~~~~~~~~~~ ACCOUNT :: EditAccountInfo ~~~~~~~~~~ -->
+<Page>
+	<Name>EditAccountInfo.aspx</Name>
+	<Requirements>
+		<Requirement Type="UserAuthenticated">
+			<Redir>
+				<Url>/Account/AccountLogin.aspx</Url>
+			</Redir>
+		</Requirement>
+	</Requirements>
+	<NavigationRules>
+		<NavigationRule>
+			<PreviousPage>*</PreviousPage>
+			<NextPage>/Account/MyAccount.aspx</NextPage>
+		</NavigationRule>
+	</NavigationRules>
+</Page>
+<!-- ~~~~~~~~~~ ACCOUNT :: OrderHistory ~~~~~~~~~~ -->
+<Page>
+	<Name>OrderHistory.aspx</Name>
+	<Anchor />
+	<Requirements>
+		<Requirement Type="UserAuthenticated">
+			<Redir>
+				<Url>/Account/AccountLogin.aspx</Url>
+			</Redir>
+		</Requirement>
+	</Requirements>
+</Page>
+<!-- ~~~~~~~~~~ ACCOUNT :: ViewOrder ~~~~~~~~~~ -->
+<Page>
+	<Name>ViewOrder.aspx</Name>
+	<Requirements>
+		<Requirement Type="UserAuthenticated">
+			<Redir>
+				<Url>/Account/AccountLogin.aspx</Url>
+			</Redir>
+		</Requirement>
+	</Requirements>
+</Page>

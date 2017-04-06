@@ -1,0 +1,103 @@
+﻿#PackageDetails table tr td
+{
+	border: none !important;
+}
+
+#PackageDetails
+{
+
+}
+
+.PackageDetailsItemTable
+{
+	width: auto;
+}
+
+#PackageDetails table th
+{
+	background-color: #e2e2e2;
+	text-align: left;
+	color: #000;
+}
+
+.PackageDetailQuantityCell
+{
+	width: 30px;
+	text-align: right;
+	padding-right: 7px;
+}
+
+.PackageDetailNameCell
+{
+	padding-right: 5px;
+}
+
+.PackageDetailDateTimeSelectCell
+{
+	vertical-align:top;
+	padding-top: 0px;	
+}
+
+.PackageDetailDateTimeSelectCell input[type="submit"]
+{
+	margin-top: 0px !important;	
+}
+
+.PackageDetailsTable 
+{
+	 border-collapse: collapse; 
+	 border-spacing: 0px; 
+	 width: 100%;
+}
+
+.PackageDetailsTable .QuantityCell
+{
+	padding-left: 10px;
+	width: 10%;
+	padding-right: 10px;
+	padding-bottom: 5px;
+}
+
+.EventHeader
+{
+	/*background-color: #E3E3E3;
+	border: 1px solid #9E9E9E;*/
+	text-align: right;
+	display: block;
+	color: #00619E;
+}
+
+.EventHeader input[type=image]
+{
+	vertical-align: middle;
+}
+
+
+
+
+
+
+
+/* RTL Styling */
+.dir-rtl .PackageDetailQuantityCell
+{
+	text-align: left;
+	padding-left: 7px;
+}
+.dir-rtl .PackageDetailNameCell
+{
+	padding-left: 5px;
+}
+.dir-rtl #PackageDetails table th
+{
+	text-align: right;
+}
+.dir-rtl .PackageDetailsTable .QuantityCell
+{
+	padding-right: 10px;
+	padding-left: 10px;
+}
+.dir-rtl .EventHeader
+{
+	text-align: left;
+}

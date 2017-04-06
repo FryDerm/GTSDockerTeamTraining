@@ -1,0 +1,45 @@
+﻿<!DOCYTYPE html>
+<html ng-cloak>
+
+<head>
+@Html.Partial("FrontEndIncludes")
+
+    <script>
+
+    GTS.membership.factory('membershipItem', function(){
+
+        return {
+            id : @ViewBag.id,
+            passId :@ViewBag.passId,
+            plu :"@ViewBag.plu",
+            addOnPlus : [
+
+                @foreach (var addOn in ViewBag.addOnPlus)
+                {
+                    <text>
+                    { plu : '@addOn.Plu'},
+                    </text>
+                }
+            ],
+            indexDescription : "@ViewBag.indexDescription"
+        };
+    });
+
+	//  Front end javascript doesn't currently support localization strings, so we're defining this array here instead.
+	//  Support fort that needs to be added in the future.
+    var genderOptions = [
+	    { ResponseNo: "0", ResponseText: "[L:GenderUnspecified]" },
+	    { ResponseNo: "1", ResponseText: "[L:GenderMale]" },
+	    { ResponseNo: "2", ResponseText: "[L:GenderFemale]" }
+    ];
+
+</script>
+</head>
+
+<body>
+
+@Html.Raw(File.ReadAllText(Server.MapPath("~/FrontEnd/" + Gateway.Web.StateManager.SalesChannel.Merchant.WebTheme + "/membership.html")))
+
+</body>
+
+</html>

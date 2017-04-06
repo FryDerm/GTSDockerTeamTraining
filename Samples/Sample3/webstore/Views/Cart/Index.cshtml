@@ -1,0 +1,49 @@
+﻿<link href="~/Content/default/cart/css/Cart.css" rel="stylesheet" type="text/css"/>
+
+
+@if (ViewBag.HasLoyalty)
+{
+    <link href="~/Content/default/loyalty/css/loyalty.css" rel="stylesheet" type="text/css"/>
+}
+
+@Html.Action("Html", "Site", new { pageName = "cart" })
+
+
+@if (ViewBag.HasLoyalty)
+{
+    @Html.Action("Html", "Site", new {pageName = "loyalty"});
+}
+
+<script type="text/javascript" src="@Url.Action("Script", "Site", new {pageName = "cart"})"></script>
+
+@if (ViewBag.HasLoyalty)
+{
+    <script type="text/javascript" src="@Url.Action("Script", "Site", new {pageName = "loyalty"})"></script>
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var storeExternalId = "@ViewBag.storeExternalId";
+        var categoryExternalId = "@ViewBag.categoryExternalId";
+        var continueCheckoutLink = "@ViewBag.ContinueCheckoutLink";
+        var continueShoppingLink = "@Url.Content("~/Shop/ViewItems.aspx")";
+        var loyaltyLink = "@(ViewBag.HasLoyalty ? Url.Content("~/LoyaltyPrograms/LoyaltyEnrollment.aspx") : "")";
+
+	    if (storeExternalId) {
+	        continueShoppingLink = continueShoppingLink + "?CG=" + storeExternalId;
+	        if (categoryExternalId) {
+	            continueShoppingLink = continueShoppingLink + "&C=" + categoryExternalId;
+	        }
+	    } else {
+	        continueShoppingLink = "#";
+	    }
+
+	    gts.viewCartModule.init({
+	        storeExternalId: storeExternalId,
+	        categoryExternalId: categoryExternalId,
+	        continueCheckoutLink: continueCheckoutLink,
+	        continueShoppingLink: continueShoppingLink,
+	        loyaltyLink: loyaltyLink
+		});
+	});
+</script>

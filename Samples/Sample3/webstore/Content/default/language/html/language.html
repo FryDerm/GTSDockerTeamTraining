@@ -1,0 +1,18 @@
+<script id="current-language-template" type="text/x-jsrender">
+	<div class="current-language" data-id={{>Id}}>
+		<span class="more"></span>
+		{{if HasImage}}
+		<img class="flag" src="{{>imageRoot}}api/LanguageImage/{{>Id}}"/>
+		{{/if}}
+		<span class="language">{{>Name}}</span>
+	</div>
+</script>
+
+<script id="language-options-template" type="text/x-jsrender">
+	<div class="language-option" data-id={{>Id}}>
+		{{if HasImage}}
+		<img class="flag" src="{{>imageRoot}}api/LanguageImage/{{>Id}}"/>
+		{{/if}}
+		<span class="language">{{>Name}}</span>
+	</div>
+</script>

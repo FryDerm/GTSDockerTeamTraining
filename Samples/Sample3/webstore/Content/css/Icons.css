@@ -1,0 +1,44 @@
+﻿.icon
+{
+	background-image: url('../../images/GTS/icons.png');
+	background-repeat: no-repeat;
+	display: inline-block;
+	border: 0;
+	text-decoration: none;
+    list-style: none outside none;
+}
+
+.gts-large-left-arrow{background-position:0 0 ; width: 128px ; height: 128px; }
+.gts-large-gray-left-arrow{background-position:-138px 0 ; width: 128px ; height: 128px; }
+.gts-left-arrow{background-position:-276px -40px ; width: 48px ; height: 48px; }
+.gts-gray-left-arrow{background-position:-334px -40px ; width: 48px ; height: 48px; }
+.gts-nocircle-left-arrow{background-position:-392px -40px ; width: 48px ; height: 48px; }
+.gts-nocircle-gray-left-arrow{background-position:-450px -40px ; width: 48px ; height: 48px; }
+.gts-small-left-arrow{background-position:-508px -48px ; width: 32px ; height: 32px; }
+.gts-large-right-arrow{background-position:-550px 0 ; width: 128px ; height: 128px; }
+.gts-large-gray-right-arrow{background-position:-688px 0 ; width: 128px ; height: 128px; }
+.gts-right-arrow{background-position:-826px -40px ; width: 48px ; height: 48px; }
+.gts-gray-right-arrow{background-position:-884px -40px ; width: 48px ; height: 48px; }
+.gts-nocircle-right-arrow{background-position:-942px -40px ; width: 48px ; height: 48px; }
+.gts-nocircle-gray-right-arrow{background-position:-1000px -40px ; width: 48px ; height: 48px; }
+.gts-small-right-arrow{background-position:-1058px -48px ; width: 32px ; height: 32px; }
+.gts-large-user{background-position:-1100px 0 ; width: 128px ; height: 128px; }
+.gts-large-gray-user{/*background-position:-1238px 0 ; width: 128px ; height: 128px;*/ display:none; }
+.gts-user{background-position:-1376px -40px ; width: 48px ; height: 48px; }
+.gts-gray-user{background-position:-1434px -40px ; width: 48px ; height: 48px; }
+.gts-nocircle-user{background-position:-1492px -40px ; width: 48px ; height: 48px; }
+.gts-nocircle-gray-user{background-position:-1550px -40px ; width: 48px ; height: 48px; }
+.gts-large-orders{background-position:-1608px 0 ; width: 128px ; height: 128px; }
+.gts-large-gray-orders{background-position:-1746px 0 ; width: 128px ; height: 128px; }
+.gts-orders{background-position:-1884px -40px ; width: 48px ; height: 48px; }
+.gts-gray-orders{background-position:-1942px -40px ; width: 48px ; height: 48px; }
+.gts-nocircle-orders{background-position:-2000px -40px ; width: 48px ; height: 48px; }
+.gts-nocircle-gray-orders{background-position:-2058px -40px ; width: 48px ; height: 48px; }
+.gts-large-ticket-lookup{background-position:-2116px 0 ; width: 128px ; height: 128px; }
+.gts-large-gray-ticket-lookup{background-position:-2254px 0 ; width: 128px ; height: 128px; }
+.gts-ticket-lookup{background-position:-2392px -40px ; width: 48px ; height: 48px; }
+.gts-gray-ticket-lookup{background-position:-2450px -40px ; width: 48px ; height: 48px; }
+.gts-nocircle-ticket-lookup{background-position:-2508px -40px ; width: 48px ; height: 48px; }
+.gts-nocircle-gray-ticket-lookup{background-position:-2566px -40px ; width: 48px ; height: 48px; }
+.gts-large-individual{background-position:-2624px -14px ; width: 100px ; height: 100px; }
+.gts-large-group{background-position:-2734px -14px ; width: 100px ; height: 100px; }

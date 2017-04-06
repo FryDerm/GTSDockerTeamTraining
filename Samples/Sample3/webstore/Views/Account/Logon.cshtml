@@ -1,0 +1,77 @@
+﻿@model Gateway.WebStore.ViewModels.Account.LogonViewModel
+@{
+    Layout = null;
+}
+
+<link rel="stylesheet" href="@Url.Content("~/Content/default/logon/css/logon.css")" />
+
+    <div id="account-logon">
+        <h3>[L:ContentHeadingLabel]</h3>
+
+        <div class="existing-account">
+            <h4>[L:ExistingCustomerHeading]</h4>
+            <p>[L:ExistingCustomerDescription]</p>
+
+            <div id="Login">
+                @{ Html.EnableClientValidation(); }
+                @using (Html.BeginForm())
+                {
+                    @Html.ValidationSummary(true)
+                    @Html.HiddenFor(m => m.ShowContinueAsGuest)
+                    @Html.HiddenFor(m => m.ShowCreateAccount)
+                    <div class="form-field">
+                        <div class="form-field-label">[L:UsernameLabel]</div>
+                        <div class="form-field-input">@Html.TextBoxFor(m => m.Username)</div>
+                        <div class="form-field-validation">@Html.ValidationMessageFor(m => m.Username)</div>
+                    </div>
+                    <div class="form-field">
+                        <div class="form-field-label">[L:PasswordLabel]</div>
+                        <div class="form-field-input">@Html.PasswordFor(m => m.Password)</div>
+                        <div class="form-field-validation">@Html.ValidationMessageFor(m => m.Password)</div>
+                    </div>
+                    <div class="forgot-password">
+                        <a href="@Url.Content("~/Account/PasswordRequest.aspx")">[L:ForgotPasswordLink]</a>
+                    </div>
+                    <p>
+                        <input type="submit" class="large-button" value="[L:LogonSubmit]"/>
+                    </p>
+                }
+            </div>
+        </div>
+    
+        @if (Model.ShowCreateAccount)
+        {
+            <div class="create-account">
+                <h4>[L:CreateAccountHeading]</h4>
+                <p>[L:CreateAccountDescription]</p>
+                @if (!string.IsNullOrEmpty(Model.ReturnUrl))
+                {
+                    <p><a href="@Url.Content("~/Account/CreateAccount.aspx?returnUrl=" + Model.ReturnUrl)" class="large-button">[L:CreateAccountButton]</a></p>
+                }
+                else
+                {
+                    <p><a href="@Url.Content("~/Account/CreateAccount.aspx")" class="large-button">[L:CreateAccountButton]</a></p>
+                }   
+            </div>
+            <div class="clear"></div>
+        }
+
+        @if (Model.ShowContinueAsGuest)
+        {
+            <div class="no-account">
+                <h4>[L:ContinueHeading]</h4>
+                <p>[L:ContinueDescription]</p>
+                <p><a href="@Url.Content("~/checkout/BillingInfo.aspx")" class="large-button dark">[L:ContinueButton]</a></p>
+            </div>
+            <div class="clear"></div>
+        }
+    </div>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("form:first input:first").focus();
+        $(".existing-account form").validate();
+    });
+</script>

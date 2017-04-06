@@ -1,0 +1,9 @@
+﻿.blockDisplay
+{
+	width: 100% - 20px;
+	border: 1px solid #b8b8b8;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 10px;
+	background-color: #f8f8f8;
+}

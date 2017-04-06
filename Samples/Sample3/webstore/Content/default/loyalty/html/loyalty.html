@@ -1,0 +1,92 @@
+﻿<script id="loyalty-program-template" type="text/x-jsrender">
+
+    <div id="LoyaltyPrompt" style="display:none;">
+        <h4 style="float:none; clear: none">[L:LoyaltyAccountPrompt]</h4>
+    </div>
+
+    <div id="LoyaltyLookup" style="display:none;">
+        <div class="free-text">
+            [L:EnterLoyaltyMessageLiteral] [L:LoyaltyEnrollmentMessageLiteral]
+        </div>
+
+        <div class="form-field-label loyalty-account-label">[L:LoyaltyAccountNumberEntryLiteral]</div>
+
+        <div class="form-field-value">
+            <input type="text" id="LoyaltyLookupAccountNumber" />
+        </div>
+
+        <input type="button" class="small-button dark" id="LoyaltyLookupSubmit" value="[L:LoyaltyAccountButton]" />
+        <div id="LoyaltyLookupFailed" class="error" style="display:none;">[L:LoyaltyAccountLookupFailed]</div>
+
+        <div class="free-text">
+            <a id="LoyaltyEnrollmentLink" href="/LoyaltyPrograms/LoyaltyEnrollment.aspx">[L:LoyaltyEnrollmentHyperLink]</a>
+        </div>
+    </div>
+
+    <div id="LoyaltyInformation" style="display:none;">
+        
+        <h4 style="float:none; clear: none">[L:LoyaltyAccountHeader]</h4>
+
+        <ul class="error">
+            <li id="LoyaltyExpirationMessage" style="display:none;">[L:LoyaltyExpirationLiteral]</li>
+            <li id="LoyaltyExpirationAccrualMessage" style="display:none;">[L:LoyaltyExpirationAccrualLiteral]</li>
+            <li id="LoyaltyExpirationNoRedemption" style="display:none;">[L:LoyaltyExpirationRedemptionLiteral]</li>
+            <li id="LoyaltyExpirationYesRedemption" style="display:none;">[L:LoyaltyExpirationRedemptionValidLiteral]</li>
+            <li id="LoyaltyRedemptionInsufficientPointsMessage" style="display:none;">[L:LoyaltyRedemptionInsufficientPointsError]</li>
+            <li id="LoyaltyRedemptionMixedCostMessage" style="display:none;">[L:LoyaltyRedemptionMixedCostError]</li>
+        </ul>
+
+        <div id="LoyaltyLookupFailed" style="display:none;"></div>
+
+        <div class="loyalty-program-form-field form-field">
+            <div class="form-field-label">
+                <label for="LoyaltyProgram">[L:LoyaltyProgramNameHeaderLiteral]</label>
+            </div>
+            <div class="form-field-value">
+                <label id="LoyaltyProgram" name="LoyaltyProgram"></label>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="loyalty-account-number-form-field form-field">
+            <div class="form-field-label">
+                <label for="LoyaltyAccountNumber">[L:LoyaltyAccountNumberHeaderLiteral]</label>
+            </div>
+            <div class="form-field-value account-number">
+                <label id="LoyaltyAccountNumber" name="LoyaltyAccountNumber"></label>
+            </div>
+            <div class="form-field-label">
+                <a id="ChangeLoyaltyAccount" class="change-loyalty-account" href="#">[L:ChangeLoyaltyAccountLinkButton]</a>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="loyalty-accrual-balance-form-field form-field">
+            <div class="form-field-label">
+                <label for="LoyaltyAccrualBalance">[L:LoyaltyAccrualBalanceHeaderLiteral]</label>
+            </div>
+            <div class="form-field-label-xsmall">
+                <label id="LoyaltyAccrualBalance" name="LoyaltyAccrualBalance"></label>
+            </div>
+            <div class="form-field-label-small">
+                <input type="radio" id="LoyaltyModeAccrual" name="LoyaltyModeRadioButtons" value="1" />
+                <label for="LoyaltyModeAccrual">[L:LoyaltyEarnRadioButton]</label>
+            </div>
+            <div class="form-field-label-small">
+                <input type="radio" id="LoyaltyModeRedeption" name="LoyaltyModeRadioButtons" value="2" />
+                <label for="LoyaltyModeRedeption">[L:LoyaltyRedeemRadioButton]</label>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="loyalty-join-date-field form-field">
+            <div class="form-field-label">
+                <label for="LoyaltyJoinDate">[L:LoyaltyJoinDateHeaderLiteral]</label>
+            </div>
+            <div class="form-field-value">
+                <label id="LoyaltyJoinDate" name="LoyaltyJoinDate"></label>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</script>

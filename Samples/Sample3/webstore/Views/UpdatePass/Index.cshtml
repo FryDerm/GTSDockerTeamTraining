@@ -1,0 +1,35 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCYTYPE html>
+<html ng-cloak>
+
+<head>
+    @Html.Partial("FrontEndIncludes");
+
+    <script>
+
+    GTS.membership.factory('membershipItem', function(){
+
+        return {
+            visualId: '@ViewBag.visualId',
+            passId :@ViewBag.passId,
+            plu :"@ViewBag.plu",
+            addOnPlus : [],
+            updateOnly : true
+        };
+    });
+
+    </script>
+
+
+</head>
+
+<body>
+
+@Html.Raw(File.ReadAllText(Server.MapPath("~/FrontEnd/" + Gateway.Web.StateManager.SalesChannel.Merchant.WebTheme + "/membership.html")))
+
+</body>
+
+</html>

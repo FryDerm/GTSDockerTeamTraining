@@ -1,0 +1,2406 @@
+/*
+Pixels	Ems		% of 13
+110.890	11.089	853.000
+95.949	9.595	738.069
+68.535	6.854	527.192
+59.301	5.93	456.162
+42.358	4.236	325.831
+36.651	3.665	281.931
+26.179	2.618	201.377
+22.652	2.265	174.246
+16.180	1.618	124.462
+14.000	1.4	    107.692
+10.000	1	    76.923
+8.653	0.865	66.562
+6.180	0.618	47.538
+5.348	0.535	41.138
+3.820	0.382	29.385
+3.305	0.331	25.423
+2.361	0.236	18.162
+2.043	0.204	15.715
+1.459	0.146	11.223
+1.263	0.126	9.715
+*/
+
+
+/* ----------------------------------------------------------------------------
+	General html
+---------------------------------------------------------------------------- */
+body {
+    font-size: 12pt;
+    font-family: "Segoe UI", "Helvetica", Garuda, Arial, sans-serif;
+    margin: 0 auto;
+    padding: 0;
+    background-color: #f4f4f4;
+    /* color: #434343; */
+    text-rendering: optimizeLegibility;
+}
+
+img {
+    border: none;
+}
+
+ul {
+    margin-top: 0;
+    padding-left: 0;
+}
+
+th {
+    background-color: #00619E;
+    color: #ffffff;
+    font-weight: normal;
+}
+
+td {
+    vertical-align: top;
+}
+
+input[type=submit],
+.large-button,
+.small-button {
+    display: inline-block;
+    color: white;
+    font-family: "Segoe UI", "Helvetica", Garuda, Arial, sans-serif;
+    font-size: 12pt;
+    text-transform: uppercase;
+    background-color: #00619E;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 15px;
+    padding: 8px 20px;
+}
+
+.large-button {
+    padding: 8px 20px;
+}
+
+    .large-button.icon-button {
+        padding: 0 0 0 20px;
+    }
+
+    .large-button .button-text {
+        display: inline-block;
+        vertical-align: top;
+        padding-top: 10px;
+        font-size: 2.265em;
+    }
+
+.icon-button .icon-section {
+    background-color: #A2C139;
+    display: inline-block;
+    padding: 8px 8px 2px 8px;
+    margin-left: 12px;
+}
+
+input[type=submit].dark,
+.large-button.dark,
+.small-button.dark {
+    background-color: #444;
+}
+
+input[type=submit]:hover,
+.large-button:hover,
+.small-button:hover {
+    background-color: #2889C6;
+}
+
+input[type=submit].dark:hover,
+.large-button.dark:hover,
+.small-button:hover {
+    background-color: #555;
+}
+
+.clear {
+    clear: both;
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+    margin: 0;
+}
+
+h1 {
+    font-size: 4.236em;
+}
+
+h2 {
+    font-size: 2.618em;
+}
+
+h3 {
+    font-size: 2.618em;
+}
+
+h4 {
+    font-size: 2.265em;
+}
+
+h5, h6 {
+    font-size: 1.618em;
+}
+
+
+
+table {
+    font-size: 10pt;
+}
+/* ----------------------------------------------------------------------------
+	Common styling
+---------------------------------------------------------------------------- */
+
+h1, h2, h3, h4, h5, h6,
+#Header .title,
+#ContentHeading,
+.navigation-wrapper .title {
+    font-family: "Segoe UI", "Helvetica", Garuda, Arial, sans-serif;
+}
+
+.form-field-input.required input,
+.form-field-input.required select {
+    border-left: 4px solid #A2C139;
+}
+
+    input.input-validation-error,
+    select.input-validation-error,
+    .form-field-input.required input.input-validation-error {
+        border-color: #E51400;
+        background-color: #FFF0EF;
+    }
+
+.form-field .field-validation-error, .photo-error {
+    color: #E51400;
+    margin-left: 6px;
+}
+
+/* ----------------------------------------------------------------------------
+	Masterpage, page layout
+---------------------------------------------------------------------------- */
+#page {
+    position: relative;
+    float: left;
+    width: 100%;
+}
+
+.page {
+    width: 960px;
+    background-color: white;
+    margin: 0 auto 20px auto;
+    -webkit-box-shadow: 0 0 85px rgba(0, 0, 0, .3);
+    -moz-box-shadow: 0 0 85px rgba(0, 0, 0, .3);
+    box-shadow: 0 0 85px rgba(0, 0, 0, .3);
+    -moz-border-radius: 0 0 10px 10px;
+    -webkit-border-radius: 0 0 10px 10px;
+    border-radius: 0 0 10px 10px;
+}
+
+#Header {
+    font-size: 10pt;
+    width: 980px;
+    margin: auto;
+    background: #fff;
+    padding-top: 15px;
+    float: left;
+}
+
+#info-block {
+    background: #434343;
+    width: 100%;
+    height: 40px;
+    float: left;
+}
+
+.info-block-text {
+    color: #fff;
+    font-size: 10pt;
+    padding: 12px;
+}
+
+#MasterLayout {
+    margin: 0px auto;
+    width: 980px;
+}
+
+
+#container {
+    width: 100%;
+    float: left;
+    background: #fff;
+    padding-bottom: 10px;
+    clear: both;
+}
+
+#sub-header {
+    width: 100%;
+    height: 100%;
+    color: #DDD;
+    float: left;
+}
+
+    #sub-header ul {
+        display: inline-block;
+        list-style: none;
+        margin-left: 48px;
+        margin-top: 6px;
+    }
+
+        #sub-header ul li {
+            float: left;
+            margin-right: 36px;
+            font-size: 1.2em;
+        }
+
+    #sub-header .logo {
+        display: inline-block;
+        float: left;
+        background: url(../../images/GTS/logo.png);
+        background-repeat: no-repeat;
+        width: 234px;
+        height: 73px;
+        margin: 25px 0px 15px 15px;
+        ;
+    }
+
+
+    #sub-header .title {
+        display: inline-block;
+        width: 600px;
+        font-size: 2.618em;
+        color: #000;
+        margin-left: 30px;
+        margin-top: 3px;
+    }
+
+
+.footer {
+    padding: 0px;
+    margin: 0px auto;
+    background: #434343;
+    position: relative;
+    clear: both;
+}
+
+    .footer a:link {
+        font-size: 11px;
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .footer a:hover {
+        text-decoration: underline;
+    }
+
+.footerContainer {
+    padding: 50px 0px 0px;
+    position: relative;
+    width: 980px;
+    margin: 0px auto;
+}
+
+.footerCol1 {
+    float: left;
+    width: 245px;
+    padding: 0px;
+    z-index: 230;
+}
+
+.footerCol2 {
+    padding: 0px;
+    width: 245px;
+    float: left;
+    z-index: 230;
+}
+
+.footerCol3 {
+    float: left;
+    width: 245px;
+    padding: 0px;
+    z-index: 240;
+}
+
+.footerCol4 {
+    float: left;
+    width: 245px;
+    padding: 0px;
+    z-index: 250;
+}
+
+.footer h2 {
+    font-size: 12px;
+    font-weight: normal;
+    padding-left: 15px;
+    color: #fff;
+    padding-bottom: 10px;
+}
+
+.footer p {
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 18px;
+    margin: 0px;
+    color: #fff;
+    padding-left: 15px;
+}
+
+.clearfloat {
+    clear: both;
+    height: 0px;
+    font-size: 1px;
+    line-height: 0px;
+}
+
+#footerLogo p {
+    font-size: 12px;
+    color: #fff;
+    padding-bottom: 10px;
+    margin-right: 10px;
+    font-weight: normal;
+}
+
+.content-table {
+    border: none;
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+}
+
+.page-table tr, .page-table td {
+    border: none;
+    border-spacing: 0;
+}
+
+.NavCell {
+    vertical-align: top;
+    text-align: left;
+    width: 240px;
+    padding: 10px 0;
+    margin: 0;
+    float: left;
+}
+
+
+.ContentCell {
+    background-color: #ffffff;
+}
+
+#ContentWrapper {
+    width: 720px;
+    margin-bottom: 24px;
+    float: left;
+}
+
+#Content {
+    background-color: #ffffff;
+}
+
+#ContentHeading {
+    font-size: 1.4em;
+    color: #555454;
+    text-transform: uppercase;
+    width: 90%;
+    clear: both;
+    margin: 30px auto 5px auto;
+}
+
+#MessageNotification {
+    font-size: 1.4em;
+    color: red;
+    width: 90%;
+    clear: both;
+    margin: auto;
+}
+
+#UserNotification {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+#BillingInfo {
+    width: 90%;
+    clear: both;
+    margin: 10px auto;
+}
+
+#BillingInformation, #ShippingInformation, #DeliveryInformation {
+    float: left;
+    width: 200px;
+    line-height: 15px;
+}
+
+#OrderInfo .OrderInfoHeading {
+    font-weight: bold;
+    line-height: 25px;
+}
+
+#OrderInfo #OrderInformation {
+    padding: 20px 0px;
+}
+
+    #OrderInfo #OrderInformation #Cart table {
+        margin-top: 10px;
+    }
+
+#ErrorMessage {
+    font-size: 1.4em;
+    color: red;
+    margin-bottom: 10px;
+}
+
+/* Payment Steps*/
+#purchase-steps {
+    /*list-style: none;
+	margin: 10px 0 10px 50px;
+    padding: 0;
+	font-size: 1.618em;*/
+    display: none;
+}
+
+    #purchase-steps li {
+        display: inline-block;
+        margin-right: 30px;
+        padding-right: 30px;
+        float: left;
+        color: #BBB;
+        border-right: 1px solid #BBB;
+    }
+
+        #purchase-steps li:last-child {
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #purchase-steps li.active {
+            color: #333;
+        }
+
+/* ----------------------------------------------------------------------------
+	Navigation
+---------------------------------------------------------------------------- */
+#Navigation {
+    margin-top: 10px;
+}
+
+    #Navigation ul li {
+        border-bottom: 1px solid #BFBFBF;
+    }
+
+        #Navigation ul li a {
+            text-decoration: none;
+            display: block;
+            line-height: 16px;
+            padding: 15px 15px 15px 15px;
+            color: #777777;
+            text-transform: uppercase;
+            word-wrap: break-word;
+            font-size: 16px;
+        }
+
+            #Navigation ul li a:hover {
+                color: #f37e20;
+            }
+
+.NavLinks {
+    background-color: #ffffff;
+}
+
+    .NavLinks a {
+        float: right;
+        text-decoration: none;
+        margin-right: 10px;
+        padding: 5px;
+    }
+
+        .NavLinks a:hover {
+            background-color: #035495;
+            color: #ffffff;
+        }
+
+.NavCell ul {
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+    text-align: left;
+}
+
+.NavCell li a {
+    display: block;
+    font-size: 1.2em;
+    padding: 7px 0 7px 15px;
+    text-decoration: none;
+}
+
+.NavCell li.active a {
+    color: #333;
+}
+
+.NavCell li:hover {
+    color: #333;
+    background-color: white;
+}
+
+    .NavCell li:hover a {
+        color: #333;
+    }
+
+#CategoryGroupNav {
+    float: left;
+}
+
+#CategoryGroupNavigation {
+    float: left;
+}
+
+    #CategoryGroupNavigation li a:hover {
+    }
+
+
+#SalesChannelNav {
+    margin: 0px 20px;
+    float: left;
+    width: 200px;
+}
+
+ul#store-nav,
+ul#category-nav {
+    margin: 0;
+    padding: 0;
+    display: none;
+}
+
+    ul#store-nav li.active,
+    ul#category-nav li.active {
+        color: #333;
+        background-color: white;
+        display: block;
+        /*padding: 7px 0 7px 15px;*/
+        text-decoration: none;
+    }
+
+.navigation-wrapper {
+    width: 200px;
+    overflow-x: hidden;
+}
+
+    .navigation-wrapper .title {
+        font-size: 2.618em;
+        margin: 0 5px 20px 5px;
+        color: white;
+        cursor: pointer;
+    }
+
+
+/*
+ul#category-nav
+{
+	list-style: none;
+	margin-left: 20px;
+}
+
+ul#category-nav li
+{
+	display: inline-block;
+	float: left;
+	font-size: 1.1em;
+	color: #666;
+	padding: 5px 10px;
+	text-transform: uppercase;
+}
+
+ul#category-nav li a
+{
+	color: #666;
+	text-decoration: none;
+}
+
+ul#category-nav li.active
+{
+	color: black;
+	font-weight: bold;
+}
+*/
+
+/* ----------------------------------------------------------------------------
+	ViewItems
+---------------------------------------------------------------------------- */
+
+#ViewItems {
+    width: 95%;
+    clear: both;
+    margin: auto;
+}
+
+#SalesChannelDetailPLUListView input[type=submit] {
+    margin: 5px 0 5px 0;
+}
+
+.PLUErrorLiteral {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+.MissingDateTimeButtonLocatorLiteral {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+.parentSCDName {
+    display: inline-block;
+    font-size: 2.618em;
+    margin: 10px 0 10px 0px;
+}
+
+.parentSCDDescription {
+    padding-bottom: 5px;
+    font-size: 10pt;
+    line-height: 12pt;
+}
+
+.PLUImage {
+    float: left;
+}
+
+.CompleteDetailsCell {
+    text-align: left;
+}
+
+.SalesChannelDetailPLUListTable {
+    width: 100%;
+}
+
+/* ----------------------------------------------------------------------------
+	AccountLogin
+---------------------------------------------------------------------------- */
+
+#Header .Cell {
+    width: 110px;
+    height: 20px;
+}
+
+/* ----------------------------------------------------------------------------
+	DeliveryInfo
+---------------------------------------------------------------------------- */
+
+.DeliveryInfoTable tr td {
+    background-color: #f4f4f4;
+    vertical-align: middle;
+    padding: 10px 2px;
+}
+
+#DeliveryInfo table {
+    margin-top: 10px;
+}
+
+    #DeliveryInfo table input[type=submit] {
+        float: right;
+    }
+
+#DeliveryInfo td {
+    padding-top: 10px;
+}
+
+#DeliveryInfo .NameColumn {
+    width: 135px;
+    padding-left: 5px;
+}
+
+    #DeliveryInfo .NameColumn input {
+        cursor: pointer;
+    }
+
+.DescriptionColumn {
+    text-align: left;
+}
+
+.ShipDateHeaderColumn, .ShipDateColumn {
+    width: 100px;
+    text-align: center;
+}
+
+.FeeHeaderColumn, .FeeColumn {
+    width: 80px;
+    text-align: center;
+}
+
+.FeeColumn {
+    font-weight: bold;
+}
+
+/* ----------------------------------------------------------------------------
+	DeliveryInfo MVC
+---------------------------------------------------------------------------- */
+
+.shipping-options {
+    list-style: none;
+    padding: 0;
+}
+
+.ship-option {
+    border: 1px solid #ccc;
+    background-color: #ddd;
+    margin-bottom: 5px;
+    position: relative;
+    padding: 10px;
+}
+
+    .ship-option:hover {
+        background-color: #eee;
+        border: 1px solid #ccc;
+    }
+
+    .ship-option h3 {
+        margin-top: 0;
+        margin-bottom: 5px;
+    }
+
+    .ship-option a {
+        display: block;
+        width: 100%;
+        text-decoration: none;
+        color: #444;
+        z-index: 100;
+    }
+
+        .ship-option a:hover {
+            color: #000;
+        }
+
+.ship-description {
+    margin-bottom: 5px;
+    width: 95%;
+}
+
+.ship-select {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -7px;
+    z-index: 0;
+    -moz-border-radius: 9px 9px 9px 9px;
+    -webkit-border-radius: 9px 9px 9px 9px;
+    border-radius: 9px 9px 9px 9px;
+    height: 18px;
+    width: 18px;
+    background-color: #333;
+    background-image: url(../../Content/themes/base/images/icons-18-white.png);
+    background-repeat: no-repeat;
+    background-position: -108px 50%;
+}
+
+/* ----------------------------------------------------------------------------
+	PassInfo
+---------------------------------------------------------------------------- */
+#PassLookup {
+    width: 95%;
+    clear: both;
+    margin: 10px auto;
+}
+
+    #PassLookup p {
+        width: 95%;
+        clear: both;
+        margin: 30px auto;
+    }
+
+.PassFieldLabel {
+    width: 125px;
+}
+
+.PassDescription {
+    font-weight: bold;
+    float: right;
+}
+
+    .PassDescription ~ div {
+        width: 90%;
+        margin: 30px auto 5px auto;
+    }
+
+    .PassDescription table tr td {
+        padding: 10px;
+    }
+
+#PassInfo input,
+#PassInfo select {
+    margin-bottom: 5px;
+}
+
+#passInfoCancelButton {
+    float: left;
+}
+
+#passInfoSaveButton {
+    float: right;
+}
+
+#passInfoAddmembersButton {
+    float: left;
+}
+
+
+/* ----------------------------------------------------------------------------
+	Roster
+---------------------------------------------------------------------------- */
+#RosterInfo {
+    width: 95%;
+    clear: both;
+    margin: 30px auto;
+}
+
+.RosterDescription {
+    font-weight: bold;
+}
+
+    .RosterDescription table tr td {
+        padding: 10px;
+    }
+
+#rosterInfoCancelButton {
+    float: left;
+}
+
+#rosterInfoContinueButton {
+    float: right;
+}
+
+/* ----------------------------------------------------------------------------
+	AssociatedTickets
+---------------------------------------------------------------------------- */
+
+#AssociatedTickets #AssociatedTicketsDescription {
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+#AssociatedTickets #AJAXContainer table {
+    width: 100%;
+    border-spacing: 0;
+}
+
+#AssociatedTickets .ItemPrice {
+    display: block;
+    text-align: right;
+}
+
+#AssociatedTickets .ItemQuantity {
+    display: block;
+    text-align: center;
+}
+
+#AssociatedTickets .SelectedEventDateTime {
+    display: block;
+    text-align: center;
+}
+
+#AssociatedTickets .SelectDateTime {
+    text-align: center;
+}
+
+#AssociatedTickets #UpdateProgress {
+    font-family: Arial;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+    #AssociatedTickets #UpdateProgress img {
+        padding-right: 10px;
+        vertical-align: middle;
+    }
+
+/* ----------------------------------------------------------------------------
+	SmallCart (aka "running cart")
+---------------------------------------------------------------------------- */
+
+#CartSmall * {
+    border: solid 1px #aaaaaa;
+    border-collapse: collapse;
+    font-size: 11px;
+    padding: 3px;
+}
+
+#CartSmall table {
+    background-color: #ffffff;
+}
+
+/* ----------------------------------------------------------------------------
+	CVV
+---------------------------------------------------------------------------- */
+
+#CVVPopUp {
+    float: left;
+    clear: both;
+    display: inline-block;
+    padding: 10px 0px;
+    padding-bottom: 20px;
+    line-height: 20px;
+}
+
+    #CVVPopUp div {
+        float: left;
+        clear: both;
+    }
+
+#CVVLabel {
+    font-size: 1.2em;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #d6d4d4;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    width: 500px;
+    float: left;
+    clear: both;
+}
+
+#CVVVisaMCDiscoverImage, #CVVAmexImage {
+    padding-top: 10px;
+    float: left;
+    clear: both;
+}
+
+#VisaMCDiscoverNameLabel, #AmexNameLabel {
+    padding-top: 20px;
+    font-size: 12pt;
+    float: left;
+    clear: both;
+}
+
+#VisaMCDiscoverInfoLabel, #AmexInfoLabel {
+    font-weight: normal;
+    font-size: 10pt;
+    float: left;
+    clear: both;
+}
+
+#CVVInfoLabel {
+    font-weight: normal;
+    font-size: 10pt;
+}
+
+/* ----------------------------------------------------------------------------
+	Terms and Conditions 
+---------------------------------------------------------------------------- */
+#TermsAndConditionsInLine {
+    padding: 20px 0px;
+    font-size: 10pt;
+    line-height: 12pt;
+}
+
+#TermsAndConditionsInLineGray {
+    text-align: left;
+    height: 200px;
+    width: 95%;
+    overflow-y: auto;
+    border: 1px solid #000000;
+    background-color: #CCCCCC;
+    padding: 8px;
+}
+
+/* ----------------------------------------------------------------------------
+	Date Selection
+---------------------------------------------------------------------------- */
+.PackageDetailSelectedEventDateLabel {
+    background-color: #e2e2e2;
+    border: dashed 1px #666666;
+    padding: 2px;
+}
+
+#NoEventsDisplay {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+.CalendarControlsPanel {
+    display: block;
+    /*	float: right;*/
+    white-space: nowrap;
+    background-color: #cccccc;
+    padding: 3px 3px 3px 3px;
+    border: solid 1px #666666;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+    .CalendarControlsPanel input[type=image] {
+        vertical-align: middle;
+    }
+
+#EventsCalendarGroup {
+    min-width: 250px;
+    max-width: 100%;
+    border-radius: 5px;
+    padding: 10px 3px 0px 0px;
+}
+
+    #EventsCalendarGroup td {
+        vertical-align: middle;
+        padding-right: 10px;
+    }
+
+.EventAttributesRow td {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+.EventAttributesList ul {
+    list-style: square;
+    font-style: italic;
+    color: #f47e1f; /*gateway orange*/
+    margin: 0;
+    text-align: left;
+    padding: 0;
+}
+
+/* ----------------------------------------------------------------------------
+	Log In Info
+---------------------------------------------------------------------------- */
+.LogInInfo {
+    float: right;
+    margin-top: 12px;
+    margin-right: 20px;
+}
+
+    .LogInInfo a {
+        text-transform: capitalize;
+        color: #000;
+        text-decoration: none;
+    }
+
+        .LogInInfo a:hover {
+            color: #00619E;
+            text-decoration: none;
+        }
+
+#LogInInformation {
+    font-size: 1.4em;
+    text-align: right;
+}
+
+#LogOff {
+    text-align: right;
+    height: 20px;
+}
+
+#GroupSalesCreateAccount {
+    padding-top: 20px;
+}
+
+/* ----------------------------------------------------------------------------
+	Replenish Receipt
+---------------------------------------------------------------------------- */
+
+#ManualReplenish table {
+    width: 100%;
+    border-color: Black;
+    border: solid 1px;
+}
+
+#ManualReplenish th {
+    border-color: Black;
+    border: solid 1px;
+}
+
+#ManualReplenish td {
+    vertical-align: middle;
+    text-align: center;
+    border-color: Black;
+    border: solid 1px;
+}
+
+
+/* ----------------------------------------------------------------------------
+	Payment Plan
+---------------------------------------------------------------------------- */
+#PaymentPlanSelector {
+    width: 60%;
+    margin: 30px auto 0px auto;
+    clear: both;
+}
+
+.PlaymentPlanSelector {
+    background: #EEE;
+    padding-top: 10px;
+    text-align: center;
+}
+
+    .PlaymentPlanSelector span {
+        padding-left: 0px;
+        padding-top: 10px;
+        font-size: 12pt;
+        font-weight: bold;
+    }
+
+        .PlaymentPlanSelector span input {
+            margin: 0px 10px 0px 0px;
+            cursor: pointer;
+        }
+
+.PaymentPlanSelectorControl {
+    padding-top: 0px !important;
+    text-align: left;
+}
+
+.PaymentPlanSelectorDisabledLabel {
+    color: Gray;
+}
+
+.SelectedOption {
+    color: #fff;
+    background-color: #434343;
+    padding: 15px 0px 0px 0px;
+    margin: 10px 0px 0px 0px;
+}
+
+.UnselectedOption {
+    padding: 15px 0px 0px 0px;
+    margin: 10px 0px 0px 0px;
+}
+
+.DisableTextBox {
+    background-color: #CCCCCC;
+    border: 1px solid;
+}
+
+#FileUpload {
+    border: solid 1px #c0c0c0;
+    background-color: #e8e8e8;
+    padding: 10px;
+}
+
+.NoImageLabel {
+    border: solid 1px #000000;
+    background-color: #ffffff;
+    display: block;
+    padding: 50px;
+}
+
+/*-----------------------------------------------------------------------------
+	ItemVariations
+-----------------------------------------------------------------------------*/
+.ItemVariationsPanel {
+    min-height: 150px;
+}
+
+.ItemVariationTable {
+    display: inline;
+    min-height: 150px;
+}
+
+#ItemVariationsList li {
+    list-style-type: none;
+    display: inline;
+}
+
+/*-----------------------------------------------------------------------------
+	DateInput
+-----------------------------------------------------------------------------*/
+.Watermark, .DayWatermark, .MonthWatermark, .YearWatermark {
+    color: #999999;
+    font-style: italic;
+}
+
+.DayTextBox, .DayWatermark {
+    width: 30px;
+}
+
+.MonthTextBox, .MonthWatermark {
+    width: 30px;
+}
+
+.YearTextBox, .YearWatermark {
+    width: 35px;
+}
+
+/*-----------------------------------------------------------------------------
+	User Account
+-----------------------------------------------------------------------------*/
+#AccountForm Table, #PaymentForm Table {
+    width: 100%;
+    text-align: left;
+}
+
+#AccountForm td {
+    font-size: 12pt;
+    vertical-align: middle;
+}
+
+#AccountUsernameColumn, #PaymentEndorsementColumn {
+    width: 190px;
+}
+
+/*-----------------------------------------------------------------------------
+	Request Corporate Account
+-----------------------------------------------------------------------------*/
+#BusinessInfoHeader {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#ContactInfoHeader {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#RequestCorporateAccountConfirmation {
+    font-size: 14px;
+}
+
+/*-----------------------------------------------------------------------------
+	Change Password
+-----------------------------------------------------------------------------*/
+#ContentWrapper #PasswordRequest {
+    clear: both;
+    margin: 30px auto;
+    margin-left: 30px;
+    display: inline-block;
+    float: left;
+    width: 450px;
+    margin-top: 20px;
+    padding: 20px;
+    padding-bottom: 20px;
+    line-height: 20px;
+    background: #fbfbfb;
+    border: 1px solid #d6d4d4;
+}
+
+    #ContentWrapper #PasswordRequest td a {
+        display: inline-block;
+        color: white;
+        font-family: "Segoe UI", "Helvetica", Garuda, Arial, sans-serif;
+        font-size: 8pt;
+        text-transform: uppercase;
+        padding: 6px 12px;
+        background-color: #434343;
+        border: none;
+        text-decoration: none;
+        cursor: pointer;
+        margin-top: 15px;
+        padding: 8px 20px;
+    }
+
+    #ContentWrapper #PasswordRequest td {
+        width: 100px;
+        padding-bottom: 5px;
+        vertical-align: middle;
+    }
+
+        #ContentWrapper #PasswordRequest td label {
+            font-size: 12pt;
+        }
+
+        #ContentWrapper #PasswordRequest td input {
+            width: 200px;
+        }
+
+#ChangePasswordConfirmation {
+    font-size: 14px;
+}
+/* ----------------------------------------------------------------------------
+	Pass Contact Selector
+---------------------------------------------------------------------------- */
+.PassContactSelector {
+    width: 80%;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+#PassContactTable {
+    width: 100%;
+}
+
+.PassContactCell td {
+    text-align: center;
+}
+
+    .PassContactCell td + td {
+        text-align: left;
+        vertical-align: middle;
+    }
+
+.PassContactImageCell td {
+    text-align: center;
+    background-image: url(/webstore/images/gts/age-warning.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    height: auto;
+    width: auto;
+}
+
+    .PassContactImageCell td + td {
+        text-align: left;
+        background-image: none;
+        height: auto;
+        width: auto;
+        vertical-align: middle;
+    }
+
+.PassContactInstruction {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.PassHolderName {
+    font-weight: bold;
+}
+
+.PassHolderWarning {
+    color: #A21919;
+}
+
+/*-----------------------------------------------------------------------------
+	Pass Confirmation
+-----------------------------------------------------------------------------*/
+
+.PassInformationTable {
+    margin: 0 auto;
+}
+
+.PassInformation .FieldLabel {
+    text-align: right;
+    width: 100%;
+}
+
+.PassInformationTable .Buttons input {
+    margin-right: 20px;
+}
+
+.PassInformationtable .Buttons {
+    border-top: 1px solid #cccccc;
+}
+
+/*-----------------------------------------------------------------------------
+	OrderConfirmation
+-----------------------------------------------------------------------------*/
+
+#OrderConfirmation {
+    width: 90%;
+    clear: both;
+    margin: 30px auto;
+}
+
+#OrderConfirmationHeader div {
+}
+
+#OrderConfirmationHeader #PrinterFriendly a {
+    margin-bottom: 10px;
+    color: red;
+    text-decoration: none;
+    font-size: 10pt;
+}
+
+    #OrderConfirmationHeader #PrinterFriendly a:hover {
+        color: #f37e20;
+    }
+
+#OrderConfirmationHeader #PrintTickets {
+    background-color: #eee;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+    #OrderConfirmationHeader #PrintTickets p {
+        margin: 5px;
+    }
+
+    #OrderConfirmationHeader #PrintTickets input {
+        margin: 5px;
+    }
+
+#OrderConfirmationHeader #PrintOnWebFailed {
+    border: 1px solid #000000;
+    background-color: #ffff00;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+    #OrderConfirmationHeader #PrintOnWebFailed p {
+        margin: 5px;
+    }
+
+#OrderConfirmationHeader #OrderNumber {
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+#OrderConfirmation #OrderInfo {
+    margin: 20px 0px;
+}
+/*-----------------------------------------------------------------------------
+	OrderHistory Page
+-----------------------------------------------------------------------------*/
+
+#OrderHistory {
+    width: 95%;
+    clear: both;
+    margin: 30px auto;
+}
+
+#OrderHistoryInfo {
+    padding-top: 10px;
+}
+
+#OrderHistory .Row {
+    background-color: #ffffff;
+    border-bottom: none;
+    color: #222222;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+}
+
+#OrderHistory .AltRow {
+    background-color: #f4f4f4;
+    border-bottom: none;
+    color: #222222;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+}
+
+#OrderHistory .OrdersTable {
+    border: none;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+    #OrderHistory .OrdersTable .Row td, #OrderHistory .OrdersTable .AltRow td {
+        text-align: center;
+        border: none;
+        padding: 10px 10px;
+    }
+
+    #OrderHistory .OrdersTable th {
+        height: 25px;
+        color: #ffffff;
+        background-color: #00619E;
+        vertical-align: middle;
+    }
+
+#OrderHistory .OpenDateCell {
+    width: 130px;
+    padding-left: 15px;
+}
+
+#OrderHistory .ExtIDCell {
+    width: 130px;
+    text-align: right;
+}
+
+#OrderHistory .OrderAmountCell {
+    width: 100px;
+    text-align: right;
+}
+
+#OrderHistory .ViewOrderCell {
+    width: 100px;
+    text-align: right;
+    padding-right: 15px;
+}
+
+    #OrderHistory .ViewOrderCell a {
+        color: #0066CC;
+        text-decoration: none;
+    }
+
+        #OrderHistory .ViewOrderCell a:hover {
+            color: #0066CC;
+            text-decoration: underline;
+        }
+
+.OrderHistoryTitle {
+    font-size: 1.4em;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #d6d4d4;
+    color: #555454;
+    text-transform: uppercase;
+}
+
+/* css for Page indexing */
+.OrderHistoryTablePager {
+    height: 15px;
+    color: #ffffff;
+    background-color: #efefef;
+    border-top: inset 1px #666666;
+}
+
+    .OrderHistoryTablePager a, .OrderHistoryTablePager span {
+        padding: 5px 10px 5px 10px;
+        display: block;
+        background-color: #00619E;
+        color: #ffffff;
+        text-align: center;
+        border: solid 2px #00619E;
+        text-decoration: none;
+    }
+
+        .OrderHistoryTablePager span, .OrderHistoryTablePager a:hover {
+            background-color: #434343;
+            border: solid 2px #434343;
+        }
+
+
+/*-----------------------------------------------------------------------------
+	ViewOrder Page
+-----------------------------------------------------------------------------*/
+
+#ViewOrder {
+    width: 95%;
+    clear: both;
+    margin: 30px auto;
+}
+
+#ViewOrderInfo {
+    padding-top: 10px;
+}
+
+#ViewOrder table {
+    width: 100%;
+    float: left;
+}
+
+
+#ViewOrder .Row {
+    background-color: #ffffff;
+    border-bottom: none;
+    color: #222222;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+}
+
+    #ViewOrder .Row td {
+        border: none;
+    }
+
+#ViewOrder .AltRow {
+    background-color: #f4f4f4;
+    border-bottom: none;
+    color: #222222;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+}
+
+    #ViewOrder .AltRow td {
+        border: none;
+    }
+
+#ViewOrder .OrderTable {
+    border: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+    #ViewOrder .OrderTable th {
+        height: 25px;
+        color: #ffffff;
+        background-color: #00619E;
+        border: none;
+        vertical-align: middle;
+    }
+
+#ViewOrder .DescriptionCell {
+    width: 200px;
+    padding-left: 10px;
+}
+
+#ViewOrder .GuestNameCell {
+    width: 250px;
+    padding-left: 10px;
+}
+
+#ViewOrder .PrintCell {
+    width: 100px;
+    text-align: center;
+}
+
+#ViewOrder .ButtonRight {
+    text-align: right;
+}
+
+#ViewOrder .ExternalIDCell {
+    font-weight: bold;
+    width: 100%;
+    padding-top: 20px;
+}
+
+
+/*-----------------------------------------------------------------------------
+	ViewOrder Page
+-----------------------------------------------------------------------------*/
+
+#PrintOnWebProcessingInformation {
+    border: 1px solid #000000;
+    background-color: #c0c0c0;
+    padding: 15px;
+    margin: 5px 0 5px 0;
+}
+
+#FOPsForm {
+    float: right;
+    clear: both;
+    margin: 20px 0px;
+}
+
+    #FOPsForm td {
+        padding: 0px 20px 5px 0px;
+        vertical-align: middle;
+    }
+
+/*-----------------------------------------------------------------------------
+	DebitInfo Page
+-----------------------------------------------------------------------------*/
+
+.DebitTable {
+    background-color: #ffffff;
+}
+
+    .DebitTable tr td, .DebitTable tr th {
+        vertical-align: middle;
+    }
+
+    .DebitTable .DebitHeaderDescriptionCell, .DebitTable .DebitHeaderPriceCell {
+        background-color: #5887CD;
+        color: #ffffff;
+    }
+
+#Debit input[type=text] {
+    text-align: right;
+}
+
+.DebitDescriptionNameCell {
+    padding: 0 5px;
+}
+
+.DebitPriceCell {
+    width: 70px;
+    text-align: center;
+}
+
+/* CSS for Survey
+----------------------------------------------------------*/
+
+#OptInOptInEmailNewsLetter {
+    text-align: center;
+}
+
+#SurveyOptIn {
+    margin-left: 25%;
+    width: 400px;
+    text-align: center;
+}
+
+#OptInSurveyAndEmailNewLetter {
+    clear: both;
+    text-align: center;
+}
+
+    #OptInSurveyAndEmailNewLetter input {
+        clear: left;
+        float: left;
+    }
+
+    #OptInSurveyAndEmailNewLetter label {
+        display: block;
+        margin-left: 25px;
+    }
+
+#TermsAndConditions {
+    text-align: center;
+}
+
+#Survey a {
+    text-decoration: none;
+    color: red;
+}
+
+/* CSS for new CustContact layout (5.5)
+----------------------------------------------------------*/
+
+#EditAccountInfo {
+    width: 90%;
+    clear: both;
+    margin: 30px auto;
+}
+
+#CustContactsForm {
+    display: inline-block;
+    float: left;
+    width: 625px;
+    margin-top: 20px;
+    padding: 20px;
+    padding-bottom: 20px;
+    line-height: 20px;
+    background: #fbfbfb;
+    border: 1px solid #d6d4d4;
+    clear: both;
+}
+
+    #CustContactsForm ~ table {
+        margin-top: 20px;
+        width: 667px;
+        float: left;
+    }
+
+    #CustContactsForm .label,
+    #CustContactsForm .field {
+        padding-bottom: 10px;
+        float: left;
+    }
+
+    #CustContactsForm .label {
+        width: 190px;
+    }
+
+    #CustContactsForm .field {
+        width: 300px;
+    }
+
+    #CustContactsForm input {
+        float: left;
+        padding-left: 3px;
+    }
+
+    #CustContactsForm .wrap {
+        float: left;
+    }
+
+#CountryContainer .field select {
+    width: 200px !important;
+}
+
+
+.custcontact-wrapper {
+    float: left;
+}
+
+#EditAccountInfo input {
+    float: left;
+}
+
+#AccountForm {
+    display: inline-block;
+    float: left;
+    width: 625px;
+    margin-top: 20px;
+    padding: 20px;
+    padding-bottom: 20px;
+    line-height: 20px;
+    background: #fbfbfb;
+    border: 1px solid #d6d4d4;
+    clear: both;
+}
+
+    #AccountForm input {
+        margin-bottom: 5px;
+        width: 250px;
+    }
+
+    #AccountForm ~ input {
+        float: left;
+        clear: both;
+    }
+
+/* CSS for view cart link (6.2)
+----------------------------------------------------------*/
+.view-cart {
+    float: right;
+    margin-top: 50px;
+    margin-right: 20px;
+    color: white;
+}
+
+#shopping-cart {
+    height: 35px;
+    width: 37px;
+}
+
+.view-cart a {
+    color: #000;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 13pt;
+}
+
+.event-calendar-icon {
+    vertical-align: middle;
+}
+
+.view-cart a:hover {
+    color: #00619E;
+    text-decoration: none;
+}
+
+
+
+/* CSS for FOPSForm on ReviewOrder (6.5)
+----------------------------------------------------------*/
+
+#FOPsForm {
+}
+
+.fop-wrapper {
+    width: 500px;
+}
+
+.fop-wrap {
+    float: left;
+    padding: 5px;
+    width: 400px;
+}
+
+    .fop-wrap .label {
+        float: left;
+        width: 150px;
+    }
+
+    .fop-wrap .field {
+        float: left;
+    }
+
+    .fop-wrap .wide {
+        float: left;
+        width: 100%;
+    }
+
+.maestro-wrap {
+    float: left;
+    padding: 5px;
+    width: 400px;
+}
+
+    .maestro-wrap .label {
+        float: left;
+        width: 150px;
+    }
+
+    .maestro-wrap .field {
+        float: left;
+    }
+
+
+
+
+
+.text-right {
+    text-align: right;
+}
+
+.float-left {
+    float: left;
+}
+
+.width-45 {
+    width: 45%;
+}
+
+.border-left-gray {
+    border-left: solid 1px gray;
+}
+
+.padding-10px {
+    padding: 10px;
+}
+
+
+/*  RTL Styling  */
+.dir-rtl ul {
+    padding-right: 0;
+}
+
+.dir-rtl .icon-button .icon-section {
+    margin-right: 12px;
+}
+
+.dir-rtl #page {
+    float: right;
+}
+
+.dir-rtl #Header {
+    float: right;
+}
+
+.dir-rtl #info-block {
+    float: right;
+}
+
+.dir-rtl #container {
+    float: right;
+}
+
+.dir-rtl #sub-header {
+    float: right;
+}
+
+    .dir-rtl #sub-header ul {
+        margin-right: 48px;
+    }
+
+        .dir-rtl #sub-header ul li {
+            float: right;
+            margin-left: 36px;
+        }
+
+    .dir-rtl #sub-header .logo {
+        float: right;
+    }
+
+    .dir-rtl #sub-header .title {
+        margin-right: 30px;
+    }
+
+.dir-rtl .footerCol1 {
+    float: right;
+}
+
+.dir-rtl .footerCol2 {
+    float: right;
+}
+
+.dir-rtl .footerCol3 {
+    float: right;
+}
+
+.dir-rtl .footerCol4 {
+    float: right;
+}
+
+.dir-rtl .footer h2 {
+    padding-right: 15px;
+}
+
+.dir-rtl .footer p {
+    padding-right: 15px;
+}
+
+.dir-rtl #footerLogo p {
+    margin-left: 10px;
+}
+
+.dir-rtl .NavCell {
+    text-align: right;
+    float: right;
+}
+
+.dir-rtl #ContentWrapper {
+    float: right;
+}
+
+.dir-rtl #BillingInformation, .dir-rtl #ShippingInformation, .dir-rtl #DeliveryInformation {
+    float: right;
+}
+
+.dir-rtl #purchase-steps li {
+    margin-left: 30px;
+    padding-left: 30px;
+    float: right;
+    border-left: 1px solid #BBB;
+}
+
+.dir-rtl .NavLinks a {
+    float: left;
+    margin-left: 10px;
+}
+
+.dir-rtl .NavCell ul {
+    padding-right: 0;
+    text-align: right;
+}
+
+.dir-rtl #CategoryGroupNav {
+    float: right;
+}
+
+.dir-rtl #CategoryGroupNavigation {
+    float: right;
+}
+
+.dir-rtl #SalesChannelNav {
+    float: right;
+}
+
+.dir-rtl ul#category-nav {
+    margin-right: 20px;
+}
+
+    .dir-rtl ul#category-nav li {
+        float: right;
+    }
+
+.dir-rtl .PLUImage {
+    float: right;
+}
+
+.dir-rtl .CompleteDetailsCell {
+    text-align: right;
+}
+
+.dir-rtl #DeliveryInfo table input[type=submit] {
+    float: left;
+}
+
+.dir-rtl #DeliveryInfo .NameColumn {
+    padding-right: 5px;
+}
+
+.dir-rtl .DescriptionColumn {
+    text-align: right;
+}
+
+.dir-rtl .ship-select {
+    left: 10px;
+}
+
+.dir-rtl .PassDescription {
+    float: left;
+}
+
+.dir-rtl #passInfoCancelButton {
+    float: right;
+}
+
+.dir-rtl #passInfoSaveButton {
+    float: left;
+}
+
+.dir-rtl #passInfoAddmembersButton {
+    float: right;
+}
+
+.dir-rtl #rosterInfoCancelButton {
+    float: right;
+}
+
+.dir-rtl #rosterInfoContinueButton {
+    float: left;
+}
+
+.dir-rtl #AssociatedTickets .ItemPrice {
+    text-align: left;
+}
+
+.dir-rtl #AssociatedTickets #UpdateProgress img {
+    padding-left: 10px;
+}
+
+.dir-rtl #CVVPopUp {
+    float: right;
+}
+
+    .dir-rtl #CVVPopUp div {
+        float: right;
+    }
+
+.dir-rtl #CVVLabel {
+}
+
+.dir-rtl #CVVVisaMCDiscoverImage, .dir-rtl #CVVAmexImage {
+    float: right;
+}
+
+.dir-rtl #VisaMCDiscoverNameLabel, .dir-rtl #AmexNameLabel {
+    float: right;
+}
+
+.dir-rtl #VisaMCDiscoverInfoLabel, .dir-rtl #AmexInfoLabel {
+    float: right;
+}
+
+.dir-rtl #TermsAndConditionsInLineGray {
+    text-align: right;
+}
+
+.dir-rtl #EventsCalendarGroup td {
+    padding-left: 10px;
+}
+
+.dir-rtl .EventAttributesList ul {
+    text-align: right;
+}
+
+.dir-rtl .LogInInfo {
+    float: left;
+    margin-left: 20px;
+}
+
+.dir-rtl #LogInInformation {
+    text-align: left;
+}
+
+.dir-rtl #LogOff {
+    text-align: left;
+}
+
+.dir-rtl .PlaymentPlanSelector span {
+    padding-right: 0px;
+}
+
+.dir-rtl .PaymentPlanSelectorControl {
+    text-align: right;
+}
+
+.dir-rtl #AccountForm Table, .dir-rtl #PaymentForm Table {
+    text-align: right;
+}
+
+.dir-rtl #ContentWrapper #PasswordRequest {
+    margin-right: 30px;
+    float: right;
+}
+
+.dir-rtl .PassContactCell td + td {
+    text-align: right;
+}
+
+.dir-rtl .PassContactImageCell td + td {
+    text-align: right;
+}
+
+.dir-rtl .PassInformation .FieldLabel {
+    text-align: left;
+}
+
+.dir-rtl .PassInformationTable .Buttons input {
+    margin-left: 20px;
+}
+
+.dir-rtl #OrderHistory .OpenDateCell {
+    padding-right: 15px;
+}
+
+.dir-rtl #OrderHistory .ExtIDCell {
+    text-align: left;
+}
+
+.dir-rtl #OrderHistory .OrderAmountCell {
+    text-align: left;
+}
+
+.dir-rtl #OrderHistory .ViewOrderCell {
+    text-align: left;
+    padding-left: 15px;
+}
+
+.dir-rtl #ViewOrder table {
+    float: right;
+}
+
+.dir-rtl #ViewOrder .DescriptionCell {
+    padding-right: 10px;
+}
+
+.dir-rtl #ViewOrder .GuestNameCell {
+    padding-right: 10px;
+}
+
+.dir-rtl #ViewOrder .ButtonRight {
+    text-align: left;
+}
+
+.dir-rtl #FOPsForm {
+    float: left;
+}
+
+.dir-rtl #Debit input[type=text] {
+    text-align: left;
+}
+
+.dir-rtl #OptInSurveyAndEmailNewLetter input {
+    clear: right;
+    float: right;
+}
+
+.dir-rtl #OptInSurveyAndEmailNewLetter label {
+    margin-right: 25px;
+}
+
+.dir-rtl #CustContactsForm {
+    float: right;
+}
+
+    .dir-rtl #CustContactsForm ~ table {
+        float: right;
+    }
+
+    .dir-rtl #CustContactsForm .label,
+    .dir-rtl #CustContactsForm .field {
+        float: right;
+    }
+
+    .dir-rtl #CustContactsForm input {
+        float: right;
+        padding-right: 3px;
+    }
+
+    .dir-rtl #CustContactsForm .wrap {
+        float: right;
+    }
+
+.dir-rtl .custcontact-wrapper {
+    float: right;
+}
+
+.dir-rtl #EditAccountInfo input {
+    float: right;
+}
+
+.dir-rtl #AccountForm {
+    float: right;
+}
+
+    .dir-rtl #AccountForm ~ input {
+        float: right;
+    }
+
+.dir-rtl .view-cart {
+    float: left;
+    margin-left: 20px;
+}
+
+.dir-rtl .text-right {
+    text-align: left;
+}
+
+
+/* ----------------------------------------------------------------------------
+	GuestNames page
+---------------------------------------------------------------------------- */
+.GuestNameTable {
+    margin: 10px 0;
+}
+
+/*.GuestNameTable tr td, .GuestNameTable tr th
+{
+	border: solid 1px #000000;	
+}
+
+.GuestTicketHeaderColumn, .GuestFirstNameHeaderColumn, .GuestLastNameHeaderColumn
+{
+	background-color: #5887CD;
+	color: #ffffff;
+    padding: 3px 6px;
+}
+
+ Have to set a fixed width because 100% isn't working in all browsers'*
+.GuestFirstNameColumn input, .GuestLastNameColumn input {
+    width: 200px;
+}
+*/
+
+.GuestTicketDescriptionColumn {
+    width: 200px;
+    vertical-align: middle !important;
+}
+
+.GuestContactColumn {
+}
+
+.GuestContactColumn .field input, .GuestContactColumn .field select {
+    border: solid 1px #666;
+    box-shadow: 0 0 1px #666;
+}
+
+.GuestContactColumn .label {
+    padding: 5px 5px 0 0;
+}
+
+.GuestContactColumn .field {
+    padding: 5px 5px 0 0;
+}
+
+.GuestContactColumn #CountryContainer .field select {
+    width: 200px !important;
+}
+
+    .GuestContactColumn .wrap {
+        float: left;
+    }
+
+.GuestContactColumn .name-wrap,
+.GuestContactColumn .street-wrap,
+.GuestContactColumn .address-wrap,
+.GuestContactColumn .tring-wrap {
+    clear: both;
+}
+
+
+.GuestContactColumn #PostalContainer input {
+    width: 80px !important;
+}
+
+.GuestContactColumn .field span {
+    display: block;
+    color: #900;
+}
+
+.GuestNameRow {
+    background: #e9e9e9 none repeat scroll 0 0;
+}
+
+.GuestNameAltRow {
+    background: #fcfcfc none repeat scroll 0 0;
+}
+
+.GuestNameRow td, .GuestNameAltRow td {
+    padding: 5px 0 5px 10px;
+    border-bottom: solid 1px #333;
+}
+
+.GuestContactColumn .label:empty, .GuestContactColumn .field:empty {
+    display: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+#NameTitlecontainer {
+}
+
+.GuestNameTable {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.guest-firstname.wrap {
+    float: left;
+    margin-right: 5px;
+}
+
+.guest-lastname {
+}
+
+#GuestNameTableWrapper {
+    overflow-y: auto;
+    max-height: 700px;
+}
+
+.GuestContactColumn .address-wrap {
+    clear: both;
+}
+
+.GuestContactColumn .email-wrap {
+    clear: both;
+}
+
+.guest-firstname .label,
+.guest-lastname .label {
+    padding: 3px 0;
+}
+
+
+/* for DOB control */
+.MonthWatermark, .DayWatermark, .YearWatermark,
+.MonthTextBox, .DayTextBox, .YearTextBox {
+    width: 40px;
+}
+
+
+#DOBContainer {
+    width: 240px;
+}

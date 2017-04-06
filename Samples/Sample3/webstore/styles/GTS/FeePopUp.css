@@ -1,0 +1,28 @@
+﻿body
+{
+	font-family: Tahoma, Arial, Sans-Serif;
+	font-size: 12px;
+}
+
+td
+{
+	vertical-align: top;
+}
+
+#FeePopUp table
+{
+	background-color: #ffffff;
+	margin: 0 auto;
+	width: 520px;
+}
+
+#FeeInfoHeader
+{
+	font-size: 13px;
+	font-weight: bold;	
+}
+
+#FeeInfo
+{
+	font-size: 13px;
+}

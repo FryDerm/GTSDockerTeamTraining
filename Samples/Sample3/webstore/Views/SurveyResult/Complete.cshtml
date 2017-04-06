@@ -1,0 +1,22 @@
+﻿@using Gateway.Business.Web.Services.WsHtml
+@using Gateway.Mvc.HtmlHelpers
+@{
+    ViewBag.Title = "Survey Completed";
+}
+
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/surveys.css")" />
+
+<div id="SurveyCompleteMessage">
+@if (ViewBag.SaveResult)
+{
+	<p>[L:SurveyResultSuccess]</p>
+}
+else
+{
+ 	<p>[L:SurveyResultFailure]</p>
+}
+</div>
+
+<div id="SurveyConclusion">
+@Html.HtmlContent(HtmlContentType.SurveyConclustionPage)
+</div>

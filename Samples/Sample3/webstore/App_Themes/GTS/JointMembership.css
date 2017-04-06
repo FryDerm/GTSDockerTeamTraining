@@ -1,0 +1,77 @@
+﻿/* ----------------------------------------------------------------------------
+	JointMembership Page
+---------------------------------------------------------------------------- */
+.requiredmemberlist_block, .additionalmemberlist_block
+{	
+	line-height: 20px;
+	margin-bottom: 40px;
+}
+
+.requiredmemberlist_block .row td,
+.additionalmemberlist_block .row td
+{	
+	text-align: center;
+	vertical-align: middle;
+	padding: 0px 2px;
+}
+
+.requiredmemberlist_block .MemberInfoHeader, .additionalmemberlist_block .MemberInfoHeader
+{
+	display: block;
+	color: #000;
+	padding: 3px 5px;
+	position:relative;
+	font-size: 17px;
+	font-weight: bold;	
+	margin-bottom: 10px;	
+}
+
+.requiredmemberlist_block table, .additionalmemberlist_block table
+{
+	width: 100%;
+}
+
+.addbutton_block 
+{
+	
+}
+
+.continue_block
+{
+	width: 100%;
+}
+
+.continue_block input[type=submit]
+{
+	float: right;	
+}
+
+/*.row
+{
+	
+} */
+
+.validationErrorMessage 
+{
+	background-color: #E3E3E3;
+    border: 1px solid #CC0000;
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    color: #CC0000;
+    font-weight: bold;
+}
+
+.relationship_cell select
+{
+	width: 120px;
+}
+
+
+
+
+/* RTL Styling */
+.dir-rtl .continue_block input[type=submit]
+{
+	float: left;	
+}

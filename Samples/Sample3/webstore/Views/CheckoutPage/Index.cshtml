@@ -1,0 +1,50 @@
+﻿@using Gateway.Security
+<!DOCYTYPE html>
+<html ng-cloak>
+
+<head>
+@Html.Partial("FrontEndIncludes")
+</head>
+    
+<body>
+
+    @Html.Raw(File.ReadAllText(Server.MapPath("~/FrontEnd/" + Gateway.Web.StateManager.SalesChannel.Merchant.WebTheme + "/checkout.html")))
+
+@if (Licensing.IsLicensed(Licensing.LicenseTypes.Accertify))
+    {
+        <div id="ThreatMetrix">
+
+            <script>threatMetrixLoaded = true;</script>
+
+            @*Begin ThreatMetrix profiling tags below --%>
+            <%--note: replace 'UNIQUE_SESSION_ID' with a uniquely generated handle
+            note: 'PAGEID' is only needed for TDCloud, replace 'PAGEID' with an unique ID for that page, if omitted, default is 1
+            note: for production, replace 'h.online-metrix.net' with a local
+            URL and configure your web server to redirect to
+            'h.online-metrix.net'--%> *@
+
+            <div style="background:url(https://h.online-metrix.net/fp/clear.png?org_id=hualvosf&amp;session_id=@Session.SessionID&amp;m=1)">
+
+            </div>
+
+            <img src="https://h.online-metrix.net/fp/clear.png?org_id=hualvosf&amp;session_id=@Session.SessionID&amp;m=2" />
+
+
+            <script src="https://h.online-metrix.net/fp/check.js?org_id=hualvosf&amp;session_id=@Session.SessionID">
+            </script>
+            <object type="application/x-shockwave-flash" data="https://h.online-metrix.net/fp/fp.swf?org_id=hualvosf&amp;session_id=@Session.SessionID" width="1" height="1">
+                <param name="movie" value="https://h.online-metrix.net/fp/fp.swf?org_id=hualvosf&amp;session_id=@Session.SessionID" />
+                <param name="wmode" value="transparent" />
+                <div></div>
+
+            </object>
+
+            <!-- End profiling tags -->
+
+        </div>
+    }
+
+
+</body>
+
+</html>

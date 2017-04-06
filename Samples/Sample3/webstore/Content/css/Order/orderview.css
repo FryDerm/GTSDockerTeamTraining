@@ -1,0 +1,61 @@
+﻿
+.NavCell {
+    display: none;
+}
+
+#ContentWrapper {
+    width: 96%;
+    margin: 10px;
+}
+
+.ui-dialog {
+    background: none repeat scroll 0 0 #f7f7f7;
+    border: 8px solid #555;
+    border-radius: 12px;
+    color: #333333;
+}
+
+.checkbox-wrap {
+    float: left;
+    width: 40px;
+}
+
+.ticket-name label {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 18px;
+}
+
+#ticketiframe {
+    width: 770px;
+    height: 450px;
+    overflow-y: auto;
+    border: none;
+}
+
+.productPrice {
+    font-weight: 600;
+}
+
+.ticket.visual-id {
+    float: left;
+    margin-left: 40px;
+    width: 200px;
+}
+
+#viewticket-wrap {
+    margin-top: 20px;
+}
+
+#file-form > input {
+    float: right;
+    margin-bottom: 10px;
+}
+
+ #ticketiframe {
+     width: 770px;
+     height: 500px;
+     height: 450px;
+     overflow-y: auto;
+     border: none;
+ }

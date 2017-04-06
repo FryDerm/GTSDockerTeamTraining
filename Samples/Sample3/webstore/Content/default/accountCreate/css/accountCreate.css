@@ -1,0 +1,245 @@
+#account-create {
+    width: 95%;
+	clear: both;
+	margin: 30px auto;
+}
+
+#account-create #account-credentials {
+    display: inline-block;
+	float: left;
+	width: 641px;
+	margin-top: 20px;
+	padding: 20px;
+	padding-bottom: 20px;
+	line-height: 20px;
+	background: #fbfbfb;
+	border: 1px solid #d6d4d4;
+}
+
+#account-create #ticket-lookup-section  .form-field{
+    margin-bottom: 5px;
+}
+
+#account-create #ticket-lookup-section .form-field-label {
+    width: 150px;
+	float: left;
+}
+
+/*#account-create #ticket-lookup-section  .required input{
+    border-left: #f37e20 solid 3px;
+}*/
+
+#account-create #account-credentials  .form-field{
+    margin-bottom: 5px;
+}
+
+#account-create #account-credentials .form-field-label {
+    width: 150px;
+	float: left;
+}
+
+/*#account-create #account-credentials  .required input{
+    border-left: #f37e20 solid 3px;
+}*/
+
+#account-create #account-contact
+{
+    display: inline-block;
+	float: left;
+	width: 641px;
+	margin-top: 20px;
+	padding: 20px;
+	padding-bottom: 20px;
+	line-height: 20px;
+	background: #fbfbfb;
+	border: 1px solid #d6d4d4;
+}
+#account-create #account-contact .form-field{
+    margin-bottom: 5px;
+    clear: both;
+}
+
+#account-create #account-contact .form-field-label {
+    width: 150px;
+	float: left;
+}
+
+/*#account-create #account-contact .required input{
+    border-left: #f37e20 solid 3px;
+}*/
+
+#account-create h1 {
+	font-size: 1.4em;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #d6d4d4;
+	color: #555454;
+	text-transform: uppercase;
+}
+
+#account-create h3 {
+    font-size: 1.2em;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #d6d4d4;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+
+#account-create .submit-section {
+    margin-top: 18px;
+}
+
+#account-create #ticket-lookup {
+    display: none;
+    background-color: #EEE;
+    padding: 0 24px 24px 24px;
+	margin-top: 15px;
+}
+
+#account-create form input[type=submit] {
+    float: right;
+}
+
+#account-create .field-validation-error {
+    display: none;
+}
+
+#account-create .ticket-field .ticket-label {
+    display: inline-block;
+    float: left;
+    width: 150px;
+    border-left: 4px solid #A2C139;
+    padding-left: 12px;
+}
+
+#account-create .ticket-field .ticket-value {
+    display: inline-block;
+    float: left;
+    width: 300px;
+}
+
+#account-create #ticket-lookup a
+{
+
+}
+
+#account-create #ticket-lookup p
+{
+    margin-bottom: 15px;
+    padding: 18px 0 12px 0;
+	font-size: 1.2em;
+	line-height: 1.4em;
+}
+
+#account-create .ticket-lookup-error, .ticket-lookup-not-found, .ticket-lookup-required-fields-missing
+{
+    display: none;
+    margin-bottom: 12px;
+    color: #E51400;
+}
+
+#account-create #ticket-lookup-input
+{
+	min-width: 300px;
+}
+
+#account-create .ticket-info
+{
+    display: none;
+    margin: 12px 0;
+}
+
+#account-create .ticket-info a
+{
+    font-size: 1em;
+    padding: 2px 7px;
+    height: 28px;
+}
+
+#account-create #ticket-lookup .loading
+{
+    display: none;
+    margin-left: 12px;
+}
+
+#account-create #account-credentials-section .banner {
+    padding: 6px 12px 6px 0px;
+    color: #434343;
+	/*display: none;*/
+	margin-top: 20px;
+}
+
+#account-create #account-credentials-section .banner span {
+    font-size: 1.2em;
+}
+
+#account-create #account-credentials-section .banner a {
+    color: #00619E;
+}
+
+#account-create #account-credentials-section .banner a:hover {
+    color: #f37e20;
+}
+
+#account-create .expand {
+    margin-left: 12px;
+}
+
+#account-create .validation-summary-errors ul
+{
+    list-style: none;
+    color: #e51400;
+    margin-left: 0;
+}
+
+#account-credentials-section
+{
+	
+}
+
+
+
+
+
+/* RTL Styling */
+.dir-rtl #account-create #account-credentials {
+	float: right;
+}
+.dir-rtl #account-create #ticket-lookup-section .form-field-label {
+	float: right;
+}
+.dir-rtl #account-create #account-credentials .form-field-label {
+	float: right;
+}
+.dir-rtl #account-create #account-contact
+{
+	float: right;
+}
+.dir-rtl #account-create #account-contact .form-field-label {
+	float: right;
+}
+.dir-rtl #account-create form input[type=submit] {
+    float: left;
+}
+.dir-rtl #account-create .ticket-field .ticket-label {
+    float: right;
+    border-right: 4px solid #A2C139;
+    padding-right: 12px;
+	padding-left: auto;
+}
+.dir-rtl #account-create .ticket-field .ticket-value {
+    float: right;
+}
+.dir-rtl #account-create #ticket-lookup .loading
+{
+    margin-right: 12px;
+	margin-left: auto;
+}
+.dir-rtl #account-create .expand {
+    margin-right: 12px;
+	margin-left: auto;
+}
+.dir-rtl #account-create .validation-summary-errors ul
+{
+    margin-right: 0;
+	margin-left: auto;
+}

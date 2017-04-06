@@ -1,0 +1,387 @@
+﻿@{
+	Layout = "~/Views/ThemeEditor/_Layout.cshtml";
+}
+
+@section Banner {
+
+    <header class="row">
+
+        <div class="p-all-all">
+            <div class="row">
+                <div class="c">
+                    <img src="@Url.Content("~/FrontEnd/GTS/img/te.jpg")" />
+                </div>
+                <div class="c-r gw">
+                    <img src="@Url.Content("~/FrontEnd/GTS/img/logo.png")" />
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <!--<span id="CheckoutFileSave" class="large-button dark">
+		<span>Save Changes</span>
+		<img src="@Url.Content("~/images/GTS/ajax-loader.gif")" alt="saving" class="loading" />
+	</span>-->
+}
+
+
+<div class="sidebar" ng-controller="NavController">
+
+    <div class="themeSwitcher">
+        <!--<div class="p-all-all">
+            <div class="row">
+                <h3>Theme:</h3>
+            </div>
+            <div class="row m-t-all">
+                <select ng-model="webTheme" ng-change="changeTheme()">
+                    <option ng-repeat="theme in themes">{{theme}}</option>
+                </select>
+            </div>
+        </div>-->
+    </div>
+
+    <ul>
+        <li ng-repeat="dir in directories">
+            <span class="typcn" ng-click="click(dir.path, dir)" ng-class="{'typcn-folder' : !dir.open, 'typcn-minus' : dir.open, 'modified': dir.modified }">
+                {{dir.name}}
+                <span class="typcn typcn-pencil mod-indicator" ng-if="dir.modified" title="One or more files in this folder have been modified"></span>
+            </span>
+            <ul ng-class="{open : dir.open}">
+                <li ng-repeat="subdir in dir.subdirs">
+                    <span class="typcn" ng-class="{'typcn-folder' : !subdir.open, 'typcn-minus' : subdir.open, 'modified': subdir.modified }" ng-click="click(subdir.path, subdir)">
+                        {{subdir.name}}
+                        <span class="typcn typcn-pencil mod-indicator" ng-if="subdir.modified" title="One or more files in this folder have been modified"></span>
+                    </span>
+                    <ul ng-class="{open : subdir.open}">
+                        <li ng-repeat="subsubDir in subdir.subdirs">
+                            <span class="typcn" ng-class="{'typcn-folder' : !subsubDir.open, 'typcn-minus' : subsubDir.open, 'modified': subsubDir.modified }" ng-click="click(subsubDir.path, subsubDir)">
+                                {{subsubDir.name}}
+                                <span class="typcn typcn-pencil mod-indicator" ng-if="subsubDir.modified" title="One or more files in this folder have been modified"></span>
+                            </span>
+                            <ul ng-class="{open : subsubDir.open}">
+                                <li ng-repeat="file in subsubDir.files">
+                                    <span class="typcn typcn-document-text" ng-class="{ 'modified': file.modified }" ng-click="clickFile(file)">
+                                        {{file.name}}
+                                        <span class="typcn typcn-pencil mod-indicator" ng-if="file.modified" title="This file has been modified"></span>
+                                    </span>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li ng-repeat="file in dir.files">
+                    <span class="typcn typcn-document-text" ng-class="{ 'modified': file.modified }" ng-click="clickFile(file)">
+                        {{file.name}}
+                        <span class="typcn typcn-pencil mod-indicator" ng-if="file.modified" title="This file has been modified"></span>
+                    </span>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+</div>
+
+    <div class="editor" ng-controller="EditorController">
+
+        <div class="inner" ng-show="show">
+
+            <div class="p-all-all">
+
+                <div class="row">
+                    <div class="c">
+                        <h3>{{fileName}}</h3>
+                        
+                        <span ng-if="modified" class="c-r modifiedHeader m-l-all">
+                            <span class="c text">
+                                This file has been modified.
+                            </span>
+                            <span class="c-r m-l-all">
+                                <button class="feature ui-control button ui-control-button" type="button" ng-click="showDiff()"><span class="typcn typcn-tabs-outline">Show Modifications</span></button>
+                            </span>
+                            <span class="c-r m-l-all">
+                                <button class="ui-control button ui-control button" type="button" ng-click="revert()"><span class="typcn typcn-arrow-back-outline">Revert</span></button>
+                            </span>
+                        </span>
+
+                    </div>
+
+                    <div class="c-r">
+                        <button class="feature ui-control button ui-control button" type="button" ng-click="build()"><span class="typcn typcn-tick">Build</span></button>
+                    </div>
+
+                    <div class="c-r m-r-all" ng-if="!readOnly">
+                        <button class="go ui-control button ui-control button" type="button" ng-click="save()" ng-disabled="!isDirty"><span class="typcn typcn-tick">Save</span></button>
+                    </div>
+
+                    <div class="c-r m-r-all readOnly" ng-if="readOnly">
+                        <p>You have read-only access to this file.</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="file-contents" ng-non-bindable data-js="file-contents">
+            </div>
+
+            <div class="loading-mask" ng-show="loading">
+                <div class="shift">
+                    <div class="img-shift">
+                        <img src="@Url.Content("~/FrontEnd/GTS/img/ajax-loader.gif")" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+
+        <!-- "Unsaved Changes" Modal -->
+        <div>
+            <div ng-class="{ hide: !showConfirmLeave }" class="modal-mask"></div>
+            <div ng-class="{ hide: !showConfirmLeave }" class="modal modal-large info-modal w-auto-c">
+                <div class="p-all-all modal-content">
+                    <div class="row">
+                        <h4>Do you want to save?</h4>
+                    </div>
+                    <div class="row m-t-all">
+                        <p>This file has unsaved changes, and opening a new file will discard those changes.</p>
+                    </div>
+                    <div class="row m-t-all">
+                        <div class="c-r m-l-all">
+                            <button class="ui-control button ui-control button" type="button" ng-click="confirmLeaveCancel()"><span class="typcn typcn-delete">Never mind, stay here</span></button>
+                        </div>
+                        <div class="c-r m-l-all">
+                            <button class="ui-control button ui-control button" type="button" ng-click="confirmLeaveDoNotSave()"><span class="typcn typcn-trash">No, don't save</span></button>
+                        </div>
+                        <div class="c-r m-l-all">
+                            <button class="go ui-control button ui-control button" type="button" ng-click="confirmLeaveSave()"><span class="typcn typcn-tick">Yes, save</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- "Revert" Modal -->
+        <div>
+            <div ng-class="{ hide: !showRevertModal }" class="modal-mask"></div>
+            <div ng-class="{ hide: !showRevertModal }" class="modal info-modal w-auto-c">
+                <div class="p-all-all modal-content">
+                    <div class="row">
+                        <h4>Are you sure you want to revert your changes?</h4>
+                    </div>
+                    <div class="row m-t-all">
+                        <div class="c-r m-l-all">
+                            <button class="ui-control button ui-control button" type="button" ng-click="closeRevertModal()"><span class="typcn typcn-delete">No, cancel</span></button>
+                        </div>
+                        <div class="c-r m-l-all">
+                            <button class="go ui-control button ui-control button" type="button" ng-click="doRevert()"><span class="typcn typcn-tick">Yes, revert</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Diff Modal -->
+        <div>
+            <div ng-class="{ hide: !showDiffModal }" class="modal-mask" ng-click="closeDiffModal()"></div>
+            <div ng-class="{ hide: !showDiffModal }" class="modal diff-modal w-auto-c">
+                <div class="p-all-all modal-content">
+                    <div class="m-t-all diff-contents" ng-non-bindable data-js="diff-contents"></div>
+                    
+                    <div class="row m-t-all loading-container" ng-show="modalLoading">
+                        <div class="loading-mask">
+                            <div class="shift">
+                                <div class="img-shift">
+                                    <img src="@Url.Content("~/FrontEnd/GTS/img/ajax-loader.gif")" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-t-all">
+                        <div class="c-r">
+                            <button class="ui-control button ui-control button" type="button" ng-click="closeDiffModal()"><span class="typcn typcn-delete">Close</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div ng-class="{hide : !showModal}" ng-click="closeModal()" class="modal-mask">
+            </div>
+
+            <div ng-class="{hide : !showModal}" class="modal modal-large info-modal w-auto-c">
+                <div class="p-all-all modal-content">
+
+                    <div class="row">
+                        <h2>Moving changes to staging...</h2>
+                    </div>
+
+                    <div class="row m-t-all" ng-show="modalLoading">
+                        <p>This process can take a few minutes.</p>
+                    </div>
+
+                    <div class="row m-t-all loading-container" ng-show="modalLoading">
+
+                        <div class="loading-mask">
+                            <div class="shift">
+                                <div class="img-shift">
+                                    <img src="@Url.Content("~/FrontEnd/GTS/img/ajax-loader.gif")"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="done" ng-show="!modalLoading">
+                        <div ng-if="!error">
+                            <div class="row m-t-all">
+                                <p>Your changes have been moved successfully.</p>
+                            </div>
+                            
+                            <div class="row m-t-all">
+                                <span ng-click="showOutput()" class="showOutput typcn" ng-class="{ 'typcn-plus': !outputShown, 'typcn-minus': outputShown }">Show Output</span>
+                                <div ng-show="outputShown" class="console" data-js="gruntOutput"></div>
+                            </div>
+
+                            <div class="row m-t-all">
+
+                                <div class="c-r c-50-all" ng-if="showPreviewLink">
+                                    <div class="m-l-all">
+                                        <a class="go ui-control button ui-control button" href="{{previewLink}}" target="_blank"><span class="typcn typcn-arrow-right">Go To Store</span></a>
+                                    </div>
+                                </div>
+
+                                <div class="c-r c-50-all">
+                                    <button class="ui-control button ui-control button" type="button" ng-click="close()"><span class="typcn typcn-delete">Close</span></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div ng-if="error">
+                            
+                            <div class="row m-t-all">
+                                <p class="error typcn typcn-warning">There was an error moving changes to staging.</p>
+                            </div>
+
+                            <div class="row m-t-all">
+                                <div class="console" data-js="gruntError"></div>
+                            </div>
+                            
+                            <div class="row m-t-all">
+                                <button class="ui-control button ui-control button" type="button" ng-click="close()">
+                                    <span class="typcn typcn-delete">Close</span>
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+<!--
+<div id="site-editor-nav">
+	<div id="message"></div>
+
+	<section data-id="accountCreate">
+		<div class="title">Account Create</div>
+		<ul>
+			<li data-mode="html">HTML</li>
+			<li data-mode="javascript">JavaScript</li>
+			<li data-mode="css">CSS</li>
+		</ul>
+	</section>
+
+
+	<section data-id="cart">
+        <div class="title">Cart</div>
+        <ul>
+            <li data-mode="html">HTML</li>
+            <li data-mode="javascript">JavaScript</li>
+            <li data-mode="css">CSS</li>
+        </ul>
+    </section>
+
+    <section data-id="checkout">
+		<div class="title">Checkout</div>
+		<ul>
+			<li data-mode="html">HTML - Checkout</li>
+			<li data-mode="javascript">JavaScript - Checkout</li>
+			<li data-mode="javascript" data-file-name="checkoutSteps">JavaScript - Checkout Step</li>
+			<li data-mode="javascript" data-file-name="passStep">JavaScript - Pass Step</li>
+			<li data-mode="javascript" data-file-name="paymentStep">JavaScript - Payment Step</li>
+			<li data-mode="javascript" data-file-name="primaryPassSelectionStep">JavaScript - Primary Pass Selection Step</li>
+			<li data-mode="css">CSS - Checkout</li>
+			<li data-mode="css" data-file-name="checkoutSteps">CSS - Checkout Steps</li>
+		</ul>
+	</section>
+
+	<section data-id="language">
+		<div class="title">Language</div>
+		<ul>
+			<li data-mode="html">HTML</li>
+			<li data-mode="javascript">JavaScript</li>
+			<li data-mode="css">CSS</li>
+		</ul>
+	</section>
+
+	<section data-id="logon">
+		<div class="title">Logon</div>
+		<ul>
+			<li data-mode="css">CSS</li>
+		</ul>
+	</section>
+	
+	<section data-id="profile">
+        <div class="title">Account Profile</div>
+        <ul>
+            <li data-mode="html">HTML</li>
+            <li data-mode="javascript">JavaScript</li>
+            <li data-mode="css">CSS</li>
+        </ul>
+    </section>
+
+	<section data-id="membership">
+		<div class="title">Membership</div>
+		<ul>
+			<li data-mode="html">HTML</li>
+			<li data-mode="javascript">JavaScript</li>
+			<li data-mode="css">CSS</li>
+		</ul>
+	</section>
+
+	<section data-id="renew">
+		<div class="title">Renew</div>
+		<ul>
+			<li data-mode="html">HTML</li>
+			<li data-mode="javascript">JavaScript</li>
+			<li data-mode="css">CSS</li>
+		</ul>
+	</section>
+</div>-->
+<!--<div id="editor"></div>-->
+<!-- ordering of ace is important here, script links MUST be directly after the editor or it won't work -->
+<script src="@Url.Content("~/Ace/ace.js")" type="text/javascript" charset="utf-8"></script>
+<script src="@Url.Content("~/Ace/theme-textmate.js")" type="text/javascript" charset="utf-8"></script>
+<script src="@Url.Content("~/Ace/mode-css.js")" type="text/javascript" charset="utf-8"></script>
+<script src="@Url.Content("~/Ace/mode-javascript.js")" type="text/javascript" charset="utf-8"></script>
+<script src="@Url.Content("~/Ace/mode-html.js")" type="text/javascript" charset="utf-8"></script>
+
+<!--<textarea id="FileData" name="FileData"></textarea>
+
+@section Scripts
+{
+	<script src="@Url.Content("~/content/eGalaxyWebAPI.js")"></script>
+    <script src="@Url.Content("~/scripts/ThemeEditor/themeEditor.js")" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            gts.themeEditorDisplay.init();
+        });
+    </script>
+} -->

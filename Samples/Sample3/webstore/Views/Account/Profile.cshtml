@@ -1,0 +1,32 @@
+﻿
+@model Gateway.WebStore.ViewModels.Account.ProfileViewModel
+@{
+    ViewBag.Title = "Profile";
+    Layout = null;
+}
+
+
+<link rel="stylesheet" href="~/Content/default/profile/css/profile.css" />
+@Html.Action("ProfileHtml")
+
+<script type="text/javascript" src="~/scripts/contentSwitcher.js"></script>
+<script src="@Url.Action("Script", "Site", new { pageName = "profile" })" type="text/javascript"></script>
+<title>Account Profile</title>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        gts.profileModule.init({
+            hasLicenseForLoyalty: @Json.Encode(Model.HasLicenseForLoyalty),
+            ticketLookupOptions: {
+                useVisualId: @Json.Encode(Model.TicketLookupOptions.UseVisualId),
+                useAccount: @Json.Encode(Model.TicketLookupOptions.UsePassAccount),
+                useBirthDate: @Json.Encode(Model.TicketLookupOptions.UseBirthDate),
+                useLastName: @Json.Encode(Model.TicketLookupOptions.UseLastName)
+            },
+            loyaltyConfig: {
+                hasLoyaltyAccountConfig: @Json.Encode(Model.HasLoyaltyAccount),
+                hasUserAssociatedLoyaltyAccountConfig: @Json.Encode(Model.HasUserAssociatedLoyaltyAccount)
+            }
+        });
+    });
+</script>

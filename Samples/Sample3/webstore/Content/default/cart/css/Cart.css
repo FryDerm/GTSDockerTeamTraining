@@ -1,0 +1,477 @@
+﻿.NavCell
+{
+	display: none;
+}
+
+#view-cart
+{
+    width: 90%;
+	clear: both;
+	margin: 30px auto;
+}
+
+#view-cart h2
+{
+font-size: 1.4em;
+padding-bottom: 20px;
+border-bottom: 1px solid #d6d4d4;
+color: #555454;
+text-transform: uppercase;
+}
+
+#cart-information
+{
+
+}
+
+#cart-information .description
+{
+    font-size: 1.4em;
+}
+
+.remove-modal
+{
+	display: none;
+}
+
+.remove-modal .background
+{
+	position: absolute;
+	top: 150px;
+	-webkit-box-shadow: 0 0 15px #BBB;
+	-moz-box-shadow: 0 0 15px #BBB;
+	box-shadow: 0 0 15px #BBB;
+	background-color: white;
+}
+
+.remove-modal .message
+{
+	margin: 20px 10px 20px 20px;
+}
+
+.remove-modal .navigation
+{
+	margin-top: 15px;
+}
+
+.remove-modal .navigation input
+{
+	margin-right: 10px;
+	float: right;
+}
+
+.remove-modal .navigation .loading
+{
+	display: none;
+}
+
+#cart-addons
+{
+	background: #EEE;
+	margin-bottom: 30px;
+	padding-bottom: 1px;
+    clear: both;
+}
+
+#cart-addons h4
+{
+	font-size: 1.5em;
+	margin-bottom: 10px;
+	background: #00619E;
+	padding: 10px 0px 10px 15px;
+	color: #fff;
+}
+
+#cart-addons .addon
+{
+	margin: 15px;
+}
+
+#cart-addons .addon .total
+{
+	font-family: "Segoe UI Light", "Helvetica", Garuda, Arial, sans-serif;
+	font-size: 1.618em;
+	color: #444;
+	margin-bottom: 10px;
+	float: right;
+}
+
+#cart-addons .addon .name
+{
+	font-size: 1.4em;
+}
+
+#cart-addons .addon .loading
+{
+	display: none;
+}
+
+#view-cart .cart-item-header
+{
+	font-size: 1.5em;
+	text-transform: uppercase;
+	margin-top: 30px;
+	border-bottom: 1px solid #DDD;
+}
+
+#view-cart .cart-links
+{
+    margin-top: 50px;
+	float: left;
+	width: 100%;
+}
+
+#view-cart .cart-links .continue-shopping
+{
+	margin-right: 50px;
+	margin-top: 10px;
+}
+
+#view-cart .cart-links .continue-checkout
+{
+    margin-top: 10px;
+	float: right;
+}
+
+#cart-items
+{
+	display: none;
+	margin-top: 15px;
+}
+
+#cart-items .cart-item
+{
+	margin:40px 0px 30px 0px;
+	padding-bottom: 5px;
+	border-bottom: #555 solid 1px;
+}
+
+.cart-item .cart-item-image
+{
+	display: inline-block;
+	float: left;
+	width: 200px;
+	text-align: center;
+	margin-top: 10px;
+}
+
+.cart-item .cart-item-image.no-image
+{
+    display: none;
+}
+
+.cart-item .cart-item-image img
+{
+	max-width: 200px;
+	width: auto;
+	-webkit-box-shadow: 0 0 10px #111111;
+	-moz-box-shadow: 0 0 10px #111111;
+	box-shadow: 0 0 10px #111111;
+}
+
+.cart-item .cart-item-details
+{
+	margin-left: 12px;
+}
+
+.cart-item-remove
+{
+	color:#00619E;
+	text-transform: uppercase;
+	text-decoration: none;
+    margin: 10px 0;
+    display: inline-block;
+}
+
+.cart-item-remove:hover
+{
+	color: #FF0004;
+	text-decoration: none;
+}
+
+.cart-item .cart-item-details .cart-item-meta
+{
+	font-size: 1.4em;
+}
+
+#view-cart .cart-item-name
+{
+	font-size: 1.5em;
+	color: #222;
+	margin-bottom: 10px;
+}
+
+#view-cart .cart-item .quantity-label
+{
+	margin-right: 10px;
+	text-transform: uppercase;
+}
+
+#view-cart .cart-item .quantity
+{
+    outline: none;
+    width: 40px;
+}
+
+#view-cart .cart-item input[type=number]::-webkit-outer-spin-button,
+#view-cart .cart-item input[type=number]::-webkit-inner-spin-button
+{
+    display: none;
+}
+
+#view-cart .cart-item-total
+{
+    font-family: "Segoe UI Light", "Helvetica", Garuda, Arial, sans-serif;
+	display: inline-block;
+	float: right;
+	font-size: 2em;
+	color: #444;
+	margin: 10px 10px 0px 0px;
+}
+
+#view-cart ul.cart-item-payment-options #cart-item-accrual-label
+{
+	width: 80%;
+	display: inline-block;
+	float: left;
+	margin: 20px 0 0 0;
+	padding: 0;
+	list-style: none;
+}
+
+#view-cart ul.cart-item-payment-options li
+{
+	margin-bottom: 5px;
+}
+
+#cart-totals
+{
+    font-size: 1.2em;
+	float: right;
+	margin: 10px;
+	width: 100%;
+	clear: both;
+}
+
+#cart-totals .label
+{
+	display: inline-block;
+	width: 100px;
+}
+
+#cart-totals .loyalty-label
+{
+	display: inline-block;
+	width: 300px;
+    font-weight: normal;
+}
+
+#cart-totals .value
+{
+	display: inline-block;
+	text-align: right;
+	float: right;
+	width: 125px;
+}
+
+#cart-totals .cart-update .update-cart
+{
+	padding: 6px 12px;
+	font-size: 10pt;
+}
+
+#cart-totals .cart-total
+{
+	margin-top: 10px;
+	font-weight: bold;
+}
+
+
+#cart-totals .cart-total
+{
+	margin-top: 10px;
+	font-weight: bold;
+}
+
+#view-cart #cart-discounts
+{
+    width: 100%;
+	float: left;
+	clear: both;
+}
+
+#view-cart #discounts
+{
+    display: inline-block;
+    float: left;
+    margin: 12px;
+}
+
+#view-cart #discounts .error
+{
+    display: none;
+    color: red;
+    margin: 6px 0;
+}
+
+#view-cart #discounts .loading
+{
+    display: none;
+}
+
+#view-cart #discounts .editor-label
+{
+    font-size: 1.4em;
+}
+
+#view-cart #discounts .editor-field input[type=submit]
+{
+    font-size: 10pt;
+	padding: 6px 12px;
+}
+
+#view-cart #discounts .editor-field input[type=text]
+{
+    padding: 3px 6px;
+}
+
+#cart-information .editmode {
+    background-color: #fff3cc;
+    color:#4c5d77;
+}
+
+#cart-information .cart-subtotal,
+#cart-information .cart-tax,
+#cart-information .cart-total,
+#cart-information .cart-fees,
+#cart-information .cart-update-wrap {
+    padding: 5px 0;
+    text-align: right;
+}
+
+/* Quantity box for SPC Cart */
+#cart-information .qty-textbox {
+    border: 2px solid #999999;
+    padding: 5px;
+    text-align: center;
+    width: 40px;
+}
+
+#cart-information .quantity-field {
+    font-size: 1.2em;
+}
+
+/* Benefit Package in Pass */
+
+.cart-item-details .package {
+    background: none repeat scroll 0 0 #f1f1f1;
+    line-height: 22px;
+    margin: 15px 0;
+    padding: 5px 10px;
+}
+
+.package .Package-header {
+    font-weight: 600;
+}
+
+.packagedetails-item {
+    clear: both;
+    display: table;
+    padding: 5px 8px;
+}
+
+.packagedetails-name {
+    float: left;
+    width: 200px;
+}
+
+.packagedetails-quantity {
+    float: left;
+    width: 40px;
+}
+
+h6.package-title-header {
+    color: #999;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+
+
+
+/* RTL Styling */
+.dir-rtl .remove-modal .navigation input
+{
+	margin-left: 10px;
+	margin-right: auto;
+	float: left;
+}
+.dir-rtl #cart-addons .addon .total
+{
+	float: left;
+}
+.dir-rtl #view-cart .cart-links
+{
+ 	float: right;
+}
+.dir-rtl #view-cart .cart-links .continue-shopping
+{
+	margin-left: 50px;
+	margin-right: auto;
+}
+.dir-rtl #view-cart .cart-links .continue-checkout
+{
+	float: left;
+}
+.dir-rtl .cart-item .cart-item-image
+{
+	float: right;
+}
+.dir-rtl .cart-item .cart-item-details
+{
+	margin-right: 12px;
+	margin-left: auto;
+}
+.dir-rtl #view-cart .cart-item .quantity-label
+{
+	margin-left: 10px;
+	margin-right: auto;
+}
+.dir-rtl #view-cart .cart-item-total
+{
+	float: left;
+}
+.dir-rtl #view-cart ul.cart-item-payment-options #cart-item-accrual-label
+{
+	float: right;
+}
+.dir-rtl #cart-totals
+{
+	float: left;
+}
+.dir-rtl #cart-totals .value
+{
+	text-align: left;
+	float: left;
+}
+.dir-rtl #view-cart #cart-discounts
+{
+	float: right;
+}
+.dir-rtl #view-cart #discounts
+{
+    float: right;
+}
+.dir-rtl #cart-information .cart-subtotal,
+.dir-rtl #cart-information .cart-tax,
+.dir-rtl #cart-information .cart-total,
+.dir-rtl #cart-information .cart-fees,
+.dir-rtl #cart-information .cart-update-wrap {
+    text-align: left;
+}
+.dir-rtl .packagedetails-name {
+    float: right;
+}
+.dir-rtl .packagedetails-quantity {
+    float: right;
+}

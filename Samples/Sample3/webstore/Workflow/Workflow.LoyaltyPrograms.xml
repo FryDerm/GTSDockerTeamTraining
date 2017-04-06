@@ -1,0 +1,33 @@
+﻿<!-- ~~~~~~~~~~ LOYALTYPROGRAMS :: LoyaltyEnrollment ~~~~~~~~~~ -->
+<Page>
+	<Name>LoyaltyEnrollment.aspx</Name>
+	<MaintainAnchor />
+	<NavigationRules>
+		<NavigationRule>
+			<PreviousPage>*</PreviousPage>
+			<NextPage>/LoyaltyPrograms/LoyaltySelector.aspx</NextPage>
+		</NavigationRule>
+	</NavigationRules>
+</Page>
+<!-- ~~~~~~~~~~ LOYALTYPROGRAMS :: LoyaltySelector ~~~~~~~~~~ -->
+<Page>
+	<Name>LoyaltySelector.aspx</Name>
+	<MaintainAnchor />
+	<Requirements>
+		<Requirement Type="LoyaltyEnrollmentAuthenticated">
+			<Redir>
+				<Url>/LoyaltyPrograms/LoyaltyEnrollment.aspx</Url>
+			</Redir>
+		</Requirement>
+	</Requirements>
+	<NavigationRules>
+		<NavigationRule>
+			<PreviousPage>ViewCart.aspx</PreviousPage>
+			<NextPage>/Checkout/DeliveryInfo.aspx</NextPage>
+		</NavigationRule>
+		<NavigationRule>
+			<PreviousPage>*</PreviousPage>
+			<NextPage>/LoyaltyPrograms/LoyaltyConfirmation.aspx</NextPage>
+		</NavigationRule>
+	</NavigationRules>
+</Page>

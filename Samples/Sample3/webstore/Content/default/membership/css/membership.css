@@ -1,0 +1,323 @@
+﻿#membership-details
+{
+	width: 90%;
+	clear: both;
+	margin: 30px auto;
+}
+
+.NavCell
+{
+    display: none;
+}
+
+#sub-header ul
+{
+    display: none;
+}
+
+#membership-details input[type=text]
+{
+    font-size: 1.4em;
+    color: #434343;
+    padding: 5px;
+}
+
+.main-content h2
+{
+    font-size: 1.4em;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #d6d4d4;
+	color: #555454;
+	float: left;
+	width: 100%;
+}
+
+#membership-details ul.members
+{
+    list-style: none;
+}
+
+#membership-details ul.members li
+{
+    float: left;
+    margin: 12px 20px 24px 0px;
+    background-color: #434343;
+    padding: 24px;
+    width: 250px;
+}
+
+#membership-details ul.members li .member-name
+{
+    font-size: 1.4em;
+    color: #ffffff;
+    padding: 5px;
+
+}
+
+#membership-details ul.members li .membership-id
+{
+    display: inline-block;
+    background-color: #EEE;
+    margin-top: 6px;
+    padding: 10px 15px;
+}
+
+/* Renewal overrides */
+.plu-item .plu-information {
+    margin: 0 0 30px;
+}
+
+.plu-item .plu-price
+{
+    margin-left: 0;
+    margin-top: 20px;
+}
+
+/* Content switching */
+.info-column
+{
+    width: 100%;
+    float: left;
+}
+
+.info-column .info
+{
+
+}
+
+.details-page-name
+{
+ 
+}
+
+.details-page-name .icon.large
+{
+    display: inline-block;
+    margin-top: -20px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.details-page-name .name
+{
+    font-size: 1.4em; 
+	padding-bottom: 20px;
+	border-bottom: 1px solid #d6d4d4;
+	color: #555454;
+	text-transform: uppercase;
+}
+
+.details-page-name .instructions
+{
+    width: 600px;
+    margin-left: 80px;
+    margin-top: -10px;
+}
+
+.info-column .stat-row .count,
+.info-column .stat-row .count-label
+{
+    display: inline-block;
+    font-size: 2.618em;
+    margin-right: 5px;
+}
+
+.info-column  .stat-row dl dd
+{
+    font-weight: bold;
+    color: #999;
+    text-transform: uppercase;
+    font-size: .865em;
+    margin-bottom: 5px;
+    margin-left: 0;
+}
+
+.info-column .stat-row dl dt
+{
+    margin: 12px 0 0 0;
+    font-size: 1.618em;
+    word-wrap: break-word;
+}
+
+.info-column .actions
+{
+    list-style: none;
+	float: left;
+	clear: both;
+}
+
+.info-column .actions li
+{
+    padding: 15px;
+    cursor: pointer;
+    color: White;
+	background-color: #00a8b0;
+	float: left;
+    margin-right: 10px;
+}
+
+.info-column .actions li a
+{
+    color: white;
+    display: block;
+}
+
+.info-column .actions li .icon
+{
+    float: left;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.info-column .actions li:hover {
+    -moz-transition-duration: .25s;
+    -webkit-transition-duration: .25s;
+    -o-transition-duration: .25s;
+    transition-duration: .25s;
+    background-color: #007399;
+    color: #FFFFFF;
+}
+
+.info-column .actions li.selected
+{
+    background-color: #eee;
+	color: #000;
+}
+
+.main-content
+{
+    float: left;
+	width: 100%;
+}
+
+.details-stats
+{
+    float: left;
+	clear: both;
+    padding: 10px 0 20px;
+}
+
+.slide-wrapper {
+    margin-top: 40px;
+}
+
+#ContentWrapper #PassLookup p {
+    width: 90%;
+	clear: both;
+	margin: 30px auto;
+}
+
+/* renewal options tab Dual membership */
+ul.renewal-options-list li.plu-item-wrap {
+  padding: 5px;
+  border: solid 1px #cfcfcf;
+  border-radius: 9px;
+  background: #dfdfdf;
+  margin: 10px 0;
+}
+
+.associated, .renewal {
+	display: none;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.member-info.left,
+.renewable-products.right {
+    display: inline-block;
+}
+.member-info.left {
+    width: 25%;
+    padding: 10px;
+    vertical-align: top;
+}
+
+.renewable-products.right {
+    width: 70%;
+}
+
+.gts-renewal-member {
+    background-position: -1430px -14px;
+    height: 100px;
+    width: 60px;
+}
+
+.plu-details .plu-name {
+    font-size: 1.5em;
+}
+
+.member-info .member {
+    font-weight: 700;
+    line-height: 1.5em;
+    text-transform: uppercase;
+}
+
+#renew-options-wait img {
+    width: 200px;
+    padding: 50px 20px;
+}
+
+.progress.wait {
+    text-align: center;
+}
+
+/* END of renewal options tab Dual membership */
+
+/*  RTL Styling  */
+.dir -rtl .main-content h2
+{
+	float: right;
+}
+.dir -rtl #membership-details ul.members li
+{
+    float: right;
+}
+.dir -rtl .plu-item .plu-price
+{
+    margin-right: 0;
+	margin-left: auto;
+}
+.dir -rtl .info-column
+{
+    float: right;
+}
+.dir -rtl .details-page-name .instructions
+{
+    margin-right: 80px;
+	margin-left: auto;
+}
+.dir -rtl .info-column .info .stat-row .count,
+.dir -rtl .info-column .info .stat-row .count-label
+{
+    margin-left: 5px;
+	margin-right: auto;
+}
+.dir -rtl .info-column .info .stat-row dl dd
+{
+    margin-right: 0;
+	margin-left: auto;
+}
+.dir -rtl .info-column .actions
+{
+	float: right;
+}
+.dir -rtl .info-column .actions li
+{
+	float: right;
+}
+.dir -rtl .info-column .actions li .icon
+{
+    float: right;
+    margin-left: 5px;
+	margin-right: auto;
+}
+.dir -rtl .main-content
+{
+    float: right;
+}
+.dir -rtl .details-stats
+{
+    float: right;
+}

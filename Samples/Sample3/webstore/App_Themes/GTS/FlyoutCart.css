@@ -1,0 +1,241 @@
+﻿#topNav
+{
+    list-style: none;
+    float: right;
+}
+
+#topNav li
+{
+    float: left;
+    display: block;
+    text-align: center;
+    position: relative;
+    padding: 10px;
+    margin-right:15px;
+    border: 1px solid #1c375f;
+    background: #284e86;
+    -moz-border-radius: 5px 5px 5px 5px;  
+    -webkit-border-radius: 5px 5px 5px 5px;  
+    border-radius: 5px 5px 5px 5px;  
+}
+
+#topNav li:hover
+{
+    background: #ebd11b;
+    border: 1px solid #ebd11b;
+    -moz-border-radius: 5px 5px 0px 0px;
+    -webkit-border-radius: 5px 5px 0px 0px;
+    border-radius: 5px 5px 0px 0px;
+}
+
+#topNav li.noFlyout:hover
+{
+    -moz-border-radius: 5px 5px 5px 5px;  
+    -webkit-border-radius: 5px 5px 5px 5px;  
+    border-radius: 5px 5px 5px 5px;
+}
+
+#topNav li a
+{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+#topNav li:hover a
+{
+    color: #001825;
+}
+
+#FlyoutCart
+{
+    position: absolute;
+    left: -999em;
+    background: #F4F4F4;
+    border: 5px solid #ebd11b;
+    width: 280px; 
+    margin: 7px auto;
+    text-align: left;
+    -moz-border-radius: 5px 5px 5px 5px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+}
+
+#topNav li:hover #FlyoutCart
+{
+    left: auto;
+    right: -1px;
+    top: 25px;
+}
+.FlyoutEmpty
+{
+    margin: 10px;
+    display: block;
+}
+
+#FlyoutHeader
+{
+    font-weight: bold;
+    background: #DDDDDD;
+    padding: 10px;
+}
+
+#FlyoutItemContainer
+{
+    max-height: 300px;
+    overflow: auto;
+}
+
+.FlyoutItem
+{
+    padding: 5px 10px;
+    font-size: 10px;
+    border-bottom: 1px solid #DDDDDD;
+}
+
+.FlyoutItemName
+{
+    font-weight: bold;
+}
+
+.FlyoutItemQuantity
+{
+    display: inline;
+    float: left;
+    width: 50%;
+}
+
+.FlyoutItemPrice
+{
+    float: right;
+    display: inline;
+    width: 50%;
+    text-align: right;
+}
+
+#FlyoutFooter
+{
+    padding: 10px;
+    float: right;
+}
+
+#FlyoutSubtotal
+{
+    font-size: 10px;
+}
+
+#FlyoutSubtotal span:first-child
+{
+    font-weight: bold;
+    float: left;
+    width: 50%;
+    text-align: right;
+}
+
+#FlyoutSubtotalPrice
+{
+    float: right;
+    display: inline;
+    clear: none;
+    width: 50%;
+    text-align: right;
+}
+
+#FlyoutCartButtons a
+{
+    float: left;
+    display: block;
+    padding: 5px;
+    margin: 10px 5px 0 5px;
+    -moz-border-radius: 5px 5px 5px 5px !important;
+    -webkit-border-radius: 5px 5px 5px 5px !important;
+    border-radius: 5px 5px 5px 5px !important;
+    background: #1c375f !important;
+    border: 1px solid #1c375f !important;
+    color: #FFFFFF !important;
+    font-weight: bold;
+    font-size: 75%;
+    text-transform:uppercase;
+}
+
+#FlyoutCartButtons a:hover
+{
+    background: #284e86 !important;
+    border: 1px solid #284e86 !important;
+}
+
+#FlyoutCart .clear
+{
+    clear: both;
+}
+
+
+/*****************************
+* PLAYING WITH THE HEADER
+*****************************/
+#Header
+{
+    /*background: #004369;
+    background: -moz-linear-gradient(top, #0079be, #004369);  
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#0079be), to(#004369));
+   -moz-border-radius: 5px 5px 5px 5px;  
+    -webkit-border-radius: 5px 5px 5px 5px;  
+    border-radius: 5px 5px 5px 5px;
+    border: 1px solid #001825;
+    background: url(../../images/GTS/header_bg.jpg) no-repeat;*/
+}
+
+
+
+
+
+
+
+
+
+/* RTL Styling */
+.dir-rtl #topNav
+{
+    float: left;
+}
+.dir-rtl #topNav li
+{
+    float: right;
+    margin-left:15px;
+}
+.dir-rtl #FlyoutCart
+{
+    right: -999em;
+    text-align: right;
+}
+.dir-rtl #topNav li:hover #FlyoutCart
+{
+    right: auto;
+    left: -1px;
+}
+.dir-rtl .FlyoutItemQuantity
+{
+    float: right;
+}
+.dir-rtl .FlyoutItemPrice
+{
+    float: left;
+    text-align: left;
+}
+.dir-rtl #FlyoutFooter
+{
+    float: left;
+}
+.dir-rtl #FlyoutSubtotal span:first-child
+{
+    float: right;
+    text-align: left;
+}
+.dir-rtl #FlyoutSubtotalPrice
+{
+    float: left;
+    text-align: left;
+}
+.dir-rtl #FlyoutCartButtons a
+{
+    float: right;
+}

@@ -1,0 +1,219 @@
+﻿@model Gateway.WebStore.ViewModels.Account.CreateAccountViewModel
+
+@{
+    ViewBag.Title = "[L:AccountCreateTitle]";
+}
+
+<link rel="stylesheet" href="~/Content/default/accountCreate/css/accountCreate.css" />
+
+<div id="account-create">
+    <div id="before-content"></div>
+
+    @{ Html.EnableClientValidation(); }
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        @Html.AntiForgeryToken()
+
+        <div id="account-credentials-section">
+            <div id="ticket-lookup-section">
+                <div class="banner">
+                    <span>[L:TicketLookupHeading]</span>
+                    <a href="#" class="expand">[L:TicketLookupExpandSection]</a>
+                </div>
+                <div id="ticket-lookup">
+                    <p>[L:TicketLookupDescription]</p>
+                    <div class="ticket-lookup-error"></div>
+                    <div class="ticket-lookup-not-found">[L:AccountNotFound]</div>
+                    <div class="ticket-lookup-required-fields-missing">[L:AccountRequiredFieldsMissing]</div>
+
+                    @if (Model.TicketLookupOptions.UseVisualId)
+                    {
+                        <div class="form-field visualid-input">
+                            <div class="form-field-label"><label for="ticket-lookup-input">[L:TicketLookupNumberLabel]</label></div>
+                            <div class="form-field-input"><input id="ticket-lookup-input" type="text" value="" /></div>
+                        </div>
+                    }
+                    @if (Model.TicketLookupOptions.UsePassAccount)
+                    {
+                        <div class="form-field account-input">
+                            <div class="form-field-label"><label for="lookup-account-input">[L:TicketLookupAccountLabel]</label></div>
+                            <div class="form-field-input"><input id="lookup-account-input" type="text" value="" /></div>
+                        </div>
+                    }
+                    @if (Model.TicketLookupOptions.UseBirthDate)
+                    {
+                        <div class="form-field birthdate-input">
+                            <div class="form-field-label"><label for="lookup-birthdate-input">[L:TicketLookupBirthDateLabel]</label></div>
+                            <div class="form-field-input"><input id="lookup-birthdate-input" type="text" value="" /></div>
+                        </div>
+                    }
+                    @if (Model.TicketLookupOptions.UseLastName)
+                    {
+                        <div class="form-field lastname-input">
+                            <div class="form-field-label"><label for="lookup-lastname-input">[L:TicketLookupLastNameLabel]</label></div>
+                            <div class="form-field-input"><input id="lookup-lastname-input" type="text" value="" /></div>
+                        </div>
+                    }
+    
+                    <div class="submit-section">
+                        <a class="ticket-lookup-button large-button" href="#" >[L:TicketLookupButton]</a>
+                        <img class="loading" src="../images/GTS/ajax-loader.gif" />
+                    </div>
+                </div>
+            </div>
+            <div id="account-credentials">
+                <h3>[L:AccountCredentialsHeading]</h3>
+                @if (Model.AccountOptions.ShowCompanyCode)
+                {
+                    <div class="form-field company-code">
+                        <div class="form-field-label">[L:AccountCompanyCodeLabel]</div>
+                        <div class="form-field-input">@Html.TextBoxFor(m => m.CompanyCode)</div>
+                        <div class="form-field-validation">@Html.ValidationMessageFor(m => m.CompanyCode)</div>
+                    </div>
+                }
+                <div class="form-field username">
+                    <div class="form-field-label">[L:AccountUsernameLabel]</div>
+                    @if (Model.AccountOptions.UseEmailForLoginName)
+                    {
+                        <div class="form-field-input required">@Html.TextBoxFor(m => m.Username, new { @type = "email" })</div>         
+                    }
+                    else
+                    {
+                        <div class="form-field-input required">@Html.TextBoxFor(m => m.Username)</div>
+                    }
+                    <div class="form-field-validation">@Html.ValidationMessageFor(m => m.Username)</div>
+                </div>
+                <div class="form-field password">
+                    <div class="form-field-label">[L:AccountPasswordLabel]</div>
+                    <div class="form-field-input required">@Html.PasswordFor(m => m.Password)</div>
+                    <div class="form-field-validation">@Html.ValidationMessageFor(m => m.Password)</div>
+                </div>
+                <div class="form-field confirm-password">
+                    <div class="form-field-label">[L:AccountConfirmPasswordLabel]</div>
+                    <div class="form-field-input required">@Html.PasswordFor(m => m.ConfirmPassword)</div>
+                    <div class="form-field-validation">@Html.ValidationMessageFor(m => m.ConfirmPassword)</div>
+                </div>
+            </div>
+        </div>
+                
+        <div id="account-contact">
+            <h3>[L:AccountDemographicsHeading]</h3>
+            <div class="form-field contact-guid">
+                <div class="form-field-input">@Html.HiddenFor(m => m.ContactGuid)</div>
+            </div>
+            <div class="form-field name-title">
+                <div class="form-field-label">[L:AccountNameTitleLabel]</div>
+                <div class="form-field-input">@Html.DropDownListFor(m => m.NameTitle, new SelectList(Model.NameTitleOptions, "Id", "Name"))</div>
+                <div class="form-field-validation">@Html.ValidationMessageFor(m => m.NameTitle)</div>
+            </div>
+            <div class="form-field first-name">
+                <div class="form-field-label">[L:AccountFirstNameLabel]</div>
+                <div class="form-field-input required">@Html.TextBoxFor(m => m.FirstName)</div>
+                <div class="form-field-validation">@Html.ValidationMessageFor(m => m.FirstName)</div>
+            </div>
+            @if (Model.AccountOptions.ShowMiddleName)
+            {
+            <div class="form-field middle-name">
+                <div class="form-field-label">[L:AccountMiddleNameLabel]</div>
+                <div class="form-field-input">@Html.TextBoxFor(m => m.MiddleName)</div>
+                <div class="form-field-validation">@Html.ValidationMessageFor(m => m.MiddleName)</div>
+            </div>
+            }
+            <div class="form-field last-name">
+                <div class="form-field-label">[L:AccountLastNameLabel]</div>
+                <div class="form-field-input required">@Html.TextBoxFor(m => m.LastName)</div>
+                <div class="form-field-validation">@Html.ValidationMessageFor(m => m.LastName)</div>
+            </div>
+            <div class="form-field name-suffix">
+                <div class="form-field-label">[L:AccountNameSuffixLabel]</div>
+                <div class="form-field-input">@Html.DropDownListFor(m => m.NameSuffix, new SelectList(Model.NameSuffixOptions, "Id", "Name"))</div>
+                <div class="form-field-validation">@Html.ValidationMessageFor(m => m.NameSuffix)</div>
+            </div>
+            <div class="form-field street1">
+                <div class="form-field-label">[L:AccountStreet1Label]</div>
+                <div class="form-field-input required">@Html.TextBoxFor(m => m.Street1)</div>
+                <div class="form-field-validation">@Html.ValidationMessageFor(m => m.Street1)</div>
+            </div>
+            <div class="form-field street2">
+                <div class="form-field-label">[L:AccountStreet2Label]</div>
+                <div class="form-field-input">@Html.TextBoxFor(m => m.Street2)</div>
+                <div class="form-field-validation">@Html.ValidationMessageFor(m => m.Street2)</div>
+            </div>
+            <div class="form-field country">
+                <div class="form-field-label">[L:AccountCountryLabel]</div>
+                <div class="form-field-input">@Html.DropDownListFor(m => m.CountryCode, new SelectList(Model.CountryOptions, "CountryCode", "ShortName"))</div>
+                <div class="form-field-validation">@Html.ValidationMessageFor(m => m.CountryCode)</div>
+            </div>
+            <div class="form-field city">
+                <div class="form-field-label">[L:AccountCityLabel]</div>
+                <div class="form-field-input required">@Html.TextBoxFor(m => m.City)</div>
+                <div class="form-field-validation">@Html.ValidationMessageFor(m => m.City)</div>
+            </div>
+            <div class="form-field region">
+                <div class="form-field-label">[L:AccountRegionLabel]</div>
+                @if (Model.StateRegionOptions.Any())
+                {
+                <div class="form-field-input region-select">@Html.DropDownListFor(m => m.RegionDropDownValue, new SelectList(Model.StateRegionOptions, "Abbreviation", "Name"))</div>
+                <div class="form-field-input region-text" style="display: none;">@Html.TextBoxFor(m => m.RegionTextValue)</div>
+                }
+                else
+                {
+                <div class="form-field-input region-select" style="display: none;">@Html.DropDownListFor(m => m.RegionDropDownValue, new SelectList(Model.StateRegionOptions, "Abbreviation", "Name"))</div>
+                <div class="form-field-input region-text">@Html.TextBoxFor(m => m.RegionTextValue)</div>
+                }
+                <div class="form-field-validation">@Html.ValidationMessageFor(m => m.RegionTextValue)</div>
+            </div>
+            <div class="form-field postal">
+                <div class="form-field-label">[L:AccountPostalLabel]</div>
+                <div class="form-field-input required">@Html.TextBoxFor(m => m.Postal)</div>
+                <div class="form-field-validation">@Html.ValidationMessageFor(m => m.Postal)</div>
+            </div>
+            <div class="form-field phone">
+                <div class="form-field-label">[L:AccountPhoneLabel]</div>
+                <div class="form-field-input required">@Html.TextBoxFor(m => m.Phone)</div>
+                <div class="form-field-validation">@Html.ValidationMessageFor(m => m.Phone)</div>
+            </div>
+            <div class="form-field cell">
+                <div class="form-field-label">[L:AccountCellLabel]</div>
+                <div class="form-field-input">@Html.TextBoxFor(m => m.Cell)</div>
+                <div class="form-field-validation">@Html.ValidationMessageFor(m => m.Cell)</div>
+            </div>
+            <div class="form-field email">
+                <div class="form-field-label">[L:AccountEmailLabel]</div>
+                <div class="form-field-input required">@Html.TextBoxFor(m => m.Email, new { @class = "email"})</div>
+                <div class="form-field-validation">@Html.ValidationMessageFor(m => m.Email)</div>
+            </div>
+            @if (Model.AccountOptions.ShowBillingEmailConfirmation)
+            {
+            <div class="form-field confirm-email">
+                <div class="form-field-label">[L:AccountConfirmEmailLabel]</div>
+                <div class="form-field-input required">@Html.TextBoxFor(m => m.ConfirmEmail, new { @class = "required email"})</div>
+                <div class="form-field-validation">@Html.ValidationMessageFor(m => m.ConfirmEmail)</div>
+            </div>
+            }
+        </div>
+        
+        <p>
+            <input type="submit" class="large-button" value="[L:AccountCreateButton]"/>
+        </p>
+    }
+
+    @Html.Action("Html", "Site", new { pageName = "accountCreate" })
+    
+    <div id="after-content"></div>
+</div>
+
+<script src="@Url.Action("Script", "Site", new { pageName = "accountCreate" })" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        gts.accountCreateModule.init({
+            ticketLookupOptions: {
+                useVisualId: @Json.Encode(Model.TicketLookupOptions.UseVisualId),
+                useAccount: @Json.Encode(Model.TicketLookupOptions.UsePassAccount),
+                useBirthDate: @Json.Encode(Model.TicketLookupOptions.UseBirthDate),
+                useLastName: @Json.Encode(Model.TicketLookupOptions.UseLastName)
+                }
+        });
+    });
+</script>

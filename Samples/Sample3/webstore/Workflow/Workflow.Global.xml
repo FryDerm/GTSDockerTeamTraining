@@ -1,0 +1,75 @@
+﻿<Page>
+	<Name>*</Name>
+	<Requirements>
+		<!-- ~~~~~~~~~~ GLOBAL :: UserAuthenticated ~~~~~~~~~~ -->
+		<Requirement Type="UserAuthenticated">
+			<Condition>GroupSales</Condition>
+			<Exclusions>
+				<Exclusion>CreateAccount.aspx</Exclusion>
+				<Exclusion>ViewEvents.aspx</Exclusion>
+			</Exclusions>
+			<Redir>
+				<Url>/Account/GroupSalesLogin.aspx</Url>
+			</Redir>
+		</Requirement>
+		<!-- ~~~~~~~~~~ GLOBAL :: PasswordChanged ~~~~~~~~~~ -->
+		<Requirement Type="PasswordChanged">
+			<Condition>RequiresPasswordChange</Condition>
+			<Redir>
+				<Url>/Account/ChangePassword.aspx</Url>
+			</Redir>
+		</Requirement>
+		<!-- ~~~~~~~~~~ GLOBAL :: CustomerAssociated ~~~~~~~~~~ -->
+		<Requirement Type="CustomerAssociated">
+			<Condition>GroupSales</Condition>
+			<Exclusions>
+				<Exclusion>CreateAccount.aspx</Exclusion>
+			</Exclusions>
+			<Redir>
+				<Url>/Account/SelectCustomer.aspx</Url>
+			</Redir>
+		</Requirement>
+		<!-- ~~~~~~~~~~ GLOBAL :: GroupLimitsVerified ~~~~~~~~~~ -->
+		<Requirement Type="GroupLimitsVerified">
+			<Condition>GroupSales</Condition>
+			<Redir>
+				<Url>/Shop/GroupSalesVerifyLimits.aspx</Url>
+			</Redir>
+		</Requirement>
+		<!-- ~~~~~~~~~~ GLOBAL :: AssociatedTicketsAccepted ~~~~~~~~~~ -->
+		<Requirement Type="AssociatedTicketsAccepted">
+			<Condition>AssociatedTickets</Condition>
+			<Redir>
+				<Url>/Shop/AssociatedTickets.aspx</Url>
+			</Redir>
+		</Requirement>
+		<!-- ~~~~~~~~~~ GLOBAL :: OrderAttributesVerified ~~~~~~~~~~ -->
+		<Requirement Type="OrderAttributesVerified">
+			<Condition>RequiresOrderAttributes</Condition>
+			<Redir>
+				<Url>/Shop/GroupSalesQuestionnaire.aspx</Url>
+			</Redir>
+		</Requirement>
+		<!-- ~~~~~~~~~~ GLOBAL :: DebitPricesVerified ~~~~~~~~~~ -->
+		<Requirement Type="DebitPricesVerified">
+			<Condition>RequiresDebitTicketPrices</Condition>
+			<Redir>
+				<Url>/Shop/DebitInfo.aspx</Url>
+			</Redir>
+		</Requirement>
+		<!-- ~~~~~~~~~~ GLOBAL :: UpsellReplacementsSelected ~~~~~~~~~~ -->
+		<Requirement Type="UpsellReplacementsSelected">
+			<Condition>RequiresUpsellReplacementSelection</Condition>
+			<Redir>
+				<Url>/Checkout/Upgrades.aspx</Url>
+			</Redir>
+		</Requirement>
+		<!-- ~~~~~~~~~~ GLOBAL :: UpsellAddOnsSelected ~~~~~~~~~~ -->
+		<Requirement Type="UpsellAddOnsSelected">
+			<Condition>RequiresUpsellAddOnSelection</Condition>
+			<Redir>
+				<Url>/Checkout/Addons.aspx</Url>
+			</Redir>
+		</Requirement>
+	</Requirements>
+</Page>

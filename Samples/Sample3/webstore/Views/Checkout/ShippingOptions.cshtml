@@ -1,0 +1,27 @@
+﻿@model List<Gateway.Models.Checkout.ShippingOptionModel>
+<ul class="shipping-options">
+@foreach (var shippingOption in Model)
+{
+	string price = shippingOption.Price == 0 ? "[L:Free]" : shippingOption.Price.ToString("c");
+	string shippingDate;
+
+	if (shippingOption.ShippingDate.Year == DateTime.Now.Year &&
+		shippingOption.ShippingDate.Month == DateTime.Now.Month &&
+		shippingOption.ShippingDate.Day == DateTime.Now.Day)
+	{
+		shippingDate = "[L:Today]";
+	}
+	else
+	{
+		shippingDate = shippingOption.FormatedShippingDate; 
+	}
+	<li class="ship-option">
+		<a href="@Url.Action("SetShippingOption", "Checkout", new { Id = shippingOption.Id })">
+			<h3>@shippingOption.Name  <span class="ship-price">(@price)</span></h3>
+			<div class="ship-description">@shippingOption.Description</div>
+			<div class="ship-date"><b>[L:ShipDate]</b> @shippingDate</div>
+		</a>
+		<div class="ship-select"></div>
+	</li>
+}
+</ul>

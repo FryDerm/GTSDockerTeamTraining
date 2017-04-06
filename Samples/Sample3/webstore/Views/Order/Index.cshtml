@@ -1,0 +1,49 @@
+﻿@using Gateway.Security
+<!DOCYTYPE html>
+<html ng-cloak>
+
+<head>
+    @Html.Partial("FrontEndIncludes")
+</head>
+
+<body>
+
+    <script>
+
+        GTS.viewOrderOutsideAccount.factory('OrderData', function() {
+
+            return {
+                orderId: '@ViewBag.OrderId',
+                orderItemCount: @Model.OrderProductViewModels.Count,
+                orderItems: [
+                    
+                    @if (Model.OrderProductViewModels.Count > 0)
+                    {
+                        for (var i = 0; i < Model.OrderProductViewModels.Count; i++)
+                        {
+                            <text>
+                            {
+                                visualId: '@Model.OrderProductViewModels[i].OrderProduct.VisualId',
+                                itemName: '@Model.OrderProductViewModels[i].OrderProduct.Name',
+                                guestName: '@Model.OrderProductViewModels[i].OrderProduct.FirstName @Model.OrderProductViewModels[i].OrderProduct.LastName',
+                                eventName: '@Model.OrderProductViewModels[i].OrderProduct.EventName',
+                                eventDateTime: '@Model.OrderProductViewModels[i].OrderProduct.FormatedEventDateTime'
+                            }
+                            </text>
+    
+                            if (i != Model.OrderProductViewModels.Count - 1)
+                            {
+                                <text>,</text>
+                            }
+
+                        }
+                    }
+                ]
+            };
+        });
+
+    </script>
+
+@Html.Raw(File.ReadAllText(Server.MapPath("~/FrontEnd/" + Gateway.Web.StateManager.SalesChannel.Merchant.WebTheme + "/order.html")))
+
+</body>

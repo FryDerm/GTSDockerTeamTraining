@@ -1,0 +1,384 @@
+﻿/* ----------------------------------------------------------------------------
+	PLU display
+---------------------------------------------------------------------------- */
+
+.pluWrapper
+{
+	width: 95%;
+	clear: both;
+	margin: 10px auto;
+}
+
+.parentSCDheader
+{
+   margin-bottom: 5px;
+}
+
+.completeDetails
+{
+	margin-bottom: 10px;
+	color: #00619E;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+.completeDetails:hover
+{
+	color: #FF0004;
+}
+
+.parentSCDImage 
+{
+	width: 100%;
+    float: left;
+}
+
+.pluTable
+{
+	width: 100%;
+	margin-top: 10px;
+}
+/*.pluTable th
+{
+	text-align: left;
+}*/
+.pluTable .pluHeaderRow .pluInfoHeader
+{
+	width: 60%;
+	text-align: left;
+}
+
+.pluAccrualPointsHeader
+{
+	width: 50px;
+}
+.pluRow
+{
+	background: #f4f4f4;
+}
+
+.pluInfo
+{
+	padding: 10px;
+}
+
+.pluInfo hr
+{
+	display: none;
+}
+
+.pluInfo img
+{
+	float: left;
+	padding-right: 4px;
+	max-width: 150px;
+}
+
+.pluAccrualPoints
+{
+	text-align: center;
+	padding: 10px;
+}
+
+.pluSelectionControlsHeader .pluPriceQuantity .pluQuantity
+{
+	margin-left: 55px;
+}
+
+.pluSelectionControls
+{
+	padding-top: 10px;
+	padding-bottom: 8px;
+}
+
+.pluNameShortName
+{
+	clear: right;
+}
+.pluName
+{
+	font-weight: bold;
+	float: left;
+	margin-right: 5px;
+}
+.pluShortName
+{
+	float: left;
+}
+
+.pluPriceQuantity
+{
+	float: right;
+    width: 160px;
+}
+
+.pluErrorLiteral
+{
+	float: right;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-weight: 900;
+	text-align: right;	
+}
+.pluPriceQuantity .pluQuantity
+{
+	margin-left: 50px;
+}
+.pluPrice
+{
+	width: 60px;
+	float: left;
+	text-align: right;
+}
+.pluSelectionControls .pluPrice
+{
+	margin-right: -3px!important;
+}
+
+.pluPriceQuantity .pluPrice
+{
+	
+}
+.pluQuantity
+{
+	float: left;
+	text-align: right;
+}
+.pluQuantity input
+{
+	text-align: center;
+}
+.pluQuantity .PLUQtyTextBox
+{
+	margin-left: 5px;
+	text-align: center;
+	width: 39px;
+}
+.addToCart
+{
+	float: right;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+/* Displays broken rules for a PLU */
+.pluErrorsBulletedList li
+{
+	padding-left: 5px;
+	list-style-position: inside;
+}
+/* Editable price (PriceEdit) PLU */
+.pluPriceTextBox
+{
+	text-align: right;
+}
+
+.pluNoAvailability 
+{
+  	background-color: #CCCCCC;
+	border: 1px solid #666666;
+	display: block;
+	float: right;
+	padding: 3px;
+	white-space: nowrap;		
+}
+
+/* ----------------------------------------------------------------------------
+	MultiTimeEvent
+---------------------------------------------------------------------------- */
+.PLUSelectMultiTimesEventPanel
+{	
+	background-color: #CCCCCC;
+	border: 1px solid #666666;
+	display: block;
+	float: right;
+	margin-bottom: 3px;
+	padding: 3px;
+	white-space: nowrap;		
+}
+
+.PLUSelectMultiTimesEventPanel input[type="image"] 
+{
+	vertical-align: middle;
+}
+
+.SelectMultiTimesLabel
+{
+	vertical-align: middle;
+	color: #000000;
+}
+
+/* MultiTimeEventsPLUControl */
+
+#MultiTimeEventsPLUControl table
+{
+	background-color: #f4f4f4;
+	margin-bottom: 10px;
+	width: 100%;
+}
+
+#MultiTimeEventsPLUControl
+{
+	width: 100%;
+	display: inline-block;
+}
+
+
+
+/*  Right to left styling reverses everything  */
+.dir-rtl .parentSCDImage 
+{
+	float: right;
+}
+.dir-rtl .pluInfo img
+{
+	float: right;
+}
+.dir-rtl .pluName
+{
+	float: right;
+}
+.dir-rtl .pluShortName
+{
+	float: right;
+}
+.dir-rtl .pluPriceQuantity
+{
+	float: left;
+}
+.dir-rtl .pluErrorLiteral
+{
+	float: left;
+	text-align: left;	
+}
+.dir-rtl .pluPrice
+{
+	float: right;
+	text-align: left;
+}
+.dir-rtl .pluQuantity
+{
+	float: right;
+	text-align: left;
+}
+.dir-rtl .addToCart
+{
+	float: left;
+}
+.dir-rtl .PLUSelectMultiTimesEventPanel
+{	
+	float: left;
+}
+.dir-rtl #MultiTimeEventsPLUControl
+{
+	float: left;
+}
+.dir-rtl .pluTable .pluHeaderRow .pluInfoHeader
+{
+	text-align: right;
+}
+.dir-rtl .pluPriceTextBox
+{
+	text-align: left;
+}
+
+
+
+
+
+/*  RTL Styling  */
+.dir-rtl .parentSCDImage 
+{
+    float: right;
+}
+.dir-rtl .pluTable .pluHeaderRow .pluInfoHeader
+{
+	text-align: right;
+}
+.dir-rtl .pluInfo img
+{
+	float: right;
+	padding-left: 4px;
+    padding-right: 0;
+}
+.dir-rtl .pluSelectionControlsHeader .pluPriceQuantity .pluQuantity
+{
+	margin-right: 55px;
+    margin-left: 0;
+}
+.dir-rtl .pluNameShortName
+{
+	clear: left;
+}
+.dir-rtl .pluName
+{
+	float: right;
+	margin-left: 5px;
+    margin-right: 0;
+}
+.dir-rtl .pluShortName
+{
+	float: right;
+}
+.dir-rtl .pluPriceQuantity
+{
+	float: left;
+}
+.dir-rtl .pluErrorLiteral
+{
+	float: left;
+	text-align: left;	
+}
+.dir-rtl .pluPriceQuantity .pluQuantity
+{
+	margin-right: 50px;
+    margin-left: 0;
+}
+.dir-rtl .pluPrice
+{
+	float: right;
+	text-align: left;
+}
+.dir-rtl .pluSelectionControls .pluPrice
+{
+	margin-left: -3px!important;
+    margin-right: 0 !important;
+}
+.dir-rtl .pluQuantity
+{
+	float: right;
+	text-align: left;
+}
+.dir-rtl .pluQuantity .PLUQtyTextBox
+{
+	margin-right: 5px;
+    margin-left: 0;
+}
+.dir-rtl .addToCart
+{
+	float: left;
+}
+.dir-rtl .pluErrorsBulletedList li
+{
+	padding-right: 5px;
+    padding-left: 0;
+}
+.dir-rtl .pluPriceTextBox
+{
+	text-align: left;
+}
+.dir-rtl .PLUSelectMultiTimesEventPanel
+{	
+	float: left;
+}
+.dir-rtl #MultiTimeEventsPLUControl
+{
+	float: left;
+}
+
+.custcontact-wrapper > div {
+    clear: both;
+}
+
+.address-wrap > div {
+    clear: both;
+}

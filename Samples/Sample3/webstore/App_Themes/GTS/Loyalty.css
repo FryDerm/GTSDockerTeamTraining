@@ -1,0 +1,211 @@
+﻿/* ----------------------------------------------------------------------------
+	LoyaltyProgramEnrollment
+---------------------------------------------------------------------------- */
+#LoyaltyProgramEnrollment
+{
+	width: 90%;
+	clear: both;
+	margin: 30px auto;
+}
+
+#LoyaltyProgramEnrollment .block
+{
+	background-color: #eee;
+	padding: 10px;
+	margin: 10px 10px 0px 0px;
+	width: 175px;
+	height: 150px;
+}
+		
+#LoyaltyProgramEnrollment h1
+{
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 10px;
+	font-family: "Segoe UI", "Helvetica", Garuda, Arial, sans-serif;
+}
+
+#LoyaltyProgramEnrollment input[type=submit]
+{
+	padding: 6px 16px;
+	float: right;
+}
+
+#LoyaltyProgramEnrollment p
+{
+	font-size: 15px;
+	line-height: 18px;
+	margin-bottom: 10px;
+}
+		
+#LoyaltyProgramEnrollmentContent
+{
+	padding: 10px;
+}
+
+#LoyaltyProgramEnrollmentContent #PassLookup
+{
+	margin: 0px;
+	width: 100%;
+}
+
+#LoyaltyProgramEnrollmentContent #PassLookup input[type=text]
+{
+	margin-top: 10px;
+}
+
+#LoyaltyProgramEnrollmentContent #ErrorMessage
+{
+	color: #ff0000;
+	font-weight: bold;
+}
+
+#LoyaltyProgramEnrollmentContent .errorMessage
+{
+	
+}
+
+#LoyaltyProgramEnrollmentContent .cancelButton
+{
+	float: right;
+}
+		
+#LoyaltyProgramEnrollment .modalPopup
+{
+	width: auto !important;
+	overflow-y: auto;
+	max-height: 500px;
+}
+
+#LoyaltyProgramSelection
+{
+	width: 90%;
+	clear: both;
+	margin: 30px auto;
+}
+		
+#LoyaltyPrograms .block
+{
+	background-color: #eee;
+	border: 1px solid #000000;
+	padding: 10px;
+	width: 100%;
+}
+
+#LoyaltyPrograms .block input[type=radio]
+{ 
+	margin: 3px 8px 0px 5px;
+}
+
+#LoyaltyPrograms .block p
+{ 
+	margin: 10px 8px 0px 26px;
+}
+			
+#LoyaltyPrograms h1
+{
+	font-size: 14px;
+	font-weight: bold;
+	display: inline;
+	font-family: "Segoe UI", "Helvetica", Garuda, Arial, sans-serif;
+}
+
+/* ----------------------------------------------------------------------------
+	LoyaltyAccountEntry
+---------------------------------------------------------------------------- */
+
+#LoyaltyAccountEntry
+{
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+#LoyaltyAccountEntry p
+{
+	margin: 0;
+}
+
+#LoyaltyAccountEntry #LoyaltyAccountEntryControls
+{
+	margin: 10px 0 10px 0;
+	font-weight: bold;
+}
+
+#LoyaltyAccountEntry #LoyaltyAccountEntryControls input[type=text]
+{
+	height: 25px;
+	width: 250px;
+	padding-left: 5px;
+}
+
+#LoyaltyAccountEntry #LoyaltyAccountEntryControls input[type=submit]
+{
+	padding: 6px 15px 7px 15px;
+	font-size: 10pt;
+}
+
+/* ----------------------------------------------------------------------------
+	LoyaltyAccountDisplay
+---------------------------------------------------------------------------- */
+#LoyaltyConfirmation
+{
+	width: 90%;
+	clear: both;
+	margin: 30px auto;
+}
+
+#LoyaltyExpiration
+{
+	color: #cc0000;
+	font-weight: bold;
+}
+
+#LoyaltyAccountDisplay .Description
+{
+	font-weight: bold;
+}
+
+#LoyaltyAccountDisplay table
+{
+	width: 100%;
+}
+
+#LoyaltyAccountDisplay table tr td
+{
+	padding: 5px;	
+}
+
+#LoyaltyAccountDisplay .Value
+{
+	background-color: #ffffff;
+	border: 1px solid #000000;
+}
+
+.AccrualRedeemOptionsCell
+{
+	vertical-align: bottom;
+}
+
+/* ----------------------------------------------------------------------------
+	Loyalty controls on the MyAccount page
+---------------------------------------------------------------------------- */
+
+#LinkLoyaltyAccount
+{
+	margin-top: 7px;
+}
+
+
+/* Left to right styling  */
+.dir-rtl #LoyaltyProgramEnrollment input[type=submit]
+{
+	float: left;
+}
+.dir-rtl #LoyaltyProgramEnrollmentContent .cancelButton
+{
+	float: left;
+}
+.dir-rtl #LoyaltyAccountEntry #LoyaltyAccountEntryControls input[type=text]
+{
+	padding-right: 5px;
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>HttpModuleMagic</id>
+    <version>0.1</version>
+    <title>HttpModuleMagic.Mvc3</title>
+    <authors>Phil Haack</authors>
+    <owners>Phil Haack</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Enables registering http modules using your favorite DI container.</description>
+    <summary>Enables registering http modules using your favorite DI container.</summary>
+  </metadata>
+</package>

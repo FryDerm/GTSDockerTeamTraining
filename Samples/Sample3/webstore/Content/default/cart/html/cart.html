@@ -1,0 +1,222 @@
+﻿<ul id="purchase-steps">
+	<li>Purchase</li>
+	<li class="active">Review</li>
+	<li>Payment</li>
+	<li>Confirmation</li>
+</ul>
+<div class="clear"></div>
+
+<div class="remove-modal">
+	<div class="ui-widget-overlay"></div>
+	<div class="background">
+		<div class="message">
+			<h4>[L:ConfirmCartRemoveTitle]</h4>
+			<p>[L:ConfirmCartRemoveDescription]</p>
+			<div class="navigation">
+				<img class="loading" src="images/GTS/ajax-loader.gif" alt="loading" />
+				<input type="button" class="ok large-button dark" value="[L:OK]"/>
+				<input type="button" class="cancel large-button dark" value="[L:Cancel]"/>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+
+
+<div id="view-cart">
+	<div id="ErrorMessage"></div>
+    <div id="Loyalty"></div>
+	<div id="cart-addons"></div>
+
+
+    <h2>Your Cart</h2>
+    <div id="cart-information">
+        <div id="cart-items"></div>
+        <div class="clear"></div>
+       
+        <div class="cart-footer">
+            <div id="cart-discounts"></div>
+            <div id="cart-totals"></div>
+        </div>
+
+        <div class="cart-links">
+            <a href="checkout/index" class="large-button continue-checkout">[L:ContinueCheckout]</a>
+            <a href="#" class="dark large-button continue-shopping">[L:ContinueShopping]</a>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+<script type="text/x-jsrender" id="cart-checkoutoptions-template">
+    {{if (AllowDiscounts)}}
+    <div id="discounts">
+        <form>
+            <div class="form-field">
+                <div class="editor-label">
+                    <label for="discount-code">[L:DiscountCodeLabel]</label>
+                </div>
+                <div class="editor-field">
+                    <div class="error">[L:ApplyDiscountCodeError]</div>
+                    <input id="discount-code" name="discount-code" type="text" />
+                    <input type="submit" class="small-button dark" value="Apply" />
+                    <img class="loading" src="images/GTS/ajax-loader.gif" alt="loading" />
+                </div>
+            </div>
+        </form>
+    </div>
+    {{/if}}
+</script>
+
+<script type="text/x-jsrender" id="cart-item-template">
+    
+    <div class="cart-item" data-id="{{>Id}}" data-qty="{{>Quantity}}">
+        <div class="cart-item-details">
+			<div class="cart-item-name">{{:Name}}</div>
+            {{if PackageInPass && PackageInPass.PackageDetails.length > 0}}
+            <div class="benefitpackage package">
+
+                <h6 class="package-title-header">[L:PackageIncludesText] </h6>
+                <div class="Package-header">{{:PackageInPass.Name}}</div>
+                <div class="Package-description">{{:PackageInPass.Description}}</div>
+                {{for PackageInPass.PackageDetails }}
+                <div class="packagedetails-item">
+                    <div class="packagedetails-quantity">({{>Quantity}} ) </div>
+                    <div class="packagedetails-name"> {{:Name}} </div>
+                </div>
+                {{/for}}
+
+            </div>
+            {{/if}}
+            <div class="quantity-field" data-quantity="{{>Quantity}}">
+                <div class="quantity-field" data-quantity="{{>Quantity}}">
+                    Quantity:
+                    {{if (IsQuantityEditable == true)}}
+                    <input type="text" width="60" class="qty-textbox" value="{{>Quantity}}" /> &nbsp;
+                    {{else}}
+                    <span class="qty-label">{{>Quantity}}</span>
+                    {{/if}}
+                </div>
+
+            {{if (AllowRemoval)}}
+            <a href="#" class="cart-item-remove">remove</a>
+            {{/if}}
+            {{if (HasDiscount)}}
+            <span class="discount-label">[L:CartItemDiscountApplied] {{>DiscountAmount}}</span>
+            {{/if}}
+            <div>
+                {{if (hasLoyalty && loyaltyMode == 2) && TotalRedemptionPoints > 0}}
+                <div class="cart-item-total" ">{{>TotalRedemptionPoints}} [L:LoyaltyPointsLiteral]</div>
+                {{else }}
+                <div class="cart-item-total">{{>TotalDisplay}}</div>
+                {{/if}}
+                {{if PaymentPlanOptions && PaymentPlanOptions.length > 0}}
+                <ul class="cart-item-payment-options">
+                    {{for PaymentPlanOptions}}
+                    <li>
+                        <div>Option to pay over {{>PaymentDuration}} {{if (PaymentDurationUnits == 2)}}months{{/if}}.</div>
+                        {{if PostalCodes && PostalCodes.length > 0}}
+                        {{for PostalCodes}}
+                        {{if (FromPostalCode == ThruPostalCode)}}
+                        <div>* Valid for {{>FromPostalCode}}</div>
+                        {{else}}
+                        <div>* Valid for {{>FromPostalCode}} - {{>ThruPostalCode}}</div>
+                        {{/if}}
+                        {{/for}}
+                        {{/if}}
+                    </li>
+                    {{/for}}
+                </ul>
+                {{/if}}
+                {{if (loyaltyMode == 1 && TotalAccrualPoints > 0)}}
+                <div class="cart-item-accrual-label">{{>TotalAccrualPoints}} [L:AccrualPointsLiteral]</div>
+                {{/if}}
+            </div>
+        </div>
+
+        {{if (HasImage)}}
+        <div class="cart-item-image">
+            <img src="{{>ImagePath}}" alt="{{>Name}}" title="{{>Name}}" />
+        </div>
+
+        {{else}}
+        <div class="cart-item-image no-image">
+        </div>
+        {{/if}}
+        <div class="clear"></div>
+    </div>
+
+</script>
+
+<script type="text/x-jsrender" id="cart-totals-template">
+       
+    {{if (HasEditableItems)}}
+		 <div class="cart-update-wrap">
+	        <div class="cart-update">
+	            <input type="button" class="update-cart  small-button dark" value="Update" />
+	            <img class="loading" style="display: none;" src="images/GTS/ajax-loader.gif" alt="loading" />
+	        </div>
+	    </div>
+    {{/if}}
+
+    {{if (!RedemptionMode)}}
+		<div class="cart-subtotal">
+        <span class="label">[L:Subtotal]</span>
+			<span class="value">{{>SubtotalDisplay}}</span>
+		</div>
+		{{if (Fees > 0)}}
+		<div class="cart-fees">
+        <span class="label">[L:Fees]</span>
+			<span class="value">{{>FeesDisplay}}</span>
+		</div>
+		{{/if}}
+		{{if (Shipping > 0)}}
+		<div class="cart-shipping">
+        <span class="label">[L:Shipping]</span>
+			<span class="value">{{>ShippingDisplay}}</span>
+		</div>
+		{{/if}}
+		{{if (Tax > 0)}}
+		<div class="cart-tax">
+        <span class="label">[L:Tax]</span>
+			<span class="value">{{>TaxDisplay}}</span>
+		</div>
+		{{/if}}
+
+		<div class="cart-total">
+        <span class="label">[L:Total]</span>
+			<span class="value">{{>TotalDisplay}}</span>
+		</div>
+    {{if BonusAccrualPoints > 0}}
+    <div class="cart-total">
+        <span class="loyalty-label">[L:BonusAccrualPointsLabel]</span>
+        <span class="value">{{>BonusAccrualPoints}}</span>
+    </div>
+    {{/if}}
+    {{if TotalAccrualPoints > 0}}
+    <div class="cart-total">
+        <span class="loyalty-label">[L:TotalAccrualPointsLabel]</span>
+        <span class="value">{{>TotalAccrualPoints}}</span>
+    </div>
+    {{/if}}
+    {{else}}
+    <div class="cart-total">
+        <span class="label">Total</span>
+        <span class="value">{{>TotalDisplay}} [L:LoyaltyPointsLiteral]</span>
+    </div>
+    {{/if}}  
+  
+    
+</script>
+
+<script type="text/x-jsrender" id="cart-addons-template">
+	<h4>AddOns</h4>
+	{{for Items}}
+		<div class="addon" data-plu="{{>Plu}}">
+        <div class="name">{{:Description}}</div>
+			<div class="total">{{>PriceDisplay}}</div>
+			<a class="large-button dark add-addon">Add</a>
+			<img class="loading" src="images/GTS/ajax-loader.gif" />
+		</div>
+	{{/for}}
+</script>

@@ -1,0 +1,27 @@
+﻿<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700,600,300" rel="stylesheet" type="text/css" />
+<link href="~/Content/default/reservedSeat/css/gts-rs.min.css" rel="stylesheet" type="text/css"/>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular.min.js"></script>
+<script>
+
+    /*
+    * This creates the app itself
+    */
+    var R = angular.module('gtsReservedSeat', []);
+
+    // merge settings
+    R.factory('ApplicationSettings', ['DefaultSettingsModel', function(DefaultSettingsModel){
+        return angular.merge(DefaultSettingsModel, {
+            salesProgramId : 0,
+            eventTypeId : 1,
+            apiUrl : '@ViewBag.apiUrl/api/',
+            autoScroll : false,
+            emsToken: 'Bearer @ViewBag.emsToken',
+            sessionId : '@ViewBag.sessionId'
+        });
+    }]);
+
+</script>
+<script src="~/Content/default/reservedSeat/scripts/gts-rs.min.js"></script>
+
+@Html.Action("Html", "Site", new { pageName = "ReservedSeat" })

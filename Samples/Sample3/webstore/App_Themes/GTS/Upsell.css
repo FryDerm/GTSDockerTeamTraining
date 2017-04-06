@@ -1,0 +1,60 @@
+﻿#Upgrades, #AddOns
+{
+	width: 550px;
+}
+#Upgrades table, #AddOns table
+{
+	width: 100%;
+	border: 1px solid #b8b8b8;
+	margin-bottom: 5px;
+	background-color: #f8f8f8;
+}
+#Upgrades .HighlightElement, #AddOns .HighlightElement
+{
+	background-color: #c6c6c6 !important;
+	border: 1px solid #4a4a4a !important;
+	
+	font-weight: bold;
+}
+#Upgrades td, #AddOns td
+{
+	vertical-align: top;
+}
+#Upgrades .OptionCell, #AddOns .OptionCell
+{
+	width: 25px;
+}
+#Upgrades .EventHeader, #AddOns .EventHeader
+{
+	/*width: 190px !important;*/
+	float: right;
+	text-align: right;
+}
+#Upgrades .UpsellQuantityControls, #AddOns .UpsellQuantityControls
+{
+	float: right;
+	text-align: center;	
+}
+#Upgrades .UpsellQuantityControls input[type=image], #AddOns .UpsellQuantityControls input[type=image]
+{
+	text-align: right;
+}
+
+
+
+
+
+/*  RTL Styling  */
+.dir-rtl #Upgrades .EventHeader, .dir-rtl #AddOns .EventHeader
+{
+	float: left;
+	text-align: left;
+}
+.dir-rtl #Upgrades .UpsellQuantityControls, .dir-rtl #AddOns .UpsellQuantityControls
+{
+	float: left;
+}
+.dir-rtl #Upgrades .UpsellQuantityControls input[type=image], .dir-rtl #AddOns .UpsellQuantityControls input[type=image]
+{
+	text-align: left;
+}

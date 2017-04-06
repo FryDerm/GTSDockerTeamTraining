@@ -1,0 +1,71 @@
+﻿<!-- ~~~~~~~~~~ GROUPSALES :: GroupSalesLogin ~~~~~~~~~~ -->
+<Page>
+	<Name>GroupSalesLogin.aspx</Name>
+	<Anchor />
+	<Requirements>
+		<Requirement Type="GroupSales" />
+	</Requirements>
+	<NavigationRules>
+		<NavigationRule>
+			<PreviousPage>*</PreviousPage>
+			<NextPage>/Shop/GroupSalesVerifyLimits.aspx</NextPage>
+		</NavigationRule>
+	</NavigationRules>
+</Page>
+<!-- ~~~~~~~~~~ GROUPSALES :: GroupSalesQuestionnaire ~~~~~~~~~~ -->
+<Page>
+	<Name>GroupSalesQuestionnaire.aspx</Name>
+	<Requirements>
+		<Requirement Type="GroupSales" />
+	</Requirements>
+	<NavigationRules>
+		<NavigationRule>
+			<PreviousPage>*</PreviousPage>
+			<NextPage>/Shop/ViewItems.aspx</NextPage>
+		</NavigationRule>
+	</NavigationRules>
+</Page>
+<!-- ~~~~~~~~~~ GROUPSALES :: SelectCustomer ~~~~~~~~~~ -->
+<Page>
+	<Name>SelectCustomer.aspx</Name>
+	<MaintainAnchor />
+	<Requirements>
+		<Requirement Type="GroupSales" />
+		<Requirement Type="UserAuthenticated">
+			<Url>GroupSalesLogin.aspx</Url>
+		</Requirement>
+		<Requirement Type="HasCustomerAssociations">
+			<Url>/Account/GroupSalesLogin.aspx</Url>
+		</Requirement>
+	</Requirements>
+	<NavigationRules>
+		<NavigationRule>
+			<PreviousPage>*</PreviousPage>
+			<NextPage>/Shop/ViewItems.aspx</NextPage>
+		</NavigationRule>
+	</NavigationRules>
+</Page>
+<!-- ~~~~~~~~~~ GROUPSALES :: GroupSalesVerifyLimits ~~~~~~~~~~ -->
+<Page>
+	<Name>GroupSalesVerifyLimits.aspx</Name>
+	<MaintainAnchor />
+	<Requirements>
+		<Requirement Type="UserAuthenticated" />
+	</Requirements>
+	<NavigationRules>
+		<NavigationRule>
+			<PreviousPage>*</PreviousPage>
+			<NextPage>/Shop/GroupSalesQuestionnaire.aspx</NextPage>
+		</NavigationRule>
+	</NavigationRules>
+</Page>
+<!-- ~~~~~~~~~~ GROUPSALES :: AssociatedTickets ~~~~~~~~~~ -->
+<Page>
+	<Name>AssociatedTickets.aspx</Name>
+	<NavigationRules>
+		<NavigationRule>
+			<PreviousPage>*</PreviousPage>
+			<NextPage>/Shop/ViewCart.aspx</NextPage>
+		</NavigationRule>
+	</NavigationRules>
+</Page>

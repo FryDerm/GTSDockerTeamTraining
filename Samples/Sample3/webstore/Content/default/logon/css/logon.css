@@ -1,0 +1,157 @@
+﻿#account-logon
+{
+	width: 95%;
+	clear: both;
+	margin: 30px auto;
+}
+
+#account-logon h3
+{
+    font-size: 1.4em;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #d6d4d4;
+	color: #555454;
+	text-transform: uppercase;
+}
+
+#account-logon .existing-account,
+#account-logon .no-account
+{
+    display: inline-block;
+	float: left;
+	width: 450px;
+	margin-top: 20px;
+	padding: 20px;
+	padding-bottom: 20px;
+	line-height: 20px;
+	background: #fbfbfb;
+	border: 1px solid #d6d4d4;
+}
+
+#account-logon .create-account
+{
+    display: inline-block;
+    float: left;
+	width: 450px;
+	margin-top: 20px;
+	padding: 20px;
+	padding-bottom: 20px;
+	line-height: 20px;
+	background: #fbfbfb;
+	border: 1px solid #d6d4d4;
+}
+
+
+.existing-account h4, .no-account h4, .create-account h4
+{
+	font-size: 1.2em;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #d6d4d4;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+
+#account-logon .form-field
+{
+    margin-bottom: 4px;
+}
+
+#account-logon .form-field .form-field-label
+{
+    float: left;
+    margin-right: 12px;
+    margin-top: 3px;
+    width: 75px;
+}
+
+#account-logon .form-field .form-field-input input[type=text],
+#account-logon .form-field .form-field-input input[type=password]
+{
+    width: 250px;
+}
+
+#account-logon .form-field .form-field-validation
+{
+    color: #E51400;
+}
+
+#account-logon .form-field .form-field-validation .field-validation-error
+{
+    margin-bottom: 12px;        
+}
+
+#account-logon .forgot-password,
+#account-logon input[type=submit]
+{
+	margin-left: 1px;
+}
+
+#account-logon .forgot-password a
+{
+    display: inline-block;
+	color: white;
+	font-family: "Segoe UI", "Helvetica", Garuda, Arial, sans-serif;
+	font-size: 8pt;
+	text-transform: uppercase;
+	padding: 6px 12px;
+	background-color: #434343;
+	border: none;
+	text-decoration: none;
+	cursor: pointer;
+	margin-top: 15px;
+	padding: 8px 20px;
+}
+
+#account-logon .forgot-password a:hover
+{
+	background-color: #555;
+}
+
+#account-logon .validation-summary-errors ul
+{
+    list-style: none;
+    color: #e51400;
+    margin-left: 0;
+}
+
+#Login
+{
+	margin-top: 15px;
+}
+
+.form-field-input input
+{
+	background: #fff;
+}
+
+
+
+
+/* RTL Styling */
+.dir-rtl #account-logon .form-field .form-field-label
+{
+    float: right;
+    margin-left: 12px;
+    margin-right: auto;
+}
+.dir-rtl #account-logon .existing-account,
+.dir-rtl #account-logon .no-account
+{
+    float: right;
+}
+
+.dir-rtl #account-logon .create-account
+{
+    float: right;
+}
+.dir-rtl #account-logon .forgot-password,
+.dir-rtl #account-logon input[type=submit]
+{
+	margin-right: 1px;
+    margin-left: auto;
+}
+.dir-rtl #account-logon .validation-summary-errors ul
+{
+    margin-right: 0;
+    margin-left: auto;
+}

@@ -1,0 +1,79 @@
+﻿@{
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Head {
+	<link href="@Url.Content("~/Content/css/ViewItems/ViewItems.css")" rel="stylesheet" type="text/css" />
+}
+
+<div class="clear"></div>
+
+<div id="view-items">
+	<div id="plu-items"></div>
+</div>
+
+<script type="text/x-jsrender" id="category-nav-template">
+	{{if (Active)}}
+	<li class="active" data-externalid="{{>ExternalId}}"><a href="{{>Link}}">{{>Name}}</a></li>
+	{{else}}
+	<li data-externalid="{{>ExternalId}}"><a href="{{>Link}}">{{>Name}}</a></li>
+	{{/if}}
+</script>
+
+<script type="text/x-jsrender" id="plu-item-template">
+<div class="plu-item" data-plu="{{>Plu}}">
+	<div class="plu-image">
+		{{if (HasImage)}}
+		<img alt="{{>Name}}" Title="{{>Name}}" src="{{>ImagePath}}"/>
+		{{/if}}
+		{{if (!HasImage)}}
+		&nbsp;
+		{{/if}}
+	</div>
+	<div class="plu-details">
+		<div class="plu-information">
+			<span>{{>Name}}</span>
+			<p>{{>Description}}
+				{{if (LongDescription)}}
+				<a href="" class="plu-more-info-link">more details</a>
+				{{/if}}
+			</p>
+			{{if (LongDescription)}}
+			<div class="plu-more-info">
+				{{:LongDescription}}
+			</div>
+			{{/if}}
+		</div>
+		<div class="plu-price">
+			<span>{{>Price}}</span>
+		</div>
+		<div class="plu-controls">
+			<input type="checkbox" name="gift-{{:#index}}" id="gift-{{:#index}}" />
+			<label for="gift-{{:#index}}">Gift this Membership</label>
+			<input type="button" class="large-button add-to-cart" value="Add to Cart" />
+		</div>
+	</div>
+</div>
+<div class="clear"></div>
+</script>
+
+@section Scripts {
+	<script type="text/javascript" src="Scripts/jquery.globalize/globalize.js"></script>
+	<script type="text/javascript" src="Scripts/ViewItems/storeNavigation.js"></script>
+	<script type="text/javascript" src="Scripts/ViewItems/viewItemsModule.js"></script>
+    <script type="text/javascript">
+        var storeExternalId = "@ViewBag.storeExternalId";
+        var categoryExternalId = "@ViewBag.categoryExternalId";
+		
+        $(document).ready(function () {
+            gts.viewItemsModule.init(categoryExternalId);
+            gts.storeNavigation.init({
+                storeExternalId: storeExternalId,
+                categoryExternalId: categoryExternalId,
+                on: {
+                    categorySelected: gts.viewItemsModule.CategorySelected
+                }
+            });
+        });
+    </script>
+}

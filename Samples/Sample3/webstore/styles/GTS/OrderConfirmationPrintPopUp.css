@@ -1,0 +1,109 @@
+﻿/*-----------------------------------------------------------------------------
+	Printer-Friendly Order Confirmation Page
+-----------------------------------------------------------------------------*/
+
+#BillingInformation, #ShippingInformation, #DeliveryInformation
+{
+	float: left;
+	width: 200px;
+	
+}
+
+#OrderInfo .OrderInfoHeading
+{
+	font-weight: bold;
+}
+
+#OrderInfo #OrderInformation
+{
+	padding-top: 20px;
+}
+
+#OrderConfirmationPrint
+{
+	font-size: 12px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	padding: 20px;
+}
+
+/* ----------------------------------------------------------------------------
+	Cart
+---------------------------------------------------------------------------- */
+
+#Cart table
+{
+	width: 100%;
+	border-color: #000000;
+}
+
+#Cart td
+{
+	vertical-align: middle;
+	border-color: #000000;
+}
+
+#Cart input[type=text]
+{
+	text-align: right;
+}
+
+#Cart .CartItemNameCell
+{
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color: #ffffff;
+}
+
+#Cart .CartPriceCell
+{
+	width: 70px;
+	background-color: #ffffff;
+}
+
+#Cart .CartQuantityCell
+{
+	width: 50px;
+	text-align: center;
+	background-color: #ffffff;
+}
+
+#Cart .CartTotalCell
+{
+	width: 70px;
+	background-color: #ffffff;
+}
+
+#Cart .CartRemoveCell
+{
+	width: 50px;
+	text-align: center;
+	background-color: #ffffff;
+}
+
+#Cart #CartFooter table
+{	
+}
+
+#Cart #CartFooterButtons
+{
+}
+
+#Cart .CartItemDiscount
+{
+	display: block;
+}
+
+#bodyOrderConfirmationPrint
+{
+	background-color: #FFFFFF;
+}
+
+#ContentHeadingPrint
+{
+	font-size: 14px;
+}

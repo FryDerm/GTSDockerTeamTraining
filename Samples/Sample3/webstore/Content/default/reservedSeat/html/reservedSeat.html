@@ -1,0 +1,237 @@
+<div id="ng-app" data-gts-reserved-seat="data-gts-reserved-seat"><div class="content p"><div ng-controller="DatePickerController" ng-class="{large : screenSize.large, medium : screenSize.medium, small : screenSize.small}" class="step pt pb bb date-picker"><div class="row"><div class="numbers c cf30 leader"><div class="circle heavy">1</div></div><div class="c cf30 follower"><div><div class="ml title light row"><div class="c c80"><span ng-if="!showDate">Select A <span class="heavy">Date</span></span><span ng-if="showDate">Date :<span class="heavy">{{showDate}}</span></span></div><div ng-click="change()" ng-if="state.collapsed &amp;&amp; !state.disabled" class="c c20 change upper heavy pointer ns"><span class="icon"></span><span ng-if="!screenSize.small" class="text">Change</span></div></div></div></div></div><div ng-class="{collapsed : state.collapsed}" class="row step-content"><div class="c cf30 follower"><div><div ng-if="state.error" class="row mt"><div class="error p"><span ng-if="errorMessage === 'api'">There was a system error, please try again.</span></div></div><div ng-if="state.warning" class="row mt"><div class="warning p">There are no dates</div></div><div ng-if="!state.error" class="ml mt calendar ns"><div class="calendar-header"><div class="row controls"><div class="c c6"><div ng-click="changeMonth(false)" class="arrow pointer"><div class="prev icon"></div></div></div><div class="c c88 month-name upper"><span class="heavy">{{monthName}} </span><span class="light">{{year}}</span></div><div class="c c6"><div ng-click="changeMonth(true)" class="arrow right pointer"><div class="next icon"></div></div></div></div><div class="row days ns"><div class="c c14 upper">sun</div><div class="c c14 upper">mon</div><div class="c c14 upper">tue</div><div class="c c14 upper">wed</div><div class="c c14 upper">thu</div><div class="c c14 upper">fri</div><div class="c c14 upper">sat</div></div></div><div class="calendar-body"><div ng-class="{in : state.loading}" class="loading fade"><div class="img"><img src="img/ajax-loading.gif"/></div></div><div ng-repeat="row in calendar" class="row"><div ng-repeat="day in row" class="c c14 ar ar90"><div ng-class="{available : day.available, selected : day.selected}" ng-click="day.available === false || selectDate(day)" class="arc day"><div class="text">{{day.date}}</div></div></div></div></div></div></div></div></div></div><div ng-controller="EventTimePickerController" ng-class="{large : screenSize.large, medium : screenSize.medium, small : screenSize.small}" class="step pt pb bb eventTimePicker"><div class="row"><div class="numbers c cf30 leader"><div class="circle heavy">2</div></div><div class="c cf30 follower"><div><div class="ml title light row"><div class="c c80"><span ng-if="!eventString">Pick A <span class="heavy">Time</span></span><span ng-if="eventString">Event: <span class="heavy">{{eventString}}</span></span></div><div ng-click="change()" ng-if="state.collapsed &amp;&amp; !state.disabled" class="c c20 change upper heavy pointer ns"><span class="icon"></span><span ng-if="!screenSize.small" class="text">Change</span></div></div></div></div></div><div ng-class="{collapsed : state.collapsed}" class="row step-content"><div class="c cf30 leader">&nbsp;</div><div class="c cf30 follower"><div class="event-list"><div ng-if="state.error" class="row mt"><div class="error p"><span ng-if="errorMessage === 'api'">There was a system error, please try again.</span></div></div><div ng-if="!state.error" class="ml mt ns"><div ng-if="state.loading" class="loading"><div class="img"><img src="img/ajax-loading.gif"/></div></div><div ng-if="events.length"><div ng-repeat="event in events" ng-click="selectEvent(event)" class="row event mt"><div class="c c20 event-card"><div class="center"><div class="heavy event-time">{{event.startTime}}</div><div class="light">am</div></div></div><div class="c c80 event-name"><div class="ml"><p class="name">{{event.name}}</p><p class="date">{{event.dateString}}</p></div></div></div></div></div></div></div></div></div><div ng-controller="MapController" ng-class="{large : screenSize.large, medium : screenSize.medium, small : screenSize.small}" class="step pt pb bb map"><div class="row"><div class="numbers c cf30 leader"><div class="circle heavy">3</div></div><div class="c cf30 follower"><div><div class="ml title light">Choose Your <span class="heavy">Seats</span></div></div></div></div><div ng-class="{collapsed : state.collapsed}" class="row step-content"><div class="c cf30 leader">&nbsp;</div><div class="c cf30 follower"><div><div class="map-container ml ns"><div ng-if="state.warning" ng-click="moreTime()" class="row mt time-warning"><div class="warning p">You're almost out of time! Click here to request more time.</div></div><div ng-if="state.error" class="row mt"><div ng-if="errorMessage === 'timeOut'" class="error p">You have ran out of time, please try again.</div><div ng-if="errorMessage === 'quantity'" class="error p">Please select your quantity first.</div></div><div class="row mt"><div ng-controller="QuantityPickerController" class="c c80 quantity"><div ng-class="{open : isUnderlayOpen}" class="row subselect"><div class="c main label">Quantity:</div><div ng-click="openUnderlay()" class="c ml"><div class="select"><div class="border"><span class="number"><select ng-model="quantity" ng-change="selectQuantity()"><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option></select></span><span class="icon"></span></div></div></div></div></div><div class="c c20 list"><span ng-if="visible" ng-click="listView('list')">List View</span><span ng-if="!visible" ng-click="listView('visual')">Map</span></div></div><div ng-if="visible" class="row mt"><div ng-class="{in : state.loading}" class="loading fade"><div class="img"><img src="img/ajax-loading.gif"/></div></div><div class="p background"><div class="viewport"><div ng-style="{paddingBottom:stage.aspectRatio+'%'}" class="spacer"><!-- Stage--><div ng-style="{width:stage.zoom+'%',marginLeft:stage.marginLeft+'%',marginTop:stage.marginTop+'%'}" class="ns stage"><div ng-style="{paddingBottom:(stage.aspectRatio)+'%'}" class="spacer"></div><div ng-repeat="object in objects" data-name="{{object.name}}" ng-style="{width : object.width+'%', height : object.height+'%', top : object.top+'%', left : object.left+'%'}" ng-class="{'object-circle' : object.kind === 1, active : !seatsLoaded}" class="object c-{{object.color}}"></div><div ng-repeat="section in sections" ng-style="{left:section.left+'%',top:section.top+'%',height:section.height+'%',width:section.width+'%'}" class="section"><div ng-if="section.name === 'Poncho L'" ng-click="selectSection(section)" ng-class="{active : selectedSection.id === section.id &amp;&amp; seatsLoaded}" class="imgWrapper poncho"><svg version="1.1" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 260 106" xml:space="preserve">
+	<g>
+		<polygon points="227.3,106 0,28.5 10.2,9.5 40.2,0 177.4,9.2 260,29.6" />
+	</g>
+</svg>
+</div><div ng-if="section.name === 'Poncho C'" ng-click="selectSection(section)" ng-class="{active : selectedSection.id === section.id &amp;&amp; seatsLoaded}" class="imgWrapper poncho"><svg version="1.1" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 x="0px" y="0px" viewBox="0 0 336 72" xml:space="preserve">
+<polygon points="0,72 336,72 336,39.2 303,0 28.4,0 0,36 "/>
+</svg>
+</div><div ng-if="section.name === 'Poncho R'" ng-click="selectSection(section)" ng-class="{active : selectedSection.id === section.id &amp;&amp; seatsLoaded}" class="imgWrapper poncho"><svg version="1.1" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 x="0px" y="0px" viewBox="0 0 240 121" xml:space="preserve">
+<polygon points="31.1,121 240,38.9 226.7,13.9 193.3,0 77.6,18.1 0,42.7 "/>
+</svg>
+</div><div ng-if="section.name === 'Zone 1L'" ng-click="selectSection(section)" ng-class="{active : selectedSection.id === section.id &amp;&amp; seatsLoaded}" class="imgWrapper poncho"><svg version="1.1" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 x="0px" y="0px" viewBox="0 0 244 132" xml:space="preserve">
+<polygon fill="#1C75BC" points="244,57.8 221.6,132 0,48.9 21.1,0 69.9,0 "/>
+</svg>
+</div><div ng-if="section.name === 'Zone 1C'" ng-click="selectSection(section)" ng-class="{active : selectedSection.id === section.id &amp;&amp; seatsLoaded}" class="imgWrapper poncho"><svg version="1.1" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 x="0px" y="0px" viewBox="0 0 408 72" xml:space="preserve">
+<polygon points="0,72 408,72 388.4,19.7 336.4,0 67.1,0 19.9,19.7 "/>
+</svg>
+</div><div ng-if="section.name === 'Zone 1R'" ng-click="selectSection(section)" ng-class="{active : selectedSection.id === section.id &amp;&amp; seatsLoaded}" class="imgWrapper poncho"><svg version="1.1" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 x="0px" y="0px" viewBox="0 0 266 143" xml:space="preserve">
+<polygon points="0,66 25.3,143 266,52.7 247.3,0 196.1,3 "/>
+</svg>
+</div><div ng-if="section.name === 'Zone 2L'" ng-click="selectSection(section)" ng-class="{active : selectedSection.id === section.id &amp;&amp; seatsLoaded}" class="imgWrapper poncho"><svg version="1.1" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 x="0px" y="0px" viewBox="0 0 264 239" xml:space="preserve">
+<polygon points="38.2,0 25.1,0 0,72.3 12,157 222.5,239 264,88.4 "/>
+</svg>
+</div><div ng-if="section.name === 'Zone 2C'" ng-click="selectSection(section)" ng-class="{active : selectedSection.id === section.id &amp;&amp; seatsLoaded}" class="imgWrapper poncho"><svg version="1.1" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 x="0px" y="0px" viewBox="0 0 504 144" xml:space="preserve">
+<polygon points="0,144 504,144 457,0 39.4,0 "/>
+</svg>
+</div><div ng-if="section.name === 'Zone 2R'" ng-click="selectSection(section)" ng-class="{active : selectedSection.id === section.id &amp;&amp; seatsLoaded}" class="imgWrapper poncho"><svg version="1.1" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 x="0px" y="0px" viewBox="0 0 292 252" xml:space="preserve">
+<polygon points="252.6,0 266.1,0 292,72.7 279.6,157.7 42.8,252 0,100.7 "/>
+</svg>
+</div><div ng-if="section.name === 'Zone 3L'" ng-click="selectSection(section)" ng-class="{active : selectedSection.id === section.id &amp;&amp; seatsLoaded}" class="imgWrapper poncho"><?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 x="0px" y="0px" viewBox="0 0 236 133" xml:space="preserve">
+<polygon fill="#1C75BC" points="236,77.5 225.2,133 0,58.3 18.5,0 "/>
+</svg>
+</div><div ng-if="section.name === 'Zone 3C'" ng-click="selectSection(section)" ng-class="{active : selectedSection.id === section.id &amp;&amp; seatsLoaded}" class="imgWrapper poncho"><?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 x="0px" y="0px" viewBox="0 0 552 48" xml:space="preserve">
+<polygon fill="#1C75BC" points="0,46.8 0,0 116.8,0 207.5,41.8 349.8,41.8 432.2,0 549.6,0 552,48 "/>
+</svg>
+</div><div ng-if="section.name === 'Zone 3R'" ng-click="selectSection(section)" ng-class="{active : selectedSection.id === section.id &amp;&amp; seatsLoaded}" class="imgWrapper poncho"><?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 x="0px" y="0px" viewBox="0 0 236 133" xml:space="preserve">
+<polygon fill="#1C75BC" points="0,77.5 10.8,133 236,58.3 217.5,0 "/>
+</svg>
+</div><div ng-if="section.name === 'Zone 4L'" ng-click="selectSection(section)" ng-class="{active : selectedSection.id === section.id &amp;&amp; seatsLoaded}" class="imgWrapper poncho"><svg version="1.1" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 x="0px" y="0px" viewBox="0 0 258 227" xml:space="preserve">
+<polygon points="258,78.5 220.3,227 0,142.1 33.3,0 "/>
+</svg>
+</div><div ng-if="section.name === 'Zone 4C'" ng-click="selectSection(section)" ng-class="{active : selectedSection.id === section.id &amp;&amp; seatsLoaded}" class="imgWrapper poncho"><svg version="1.1" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 x="0px" y="0px" viewBox="0 0 624 144" xml:space="preserve">
+<polygon points="36.8,0 0,119.4 182.1,144 446.5,144 624,116.8 580.2,1.6 "/>
+</svg>
+</div><div ng-if="section.name === 'Zone 4R'" ng-click="selectSection(section)" ng-class="{active : selectedSection.id === section.id &amp;&amp; seatsLoaded}" class="imgWrapper poncho"><svg version="1.1" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 x="0px" y="0px" viewBox="0 0 258 227" xml:space="preserve">
+<polygon points="0,78.5 37.7,227 258,142.1 224.7,0 "/>
+</svg>
+</div><div ng-if="section.name === 'Section 1'" ng-click="selectSection(section)" ng-class="{active : selectedSection.id === section.id &amp;&amp; seatsLoaded}" class="imgWrapper"><svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   viewbox="0 0 340 400"
+   id="svg3207">
+  <g
+     transform="translate(0,-652.36218)"
+     id="layer1">
+    <path
+       d="m 171.74037,652.3622 c 0,0 88.26734,45.6621 168.25963,55.70775 L 212.19624,1052.3622 c 0,0 -134.69966,-21.9178 -197.222333,-64.38358 0,0 -18.8487524,-27.85389 -14.25151871,-103.65296 0,0 5.51673441,-115.06848 171.01798171,-231.96346 z"
+       id="path3027" />
+  </g>
+</svg>
+</div><div ng-if="section.name === 'Section 2'" ng-click="selectSection(section)" ng-class="{active : selectedSection.id === section.id &amp;&amp; seatsLoaded}" class="imgWrapper"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   viewbox="0 0 409 365"
+   id="svg3222">
+  <g
+     transform="translate(0,-687.36218)"
+     id="layer1">
+    <path
+       d="m 409,1024.9142 c 0,0 -196.92644,61.7579 -409,0 L 103.0716,687.36216 c 0,0 66.45497,25.72663 194.25311,5.3704 L 409,1020.4389"
+       id="path3031" />
+  </g>
+</svg>
+</div><div ng-if="section.name === 'Section 3'" ng-click="selectSection(section)" ng-class="{active : selectedSection.id === section.id &amp;&amp; seatsLoaded}" class="imgWrapper"><svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   viewbox="0 0 340 400"
+   id="svg3270">
+  <g
+     transform="translate(0,-652.36218)"
+     id="layer1">
+    <path
+       d="m 168.25963,652.3622 c 0,0 -88.267349,45.6621 -168.25963,55.70776 l 127.80376,344.29224 c 0,0 134.69964,-21.9178 197.22235,-64.38356 0,0 18.84875,-27.85387 14.25149,-103.65299 0,0 -5.5167,-115.06848 -171.01797,-231.96345 z"
+       id="path3029" />
+  </g>
+</svg>
+</div><div ng-if="section.name === 'Section 4'" ng-click="selectSection(section)" ng-class="{active : selectedSection.id === section.id &amp;&amp; seatsLoaded}" class="imgWrapper"><svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   viewbox="0 0 240 282"
+   id="svg3296">
+  <g
+     transform="translate(0,-2875.0866)"
+     id="layer1">
+    <path
+       d="m 0,886.06879 v 166.29341 c 160.95622,-28.7507 258,-73.70659 258,-73.70659 V 812.3622 c 0,0 -97.04378,44.95431 -258,73.70659 z"
+       id="path3041"
+       style="fill:#1e7fc3" />
+    <path
+       d="M 240,2956.3946 C 163.23706,2938.9227 82.86194,2912.6865 0.00177503,2875.0866 L 0,3075.7786 c 82.86194,37.5999 163.23706,63.8362 240,81.308 v -200.692 z"
+       id="path3033" />
+  </g>
+</svg>
+</div><div ng-if="section.name === 'Section 5'" ng-click="selectSection(section)" ng-class="{active : selectedSection.id === section.id &amp;&amp; seatsLoaded}" class="imgWrapper"><svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   viewbox="0 0 432 224"
+   id="svg3296">
+  <g
+     transform="translate(0,-828.36218)"
+     id="layer1">
+    <path
+       d="m 289.22034,847.02829 v 78.44552 H 130.57566 V 845.32594 C 88.52339,842.13833 44.929831,836.66585 0,828.36216 v 203.52194 c 165.87702,30.655 313.68508,23.008 432,2.4423 V 830.80623 c -43.74915,7.60539 -91.5419,13.43426 -142.77966,16.22206 z"
+       id="path3043"
+        />
+  </g>
+</svg>
+</div><div ng-if="section.name === 'Section 6'" ng-click="selectSection(section)" ng-class="{active : selectedSection.id === section.id &amp;&amp; seatsLoaded}" class="imgWrapper"><svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   viewbox="0 0 240 282"
+   id="svg3296">
+  <g
+     transform="translate(0,-2875.0866)"
+     id="layer1">
+    <path
+       d="m 0,886.06879 v 166.29341 c 160.95622,-28.7507 258,-73.70659 258,-73.70659 V 812.3622 c 0,0 -97.04378,44.95431 -258,73.70659 z"
+       id="path3041"
+       style="fill:#1e7fc3" />
+    <path
+       d="m 0,2957.8933 v 199.1933 c 149.79043,-32.544 240,-82.8049 240,-82.8049 v -199.1951 c 0,0 -90.20957,50.2627 -240,82.8067 z"
+       id="path3035" />
+  </g>
+</svg>
+</div><div ng-if="section.name === 'Section 7'" ng-click="selectSection(section)" ng-class="{active : selectedSection.id === section.id &amp;&amp; seatsLoaded}" class="imgWrapper"><svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   viewbox="0 0 258 240"
+   id="svg3296">
+  <g
+     transform="translate(0,-812.36218)"
+     id="layer1">
+    <path
+       d="M 258,884.77691 C 175.52887,869.32922 89.117191,845.98495 0,812.3622 h 0 v 167.58529 c 89.117191,33.62271 175.52887,56.96701 258,72.41471 V 884.77691 z"
+       id="path3037" />
+  </g>
+</svg>
+</div><div ng-if="section.name === 'Section 8'" ng-click="selectSection(section)" ng-class="{active : selectedSection.id === section.id &amp;&amp; seatsLoaded}" class="imgWrapper"><svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   viewbox="0 0 432 200"
+   id="svg3296">
+  <g
+     transform="translate(0,-852.36218)"
+     id="layer1">
+    <path
+       d="M 432,854.90026 C 313.42815,873.95227 165.67482,880.88739 0,852.36215 v 180.85105 c 165.67664,28.5252 313.42815,21.5918 432,2.5381 V 854.90026 z"
+       id="path3039"
+        />
+  </g>
+</svg>
+</div><div ng-if="section.name === 'Section 9'" ng-click="selectSection(section)" ng-class="{active : selectedSection.id === section.id &amp;&amp; seatsLoaded}" class="imgWrapper"><svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   viewbox="0 0 258 240"
+   id="svg3296">
+  <g
+     transform="translate(0,-812.36218)"
+     id="layer1">
+    <path
+       d="m 0,886.06879 v 166.29341 c 160.95622,-28.7507 258,-73.70659 258,-73.70659 V 812.3622 c 0,0 -97.04378,44.95431 -258,73.70659 z"
+       id="path3041"
+       />
+  </g>
+</svg>
+</div><!-- otherssvg(vbox="{{section.viewBox}}")
+ polygon(ng-attr-points="{{section.points}}", ng-click="selectSection(section)", ng-class="{active : selectedSection.id === section.id && seatsLoaded}")
+ --><div ng-if="selectedSection.id !== section.id" ng-click="selectSection(section)" ng-class="{darkText : section.name === 'Zone 3C'}" class="sectionLabel ns"><div class="test">{{section.name}}</div></div><div ng-if="selectedSection.id === section.id &amp;&amp; seats.length" ng-class="{seatsHidden : !selectedSection}" ng-style="{width:adjustments.width+'%', height:adjustments.height+'%'}" class="seatWrapper"><div ng-repeat="seat in seats" ng-style="{width:adjustments.pointDiameter+'%', left:seat.x+'%', top:seat.y+'%'}" ng-class="{available : seat.available, selected : seat.selected}" class="seat"><div style="padding-bottom:100%; width:100%"></div><svg viewbox="0 0 100 100"><circle cx="50" cy="50" r="50"></circle></svg></div></div></div></div></div></div></div><!-- the legend--><div ng-class="{open : legendOpen}" ng-if="objectLegend.length" class="legend-container"><div class="p row"><div ng-repeat="legend in objectLegend" class="c c33"><span class="box c-{{legend.color}}"></span>{{legend.name}}	</div></div></div></div><!-- Seat Map Controls--><div ng-if="visible" class="row controls"><div class="wrapper"><div class="c c10"><div ng-click="!selectedSection || inc(false)" ng-class="{disabled: !seatsLoaded}" class="ctrl out"></div></div><div class="c c80"><div class="row"><div class="ml mr"><div class="c c50"><div class="mr"><button ng-click="selectSection(null)" ng-class="{disabled: !seatsLoaded}" class="button back caution secondary"><span class="icon"></span><span class="text">View Sections</span></button></div></div><div ng-if="objectLegend.length" class="c c50"><div class="ml"><button ng-click="openLegend()" class="button legend secondary"><span class="icon"></span><span class="text">Legend</span></button></div></div></div></div></div><div class="c c10"><div ng-click="!selectedSection || inc(true)" ng-class="{disabled: !seatsLoaded}" class="ctrl in"></div></div></div></div><!-- the list view for the widget--><div ng-controller="ListController" class="list-view"><div ng-if="visible"><div class="mt"><img src="img/seatmap.jpg" style="width:100%"/></div><div class="row mt"><div class="select"><div class="border"><span class="number clear"><select ng-model="$parent.listSection" ng-options="section.name for section in sections | orderBy:['name']" ng-change="selectSection(listSection)"><option value="">Select A Section</option></select></span><span class="icon"></span></div></div></div></div></div><!-- the options--><div ng-class="{disabled: !seatsLoaded}" ng-if="!showTicketOptions" class="options mt"><div class="row"><div class="option-title heavy">Option {{option.id}}/{{optionsLength}}</div></div><div class="row mt"><div class="c c66"><div class="row p seat-details"><div class="c c50"><div class="mr"><div class="section">Section: {{option.section}}</div><div class="row">Row: {{option.row}}</div><div class="seat">Seats:{{option.seatString}}</div></div></div><div class="c c50 pricing"><div ng-repeat="plu in option.plus" class="price-level"><span class="label">{{plu.name}}</span><span class="price heavy">${{plu.price}}				</span></div></div></div></div><div class="c c33"><div class="final ml"><button ng-click="nextOption(option)" class="button switch mb"><span class="icon"></span><span class="text">Next Option</span></button><button ng-click="assignSeats(option)" class="button add action"><span class="icon"></span><span class="text">Assign Seats</span></button></div></div></div></div><div ng-if="showTicketOptions" class="options mt"><div class="row"><div class="option-title heavy">Assign Seats</div></div><form ng-submit="gotTickets(option)"><div ng-repeat="seat in optionTickets" class="row mt"><div class="c c33"><div class="select"><div class="border"><span class="number"><select ng-model="seat.plu" ng-options="option.Plu as option.ProductCategory for option in seat.ticketOptions"></select></span><span class="icon"></span></div></div></div><div class="c c66"><div class="ml seatLabel">{{optionSection}} - {{optionRow}} -- {{seat.name}}</div></div></div><div class="row final mt"><div class="c c50"><div class="mr"><button ng-click="reSelectOption()" class="button switch"><span class="icon"></span><span class="text">Back</span></button></div></div><div class="c c50"><button class="button add action"><span class="icon"></span><span class="text">Add To Cart</span></button></div></div></form></div></div></div></div></div></div></div></div>

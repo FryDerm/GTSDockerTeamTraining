@@ -1,0 +1,30 @@
+﻿.message
+{
+	display: block;
+	padding: 10px;
+	margin: 10px 0 10px 0;
+}
+
+.statusMessage
+{
+	border: 1px solid #000000;
+	background-color: #EEE;
+	color: #000099;
+}
+
+.errorMessage
+{
+	border: 1px solid #cc0000;
+	background-color: #EEE;
+	font-weight: bold;
+	color: #cc0000;
+}
+
+.displayBlock
+{
+	padding: 10px;
+	border: 1px solid #434343;
+	background-color: #EEE;
+	margin-top: 7px;
+	margin-bottom: 7px;
+}

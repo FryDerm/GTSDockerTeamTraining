@@ -1,0 +1,281 @@
+﻿<!-- ~~~~~~~~~~ CHECKOUT :: Upgrades ~~~~~~~~~~ -->
+<Page>
+	<Name>Upgrades.aspx</Name>
+	<Requirements>
+		<Requirement Type="HasOrderLines" />
+	</Requirements>
+	<NavigationRules>
+		<NavigationRule>
+			<PreviousPage>*</PreviousPage>
+			<NextPage>/CheckOut/DeliveryInfo.aspx</NextPage>
+		</NavigationRule>
+	</NavigationRules>
+</Page>
+<!-- ~~~~~~~~~~ CHECKOUT :: AddOns ~~~~~~~~~~ -->
+<Page>
+	<Name>AddOns.aspx</Name>
+	<Requirements>
+		<Requirement Type="HasOrderLines" />
+	</Requirements>
+	<NavigationRules>
+		<NavigationRule>
+			<PreviousPage>*</PreviousPage>
+			<NextPage>/CheckOut/DeliveryInfo.aspx</NextPage>
+		</NavigationRule>
+	</NavigationRules>
+</Page>
+<!-- ~~~~~~~~~~ CHECKOUT :: DeliveryInfo ~~~~~~~~~~ -->
+<Page>
+	<Name>DeliveryInfo.aspx</Name>
+	<Requirements>
+		<Requirement Type="HasOrderLines" />
+		<Requirement Type="CartValid">
+			<Redir>
+				<Url>/Shop/ViewCart.aspx</Url>
+			</Redir>
+		</Requirement>
+
+	</Requirements>
+	<NavigationRules>
+		<NavigationRule>
+			<PreviousPage>*</PreviousPage>
+			<NextPage>/Checkout/BillingInfo.aspx</NextPage>
+		</NavigationRule>
+	</NavigationRules>
+</Page>
+<!-- ~~~~~~~~~~ CHECKOUT :: BillingInfo ~~~~~~~~~~ -->
+<Page>
+	<Name>BillingInfo.aspx</Name>
+	<Requirements>
+		<Requirement Type="HasOrderLines">
+			<Redir>
+				<Url>/Shop/ViewCart.aspx</Url>
+			</Redir>
+		</Requirement>
+		<Requirement Type="CartValid">
+			<Redir>
+				<Url>/Shop/ViewCart.aspx</Url>
+			</Redir>
+		</Requirement>
+		<Requirement Type="HasGuestNames">
+			<Condition>RequiresGuestNames</Condition>
+			<Redir>
+				<Url>/Checkout/GuestNames.aspx</Url>
+			</Redir>
+		</Requirement>
+		<Requirement Type="HasPromptForGuestNames">
+			<Condition>RequiresPromptForGuestNames</Condition>
+			<Redir>
+				<Url>/Checkout/PromptForGuestNames.aspx</Url>
+			</Redir>
+		</Requirement>
+		<Requirement Type="HasTransportationGuestNames">
+			<Condition>RequiresTransportationGuestNames</Condition>
+			<Redir>
+				<Url>/Transportation/TransportationGuestNames.aspx</Url>
+			</Redir>
+		</Requirement>
+		<Requirement Type="HasPassInfo">
+			<Condition>RequiresPassInfo</Condition>
+			<Redir>
+				<Url>/Shop/PassInfo.aspx</Url>
+			</Redir>
+		</Requirement>
+		<Requirement Type="HasRosterInfo">
+			<Condition>RequiresRosterInfo</Condition>
+			<Redir>
+				<Url>/Shop/RosterInfo.aspx</Url>
+			</Redir>
+		</Requirement>
+	</Requirements>
+	<NavigationRules>
+		<NavigationRule>
+			<PreviousPage>ReviewOrder.aspx</PreviousPage>
+			<NextPage>/Checkout/ReviewOrder.aspx</NextPage>
+		</NavigationRule>
+		<NavigationRule>
+			<PreviousPage>*</PreviousPage>
+			<NextPage>/Checkout/ShippingInfo.aspx</NextPage>
+		</NavigationRule>
+	</NavigationRules>
+</Page>
+<!-- ~~~~~~~~~~ CHECKOUT :: ShippingInfo ~~~~~~~~~~ -->
+<Page>
+	<Name>ShippingInfo.aspx</Name>
+	<Requirements>
+		<Requirement Type="HasOrderLines" />
+		<Requirement Type="HasBillingInfo" />
+		<Requirement Type="HasGuestNames">
+			<Condition>RequiresGuestNames</Condition>
+			<Redir>
+				<Url>/Checkout/GuestNames.aspx</Url>
+			</Redir>
+		</Requirement>
+		<Requirement Type="HasPromptForGuestNames">
+			<Condition>RequiresPromptForGuestNames</Condition>
+			<Redir>
+				<Url>/Checkout/PromptForGuestNames.aspx</Url>
+			</Redir>
+		</Requirement>
+		<Requirement Type="HasTransportationGuestNames">
+			<Condition>RequiresTransportationGuestNames</Condition>
+			<Redir>
+				<Url>/Transportation/TransportationGuestNames.aspx</Url>
+			</Redir>
+		</Requirement>
+		<Requirement Type="HasPassInfo">
+			<Condition>RequiresPassInfo</Condition>
+			<Redir>
+				<Url>/Shop/PassInfo.aspx</Url>
+			</Redir>
+		</Requirement>
+		<Requirement Type="HasRosterInfo">
+			<Condition>RequiresRosterInfo</Condition>
+			<Redir>
+				<Url>/Shop/RosterInfo.aspx</Url>
+			</Redir>
+		</Requirement>
+	</Requirements>
+	<NavigationRules>
+		<NavigationRule>
+			<PreviousPage>ReviewOrder.aspx</PreviousPage>
+			<NextPage>/Checkout/ReviewOrder.aspx</NextPage>
+		</NavigationRule>
+		<NavigationRule>
+			<PreviousPage>*</PreviousPage>
+			<NextPage>/Checkout/ReviewOrder.aspx</NextPage>
+		</NavigationRule>
+	</NavigationRules>
+</Page>
+<!-- ~~~~~~~~~~ CHECKOUT :: GuestNames ~~~~~~~~~~ -->
+<Page>
+	<Name>GuestNames.aspx</Name>
+	<Requirements>
+		<Requirement Type="HasOrderLines" />
+		<Requirement Type="HasPrintAtHomeDeliveryMethod" />
+	</Requirements>
+	<NavigationRules>
+		<NavigationRule>
+			<PreviousPage>*</PreviousPage>
+			<NextPage>/CheckOut/BillingInfo.aspx</NextPage>
+		</NavigationRule>
+	</NavigationRules>
+</Page>
+<!-- ~~~~~~~~~~ CHECKOUT :: PromptForGuestNames ~~ -->
+<Page>
+	<Name>PromptForGuestNames.aspx</Name>
+	<Requirements>
+		<Requirement Type="HasOrderLines" />
+		<Requirement Type="HasPromptForGuestNameTickets" />
+	</Requirements>
+	<NavigationRules>
+		<NavigationRule>
+			<PreviousPage>*</PreviousPage>
+			<NextPage>/CheckOut/BillingInfo.aspx</NextPage>
+		</NavigationRule>
+	</NavigationRules>
+</Page>
+<!-- ~~~~~~~~~~ CHECKOUT :: ReviewOrder ~~~~~~~~~~ -->
+<Page>
+	<Name>ReviewOrder.aspx</Name>
+	<Requirements>
+		<Requirement Type="HasOrderLines" />
+		<Requirement Type="HasBillingInfo" />
+		<Requirement Type="HasDeliveryMethod" />
+		<Requirement Type="HasGuestNames">
+			<Condition>RequiresGuestNames</Condition>
+			<Redir>
+				<Url>/Checkout/GuestNames.aspx</Url>
+			</Redir>
+		</Requirement>
+		<Requirement Type="HasPromptForGuestNames">
+			<Condition>RequiresPromptForGuestNames</Condition>
+			<Redir>
+				<Url>/Checkout/PromptForGuestNames.aspx</Url>
+			</Redir>
+		</Requirement>
+		<Requirement Type="HasTransportationGuestNames">
+			<Condition>RequiresTransportationGuestNames</Condition>
+			<Redir>
+				<Url>/Transportation/TransportationGuestNames.aspx</Url>
+			</Redir>
+		</Requirement>
+		<Requirement Type="HasPassInfo">
+			<Condition>RequiresPassInfo</Condition>
+			<Redir>
+				<Url>/Shop/PassInfo.aspx</Url>
+			</Redir>
+		</Requirement>
+		<Requirement Type="HasRosterInfo">
+			<Condition>RequiresRosterInfo</Condition>
+			<Redir>
+				<Url>/Shop/RosterInfo.aspx</Url>
+			</Redir>
+		</Requirement>
+	</Requirements>
+	<NavigationRules>
+		<NavigationRule>
+			<PreviousPage>*</PreviousPage>
+			<NextPage>/Checkout/OrderConfirmation.aspx</NextPage>
+		</NavigationRule>
+	</NavigationRules>
+</Page>
+<!-- ~~~~~~~~~~ CHECKOUT :: TermsAndConditions ~~~~~~~~~~ -->
+<Page>
+	<Name>TermsAndConditions.aspx</Name>
+	<Requirements>
+		<Requirement Type="HasOrderLines" />
+		<Requirement Type="HasBillingInfo" />
+		<Requirement Type="HasDeliveryMethod" />
+		<Requirement Type="HasGuestNames">
+			<Condition>RequiresGuestNames</Condition>
+			<Redir>
+				<Url>/Checkout/GuestNames.aspx</Url>
+			</Redir>
+		</Requirement>
+		<Requirement Type="HasTransportationGuestNames">
+			<Condition>RequiresTransportationGuestNames</Condition>
+			<Redir>
+				<Url>/Transportation/TransportationGuestNames.aspx</Url>
+			</Redir>
+		</Requirement>
+		<Requirement Type="HasPassInfo">
+			<Condition>RequiresPassInfo</Condition>
+			<Redir>
+				<Url>/Shop/PassInfo.aspx</Url>
+			</Redir>
+		</Requirement>
+		<Requirement Type="HasRosterInfo">
+			<Condition>RequiresRosterInfo</Condition>
+			<Redir>
+				<Url>/Shop/RosterInfo.aspx</Url>
+			</Redir>
+		</Requirement>
+	</Requirements>
+	<NavigationRules>
+		<NavigationRule>
+			<PreviousPage>*</PreviousPage>
+			<NextPage>/Checkout/ReviewOrder.aspx</NextPage>
+		</NavigationRule>
+	</NavigationRules>
+</Page>
+<!-- ~~~~~~~~~~ CHECKOUT :: OrderConfirmation ~~~~~~~~~~ -->
+<Page>
+	<Name>OrderConfirmation.aspx</Name>
+	<Requirements>
+		<Requirement Type="OrderComplete" />
+	</Requirements>
+</Page>
+<!-- ~~~~~~~~~~ CHECKOUT :: Survey ~~~~~~~~~~ -->
+<Page>
+	<Name>Survey.aspx</Name>
+	<Requirements>
+		<Requirement Type="OrderComplete" />
+	</Requirements>
+	<NavigationRules>
+		<NavigationRule>
+			<PreviousPage>*</PreviousPage>
+			<NextPage>/Shop/ViewItems.aspx</NextPage>
+		</NavigationRule>
+	</NavigationRules>
+</Page>

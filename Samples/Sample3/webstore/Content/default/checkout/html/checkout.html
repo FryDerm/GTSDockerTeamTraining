@@ -1,0 +1,599 @@
+<script type="text/x-jsrender" id="cart-totals-template">
+    {{if !HasLoyaltyAccount || LoyaltyMode == 1}}
+        <div id="TotalLabel">[L:OrderTotal]</div>
+        <div id="TotalValue">{{>Total}}</div>
+    {{/if}}
+    {{if HasLoyaltyAccount && LoyaltyMode == 2}}
+        <div id="TotalLabel">[L:OrderTotal]</div>
+        <div id="TotalValue">{{>RedemptionPoints}} [L:LoyaltyPointsLiteral]</div>
+    {{/if}}
+    {{if HasLoyaltyAccount && LoyaltyMode == 1 && BonusAccrualPoints > 0}}
+    <div class="loyalty-accrual">
+        <span class="loyalty-label">[L:BonusAccrualPointsLabel]</span>
+        <span class="value accrual-value">{{>BonusAccrualPoints}}</span>
+    </div>
+    {{/if}}
+    {{if HasLoyaltyAccount && LoyaltyMode == 1 && AccrualPoints > 0}}
+    <div class="loyalty-accrual">
+        <span class="loyalty-label">[L:TotalAccrualPointsLabel]</span>
+        <span class="value accrual-value">{{>AccrualPoints}}</span>
+    </div>
+    {{/if}}
+</script>
+
+<script type="text/x-jsrender" id="payment-step-template">
+    <div id="step-payment" class="step">
+        <h2>[L:PaymentHeader]</h2>
+
+        <div id="contact-address"><ul class="existing-contacts"></ul></div>
+
+        <form id="checkout-form" method="post">
+
+
+            <div id="Cart"></div>
+            <div id="Form"></div>
+
+            <div id="Loyalty"></div>
+
+            <div class="name-form-field form-field">
+                <span class="form-field-input">
+                    <input type="text" id="FirstName" name="FirstName" placeholder="[L:FirstName]" maxlength="30" autocomplete="off" />
+                </span>
+                <span class="form-field-input">
+                    <input type="text" id="MiddleName" name="MiddleName" placeholder="[L:MiddleName]" maxlength="30" autocomplete="off" />
+                </span>
+                <span class="form-field-input">
+                    <input type="text" id="LastName" name="LastName" placeholder="[L:LastName]" maxlength="30" autocomplete="off" />
+                </span>
+                <div id="lastNameClear" class="clear"></div>
+            </div>
+            {{if !CheckoutOptions.IsIndirectPaymentProvider && Totals.Total > 0}}
+            <div class="endorsement-form-field form-field">
+                <div class="form-field-label">
+                    <label for="Endorsement">[L:CardNumber]</label>
+                </div>
+                <div class="form-field-input">
+                    <input type="text" id="Endorsement" name="Endorsement" maxlength="16" autocomplete="off" />
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="expiration-cvv-form-field form-field">
+                <div class="form-field-label"><label>[L:ExpirationCVV]</label></div>
+                <div class="form-field-input">
+                    <select id="ExpirationMonth" name="ExpirationMonth"></select>
+                    <select id="ExpirationYear" name="ExpirationYear"></select>
+                    <input type="text" id="CVV" name="CVV" placeholder="[L:CVV]" maxlength="10" autocomplete="off" />
+                </div>
+                <div class="form-field-additional"><a href="#" id="CVVHelp">[L:CVVHelp]</a></div>
+                <div class="clear"></div>
+                <div class="form-field-label"><label>&nbsp;</label></div>
+                <div class="form-field-input">
+                    <div id="cvvAdditional" />
+                </div>
+                
+                {{if CheckoutOptions.AllowStorePaymentInformation}}
+                    <input type="checkbox" id="StorePaymentInformation" /><label for="StorePaymentInformation">[L:StorePaymentCheckBox]</label>
+                {{/if}}
+
+                <div class="clear"/>
+            </div>
+            {{/if}}
+            <div class="address-form-field form-field">
+                <div class="form-field-label"><label for="Address">[L:Address]</label></div>
+                <div class="form-field-input"><input type="text" id="Address" name="Address" maxlength="255" /></div>
+                <div class="form-field-additional"><a href="#" class="additional-address">[L:AdditionalAddress]</a></div>
+                <div class="clear"></div>
+                <div class="form-field-label"><label>&nbsp;</label></div>
+                <div class="form-field-input">
+                    <div id="addressAdditional" />
+                </div>
+                <div class="clear" />
+            </div>
+            <div class="address2-form-field form-field">
+                <div class="form-field-label"><label for="Address2">[L:Address2]</label></div>
+                <div class="form-field-input"><input type="text" id="Address2" name="Address2" maxlength="255" /></div>
+                <div class="clear"></div>
+            </div>
+            <div class="city-form-field form-field">
+                <div class="form-field-label"><label for="City">[L:City]</label></div>
+                <div class="form-field-input"><input type="text" id="City" name="City" maxlength="40" /></div>
+                <div class="clear"></div>
+            </div>
+            <div class="country-form-field form-field">
+                <div class="form-field-label"><label for="Countries">[L:Country]</label></div>
+                <div class="form-field-input"><select id="Countries" name="Countries"></select></div>
+                <div class="clear"></div>
+            </div>
+            <div class="state-form-field form-field">
+                <div class="form-field-label"><label for="State">[L:State]</label></div>
+                <div class="form-field-input">
+                    <select class="states" id="States" name="States"></select>
+                    <input type="text" id="State" name="State" />
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="zip-form-field form-field">
+                <div class="form-field-label"><label for="Zip">[L:Zip]</label></div>
+                <div class="form-field-input"><input type="text" id="Zip" name="Zip" maxlength="16" /></div>
+                <div class="clear"></div>
+            </div>
+            <div class="email-form-field form-field">
+                <div class="form-field-label"><label for="Email">[L:Email]</label></div>
+                <div class="form-field-input"><input type="text" id="Email" name="Email" maxlength="128" /></div>
+                <div class="clear"></div>
+            </div>
+            <div class="phone-form-field form-field">
+                <div class="form-field-label"><label for="PhoneNumber">[L:PhoneNumber]</label></div>
+                <div class="form-field-input"><input type="text" id="PhoneNumber" name="PhoneNumber" maxlength="30" /></div>
+                <div class="clear"></div>
+            </div>
+            
+            <div class="delivery-form-field form-field">
+                <div class="form-field-label"><label for="DeliveryOption">[L:DeliveryOption]</label></div>
+                <div class="form-field-input">
+                    <select id="DeliveryOption" name="DeliveryOption"></select>
+                    <img id="delivery-update-indicator" src="../images/GTS/ajax-loader.gif" />
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            {{if CheckoutOptions.GiftedPurchase}}
+            <div class="shipping-information-header">
+                [L:ShippingInformationHeader]
+            </div>
+
+            <div class="name-form-field form-field">
+                <span class="form-field-input">
+                    <input type="text" id="ShippingFirstName" name="ShippingFirstName" placeholder="[L:ShippingFirstName]" maxlength="30" autocomplete="off" />
+                </span>
+                <span class="form-field-input">
+                    <input type="text" id="ShippingMiddleName" name="ShippingMiddleName" placeholder="[L:ShippingMiddleName]" maxlength="30" autocomplete="off" />
+                </span>
+                <span class="form-field-input">
+                    <input type="text" id="ShippingLastName" name="ShippingLastName" placeholder="[L:ShippingLastName]" maxlength="30" autocomplete="off" />
+                </span>
+                <div id="shippingLastNameClear" class="clear"></div>
+            </div>
+            <div class="shippingaddress-form-field form-field">
+                <div class="form-field-label"><label for="ShippingAddress">[L:ShippingAddress]</label></div>
+                <div class="form-field-input"><input type="text" id="ShippingAddress" name="ShippingAddress" maxlength="255" /></div>
+                <div class="form-field-shipping-additional"><a href="#" class="shipping-additional-address">[L:ShippingAdditionalAddress]</a></div>
+                <div id="shippingNameClear" class="clear"></div>
+                <div class="form-field-label"><label>&nbsp;</label></div>
+                <div class="form-field-input">
+                    <div id="shippingAddressAdditional" />
+                </div>
+                <div class="clear" />
+            </div>
+            <div class="shipping-address2-form-field form-field">
+                <div class="form-field-label"><label for="ShippingAddress2">[L:ShippingAddress2]</label></div>
+                <div class="form-field-input"><input type="text" id="ShippingAddress2" name="ShippingAddress2" maxlength="255" /></div>
+                <div class="clear"></div>
+            </div>
+            <div class="shipping-city-form-field form-field">
+                <div class="form-field-label"><label for="ShippingCity">[L:ShippingCity]</label></div>
+                <div class="form-field-input"><input type="text" id="ShippingCity" name="ShippingCity" maxlength="40" /></div>
+                <div class="clear"></div>
+            </div>
+            <div class="shipping-country-form-field form-field">
+                <div class="form-field-label"><label for="ShippingCountries">[L:ShippingCountry]</label></div>
+                <div class="form-field-input"><select id="ShippingCountries" name="ShippingCountries"></select></div>
+                <div class="clear"></div>
+            </div>
+            <div class="shipping-state-form-field form-field">
+                <div class="form-field-label"><label for="ShippingState">[L:ShippingState]</label></div>
+                <div class="form-field-input">
+                    <select class="shippingstates" id="ShippingStates" name="ShippingStates"></select>
+                    <input type="text" id="ShippingState" name="ShippingState" />
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="shipping-zip-form-field form-field">
+                <div class="form-field-label"><label for="ShippingZip">[L:ShippingZip]</label></div>
+                <div class="form-field-input"><input type="text" id="ShippingZip" name="ShippingZip" maxlength="16" /></div>
+                <div class="clear"></div>
+            </div>
+            <div class="shipping-email-form-field form-field">
+                <div class="form-field-label"><label for="ShippingEmail">[L:ShippingEmail]</label></div>
+                <div class="form-field-input"><input type="text" id="ShippingEmail" name="ShippingEmail" maxlength="128" /></div>
+                <div class="clear"></div>
+            </div>
+            <div class="shipping-phone-form-field form-field">
+                <div class="form-field-label"><label for="ShippingPhoneNumber">[L:ShippingPhoneNumber]</label></div>
+                <div class="form-field-input"><input type="text" id="ShippingPhoneNumber" name="ShippingPhoneNumber" maxlength="30" /></div>
+                <div class="clear"></div>
+            </div>
+            {{/if}}
+            
+            <div id="OrderNotesWrap" class="OrderNotes-form-field form-field">
+                <div class="form-field-label">[L:OrderNoteLabel]</div>
+                <div class="form-field-input">
+                    <div>[L:OrderNoteInstructions]</div>
+                    <div class="clear"></div>
+                    <textarea id="OrderNotesTextArea" name="OrderNotesTextArea" rows="4" cols="50"></textarea>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div id="PersonalMessageWrap" class="PersonalMesage-form-field form-field">
+                <div class="form-field-label">[L:PersonalMessageLabel]</div>
+                <div class="form-field-input">
+                    <div>[L:PersonalMessageInstructions]</div>
+                    <div class="clear"></div>
+                    <textarea id="PersonalMessageTextArea" name="PersonalMessageTextArea" rows="4" cols="50"></textarea>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div id="TermsAndConditionsSelection" class="terms-conditions-form-field form-field">
+                <input type="checkbox" id="TermsConditions" name="TermsConditions" />
+                <label for="TermsConditions">[L:TermsAndConditionsText]</label>
+                <a href="#" id="TermsConditionsLink">[L:TermsAndConditionsLink]</a>
+            </div>
+            <div id="NewsletterSurvey" class="newsletter-survey-form-field form-field">
+                <input type="checkbox" id="NewsletterSurveyOption" name="NewsletterSurveyOptIn" />
+                <label for="NewsletterSurveyOption">[L:NewsletterSurveyOptIn]</label>
+            </div>
+            <div id="Newsletter" class="newsletter-form-field form-field">
+                <input type="checkbox" id="NewsletterOption" name="NewsletterOptIn" />
+                <label for="NewsletterOption">[L:NewsletterOptIn]</label>
+            </div>
+            <div id="Survey" class="survey-form-field form-field">
+                <input type="checkbox" id="SurveyOption" name="SurveyOptIn" />
+                <label for="SurveyOption">[L:SurveyOptIn]</label>
+            </div>
+            <div id="CVVDialog"></div>
+            <div id="TermsConditionsDialog"></div>
+            <div id="ConfirmOrderDialog">
+                <div id="ConfirmOrderBilling" class="block">
+                    <div class="heading">[L:ConfirmOrderBillingHeader]</div>
+                    <div class="text"></div>
+                </div>
+                
+                <div id="ConfirmOrderShipping" class="block">
+                    <div class="heading">[L:ConfirmOrderShippingHeader]</div>
+                    <div class="text"></div>
+                </div>
+
+                <div id="ConfirmOrderMaskedCardNumber" class="block">
+                    <div class="heading">[L:ConfirmOrderCardNumberHeader]</div>
+                    <div class="text"></div>
+                </div>
+                <div id="ConfirmOrderDeliveryMethod" class="block">
+                    <div class="heading">[L:ConfirmOrderDeliveryMethodHeader]</div>
+                    <div class="text"></div>
+                </div>
+                <div id="ConfirmOrderTotal" class="block">
+                    <div class="heading">[L:ConfirmOrderTotalHeader]</div>
+                    <div class="text"></div>
+                </div>
+            </div>
+            <div id="GuestNamesDialog">
+                <div id="GuestNamesError"></div>
+                <div id="GuestNamesText" class="guest-names-text">[L:GuestNamesText]</div>
+                <div id="GuestNamesForm"></div>
+            </div>
+           
+        </form>
+
+        <div id="donation-info"></div>
+
+        <div class="step-navigation navigation">
+        </div>
+    </div>
+</script>
+
+
+<script id="DualRelationshipsTemplate" type="text/jsrender">
+    <div id="step-dual" class="step">               
+        <div id="DualRelationshipsForm">
+        </div>       
+        <div class="clear"></div>
+                
+        <div class="step-navigation navigation">
+            <img src="../images/GTS/ajax-loader.gif" />
+        </div>
+    </div>
+</script>
+
+<script id="DualRelationshipsItemTemplate" type="text/jsrender">
+    
+    <h2>[L:DualRelationshipHeader]</h2>
+    <div id="DualRelationshipsText" class="dual-relationship-text">
+        <p>[L:DualRelationshipSubHeader]</p>
+    </div>
+     <div id="DualRelationshipsError"></div>
+        <table id="dual-relationship-container">
+            <tr>
+            <td class="contact-container">
+             <div class="left">
+                <ul id="dual-relationship-list">
+                   {{for Items }}
+                   <li>
+                       <a href="#" id="contact_{{:FromContactID}}" data-fromcustcontact-guid="{{:FromCustContactGuid}}" data-contact-id="{{:FromContactID}}" data-pk-id="{{:ExternalPassKindID}}" class="dual-relationship-item btn fa-square-o {{if IsDualJoint}} dual-joint {{/if}}">
+                           <div class="member-name">{{:FirstName}} {{:LastName}}</div>
+                            <div class="product-info">{{:PassKindName}} {{if IsDualJoint}} <span> ( Joint ) </span> {{/if}} </div>                            
+                        </a>
+                    </li>
+                   {{/for}}
+                </ul>
+             </div>
+            </td>
+            <td class="create-button-container">
+             <div class="center">
+                  <a href="#" id="create-relationship-button" class="green fa-angle-double-right btn">
+                    [L:DualRelationshipCreateButton] </a>
+                  <a href="#" id="clear-relationship-button" class="red btn fa-trash-o">
+                    [L:DualRelationshipClearButton] </a>
+             </div>
+            </td>
+            <td class="relationship-container">
+             <div class="right ">
+                  <ul id="dual-contact-list">
+
+                  </ul>
+             </div>
+            </td>
+            </tr>
+        </table>
+
+</script>
+
+<script id="GuestNamesTemplate" type="text/x-jsrender">
+    <div class="guest-name">
+        <input type="hidden" class="guest-id" value="{{:Id}}" />
+        <div class="guest-product-name">{{:ProductName}}</div>
+        <div class=""><input type="text" class="guest-first-name" value="{{:FirstName}}" placeholder="[L:FirstName]" maxlength="30" autocomplete="off" /></div>
+        <div class=""><input type="text" class="guest-last-name" value="{{:LastName}}" placeholder="[L:LastName]" maxlength="30" autocomplete="off" /></div>
+   </div>
+</script>
+
+<script id="auto-donation-template" type="text/x-jsrender">
+    <div id="donation-auto">
+        <h4>[L:DonationHeader]</h4>
+        <p>[L:DonationAutoRoundUpDescription]</p>
+        <input type="button" class="small-button dark" value="[L:RemoveDonationButton]" />
+    </div>
+</script>
+
+<script id="roundup-donation-template" type="text/x-jsrender">
+    <div id="donation-roundup">
+        <h4>[L:DonationHeader]</h4>
+        <p>[L:DonationRoundUpDescription]</p>
+        <input type="button" class="small-button dark" value="[L:DonationButton]" />
+    </div>
+</script>
+
+<script id="fixed-donation-template" type="text/x-jsrender">
+    <div id="donation-fixed">
+        <h4>[L:DonationHeader]</h4>
+        <p>[L:DonationFixedDescription]</p>
+        <input type="button" class="small-button dark" value="[L:DonationButton]" />
+    </div>
+</script>
+
+<script id="editable-donation-template" type="text/x-jsrender">
+    <div id="donation-editable">
+        <h4>[L:DonationHeader]</h4>
+        <p>[L:DonationEditableDescription]</p>
+        <input type="text" id="donation-editable-amount" name="donation-editable-amount" />
+        <input type="button" id="donation-editable-button" class="small-button dark" value="[L:DonationButton]" />
+    </div>
+</script>
+
+<script type="text/x-jsrender" id="pass-step-template">
+    <div id="{{>id}}" class="step-pass step">
+        <h2>{{:name}}</h2>
+        <div class="primary-member">
+            {{if jointMembership}}
+            <div class="header">
+                <h4>[L:PrimaryMember]</h4>
+            </div>
+            {{/if}}
+            <ul class="existing-contacts"></ul>
+            <div class="clear"></div>
+            <form class="pass-step-form"></form>
+        </div>
+
+        {{if jointMembership}}
+        <div class="joint-members">
+            <div class="adults">
+                <h4>
+                    <span>[L:JointMemberAdults]</span>
+                    -
+                    <span id="adultCount"></span>
+                </h4>
+                <div class="adult-additions"></div>
+                <div class="adult available">
+                    <div class="name">[L:AddJointMemberAdult]</div>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="children">
+                <h4>
+                    <span>[L:JointMemberChildren]</span>
+                    -
+                    <span id="childCount"></span>
+                </h4>
+                <div class="child-additions"></div>
+                <div class="child available">
+                    <div class="name">[L:AddJointMemberChild]</div>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="addons">
+                <h4>
+                    <span>[L:JointMemberAddons]</span>
+                    -
+                    <span id="addonCount"></span>
+                </h4>
+                <div class="addon-additions"></div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="guests">
+                <h4>[L:JointMemberGuests]</h4>
+                <p>
+                    You are entitled to <span class="count"></span> on this membership.
+                </p>
+            </div>
+
+            <div class="new-adult-wrapper">
+                <div class="ui-widget-overlay"></div>
+                <div class="new-adult">
+                    <div class="header">
+                        <h4>[L:AddJointMemberAdult]</h4>
+                    </div>
+                    <form></form>
+                    <div class="navigation">
+                        <input type="button" class="large-button dark cancel" value="Cancel" />
+                        <input type="button" class="large-button dark add" value="Add" />
+                        <img src="../images/GTS/ajax-loader.gif" />
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="new-child-wrapper">
+                <div class="ui-widget-overlay"></div>
+                <div class="new-child">
+                    <div class="header">
+                        <h4>[L:AddJointMemberChild]</h4>
+                        <span class="child-age"></span>
+                    </div>
+                    <div class="not-naming">[L:SkipNamingJointMemberChild]</div>
+                    <form></form>
+                    <div class="navigation">
+                        <input type="button" class="large-button dark cancel" value="Cancel" />
+                        <input type="button" class="large-button dark add" value="Add" />
+                        <img src="../images/GTS/ajax-loader.gif" />
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="new-addon-wrapper">
+                <div class="ui-widget-overlay"></div>
+                <div class="new-addon">
+                    <div class="header">
+                        <h4>[L:AddJointMemberAddon]</h4>
+                        <span class="addon-age"></span>
+                    </div>
+                    <form></form>
+                    <div class="navigation">
+                        <input type="button" class="large-button dark cancel" value="Cancel" />
+                        <input type="button" class="large-button dark add" value="Add" />
+                        <img src="../images/GTS/ajax-loader.gif" />
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/if}}
+        <div class="clear"></div>
+
+        <div class="step-navigation navigation">
+            <img src="../images/GTS/ajax-loader.gif" />
+        </div>
+    </div>
+</script>
+
+<script type="text/x-jsrender" id="saved-adult-template">
+    {{if HasImage}}
+    <div class="adult" data-id="{{>Id}}">
+        {{else}}
+        <div class="adult no-image" data-id="{{>Id}}">
+            {{/if}}
+            <div class="icon-bounds">
+                {{if HasImage}}
+                <div class="image">
+                    <img src="{{>ImagePath}}" alt="{{>Name}}" />
+                </div>
+                {{/if}}
+                <a class="icon x">X</a>
+                <div class="name">{{>Name}}</div>
+            </div>
+        </div>
+</script>
+
+<script type="text/x-jsrender" id="saved-child-template">
+    {{if HasImage}}
+    <div class="child" data-id="{{>Id}}">
+        {{else}}
+        <div class="child no-image" data-id="{{>Id}}">
+            {{/if}}
+            <div class="icon-bounds">
+                {{if HasImage}}
+                <div class="image">
+                    <img src="{{>ImagePath}}" alt="{{>Name}}" />
+                </div>
+                {{/if}}
+                <a class="icon x">X</a>
+                <div class="name">{{>Name}}</div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-jsrender" id="saved-addon-template">
+    {{if HasImage}}
+    <div class="addon" data-id="{{>Id}}">
+        {{else}}
+        <div class="addon no-image" data-id="{{>Id}}">
+            {{/if}}
+            <div class="icon-bounds">
+                {{if HasImage}}
+                <div class="image">
+                    <img src="{{>ImagePath}}" alt="{{>Name}}" />
+                </div>
+                {{/if}}
+                <div class="name">{{>Name}}</div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-jsrender" id="existing-contact-template">
+	{{if ShowLinkToAccount}}
+    <li class="existing-contact" data-contactguid="{{>ContactGuid}}">
+        <div class="member-name">{{>Name}}</div>
+        <div class="member-address">{{>Address1}}</div>
+        <div class="member-address">{{>Address2}}</div>
+        {{if CurrentUser }}
+        {{if Linked}}
+        <input type="button" class="unlink" value="[L:UnlinkContactToPass]" />
+        {{else}}
+        <input type="button" class="link" value="[L:LinkContactToPass]" />
+        {{/if}}
+        {{else}}
+        <input type="button" class="copy" value="[L:CopyFromThisMember]" />
+        {{/if}}
+    </li>
+	{{/if}}
+</script>
+
+<script type="text/x-jsrender" id="primary-pass-selection-template">
+    <div id="primary-pass-selection-step" class="step">
+        <h2>[L:PrimaryMemberSelectionTitle]</h2>
+        <p>[L:PrimaryMemberSelectionDescription]</p>
+
+        <ul class="primary-pass-options"></ul>
+
+        <div class="clear"></div>
+
+        <div class="step-navigation navigation">
+            <img src="../images/GTS/ajax-loader.gif" />
+        </div>
+    </div>
+</script>
+
+<script type="text/x-jsrender" id="contact-address-template">
+    <li class="existing-contact" data-id="{{>Id}}" data-contactguid="{{>ContactGuid}}">
+        <div class="member-name">{{>Name}}</div>
+        <div class="member-address">{{>Address1}}</div>
+        <div class="member-address">{{>Address2}}</div>
+        <input type="button" class="unlink" value="[L:UnlinkContactFromBillTo]" />
+        <input type="button" class="link" value="[L:LinkContactToBillTo]" />
+    </li>
+</script>
+

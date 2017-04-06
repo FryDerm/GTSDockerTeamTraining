@@ -1,0 +1,20 @@
+﻿@model Gateway.WebStore.ViewModels.Membership.MembershipDetailsViewModel
+@{
+    ViewBag.Title = "[L:MembershipDetailsTitle]";
+    Layout = null;
+}
+
+<link rel="stylesheet" href="~/Content/default/renew/css/renew.css" />
+<link rel="stylesheet" href="~/Content/default/membership/css/membership.css" />
+
+@Html.Action("Html", "Site", new { pageName = "membership" })
+
+<script type="text/javascript" src="~/scripts/contentSwitcher.js"></script>
+<script src="@Url.Action("Script", "Site", new { pageName = "membership" })" type="text/javascript"></script>
+<script src="@Url.Action("Script", "Site", new { pageName = "renew" })" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        gts.membershipDetailsModule.init({ visualId: "@Model.PrimaryVisualId" });
+        gts.renewModule.init({ cartUrl: "@Url.Content("~/shop/ViewCart.aspx")" });
+    });
+</script>

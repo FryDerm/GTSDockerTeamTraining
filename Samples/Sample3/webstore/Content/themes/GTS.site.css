@@ -1,0 +1,65 @@
+/* default.site.css */
+/* add any custom css here */
+/* NOTE: jQuery Mobile theme CSS should be set in the "Theme CSS" and not here */
+
+/* Media query to control width (esp for desktop browsers) */
+@media only screen and (min-width: 320px){
+	.ui-page {
+		width: 320px !important;
+		margin: 0 auto !important;
+		position: relative !important;
+	}
+}
+
+/* Default Language Selector popup menu */
+
+.language-selection {
+    position: absolute;
+	right: 0;
+    text-align: center;
+	left: 0;
+	z-index: 3;
+	margin-top: 10px;
+}
+
+.language-selection .ui-btn-inner {
+
+}
+
+
+.language-selection .ui-icon {
+	background-image: url(images/icons-18-white.png);
+	background-repeat: no-repeat;
+}
+
+#popupMenu {
+    position: relative;
+    bottom: 28px;
+    left: 0;
+}
+
+.flag-image {
+    float: left;
+    margin-right: 10px;
+}
+
+.language-option a {
+    padding: 5px 10px !important;
+}
+
+/* Default Gateway header */
+.page-header
+{
+	background: url('../images/logo.png') no-repeat center;
+	width: 100%;
+	height: 74px;
+	margin: 10px 0px;
+}
+
+.footer 
+{
+	background: #333;
+	height: 33px;
+	width: 100%;
+}
+
