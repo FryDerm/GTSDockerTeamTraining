@@ -1,0 +1,9 @@
+C:\dev\git\GTSDockerTeamTraining\Sample2\DotNetExample\DotNetExample\bin\Debug\netcoreapp1.1\DotNetExample.deps.json
+C:\dev\git\GTSDockerTeamTraining\Sample2\DotNetExample\DotNetExample\bin\Debug\netcoreapp1.1\DotNetExample.runtimeconfig.json
+C:\dev\git\GTSDockerTeamTraining\Sample2\DotNetExample\DotNetExample\bin\Debug\netcoreapp1.1\DotNetExample.runtimeconfig.dev.json
+C:\dev\git\GTSDockerTeamTraining\Sample2\DotNetExample\DotNetExample\bin\Debug\netcoreapp1.1\DotNetExample.dll
+C:\dev\git\GTSDockerTeamTraining\Sample2\DotNetExample\DotNetExample\bin\Debug\netcoreapp1.1\DotNetExample.pdb
+C:\dev\git\GTSDockerTeamTraining\Sample2\DotNetExample\DotNetExample\obj\Debug\netcoreapp1.1\DotNetExample.csprojResolveAssemblyReference.cache
+C:\dev\git\GTSDockerTeamTraining\Sample2\DotNetExample\DotNetExample\obj\Debug\netcoreapp1.1\DotNetExample.AssemblyInfo.cs
+C:\dev\git\GTSDockerTeamTraining\Sample2\DotNetExample\DotNetExample\obj\Debug\netcoreapp1.1\DotNetExample.dll
+C:\dev\git\GTSDockerTeamTraining\Sample2\DotNetExample\DotNetExample\obj\Debug\netcoreapp1.1\DotNetExample.pdb

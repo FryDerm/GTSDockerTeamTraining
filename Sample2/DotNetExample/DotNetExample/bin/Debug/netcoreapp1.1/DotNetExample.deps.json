@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.1",
-    "signature": "635a01b3b0264e2904af96f6c667c116a629c0ea"
+    "signature": "5abf05e685169482db45f1ae5fec959f17b0eb80"
   },
   "compilationOptions": {
     "defines": [
@@ -21,21 +21,20 @@
   },
   "targets": {
     ".NETCoreApp,Version=v1.1": {
-      "sample2/1.0.0": {
+      "dotnetexample/1.0.0": {
         "dependencies": {
           "Microsoft.ApplicationInsights.AspNetCore": "2.0.0",
           "Microsoft.AspNetCore": "1.1.1",
           "Microsoft.AspNetCore.Mvc": "1.1.2",
-          "Microsoft.Extensions.Caching.Redis": "1.1.1",
           "Microsoft.Extensions.Logging.Debug": "1.1.1",
           "Microsoft.NETCore.App": "1.1.1",
           "ServiceStack.Redis.Core": "1.0.40"
         },
         "runtime": {
-          "Sample2.dll": {}
+          "DotNetExample.dll": {}
         },
         "compile": {
-          "Sample2.dll": {}
+          "DotNetExample.dll": {}
         }
       },
       "microsoft.applicationinsights/2.2.0": {
@@ -752,20 +751,6 @@
           "lib/netstandard1.3/Microsoft.Extensions.Caching.Memory.dll": {}
         }
       },
-      "microsoft.extensions.caching.redis/1.1.1": {
-        "dependencies": {
-          "Microsoft.Extensions.Caching.Abstractions": "1.1.1",
-          "Microsoft.Extensions.Options": "1.1.1",
-          "NETStandard.Library": "1.6.1",
-          "StackExchange.Redis.StrongName": "1.1.605"
-        },
-        "runtime": {
-          "lib/netstandard1.5/Microsoft.Extensions.Caching.Redis.dll": {}
-        },
-        "compile": {
-          "lib/netstandard1.5/Microsoft.Extensions.Caching.Redis.dll": {}
-        }
-      },
       "microsoft.extensions.configuration/1.1.1": {
         "dependencies": {
           "Microsoft.Extensions.Configuration.Abstractions": "1.1.1",
@@ -1230,38 +1215,6 @@
         },
         "compile": {
           "lib/netstandard1.3/ServiceStack.Text.dll": {}
-        }
-      },
-      "stackexchange.redis.strongname/1.1.605": {
-        "dependencies": {
-          "System.Collections": "4.3.0",
-          "System.Collections.Concurrent": "4.3.0",
-          "System.Collections.NonGeneric": "4.3.0",
-          "System.Diagnostics.Tools": "4.3.0",
-          "System.IO.Compression": "4.3.0",
-          "System.IO.FileSystem": "4.3.0",
-          "System.Linq": "4.3.0",
-          "System.Net.NameResolution": "4.3.0",
-          "System.Net.Security": "4.3.0",
-          "System.Net.Sockets": "4.3.0",
-          "System.Reflection.Emit": "4.3.0",
-          "System.Reflection.Emit.Lightweight": "4.3.0",
-          "System.Reflection.TypeExtensions": "4.3.0",
-          "System.Runtime.Extensions": "4.3.0",
-          "System.Runtime.InteropServices.RuntimeInformation": "4.3.0",
-          "System.Security.Cryptography.Algorithms": "4.3.0",
-          "System.Security.Cryptography.X509Certificates": "4.3.0",
-          "System.Text.RegularExpressions": "4.3.0",
-          "System.Threading": "4.3.0",
-          "System.Threading.Thread": "4.3.0",
-          "System.Threading.ThreadPool": "4.3.0",
-          "System.Threading.Timer": "4.3.0"
-        },
-        "runtime": {
-          "lib/netstandard1.5/StackExchange.Redis.StrongName.dll": {}
-        },
-        "compile": {
-          "lib/netstandard1.5/StackExchange.Redis.StrongName.dll": {}
         }
       },
       "system.collections.nongeneric/4.3.0": {
@@ -3218,7 +3171,7 @@
     }
   },
   "libraries": {
-    "sample2/1.0.0": {
+    "dotnetexample/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -3538,13 +3491,6 @@
       "path": "microsoft.extensions.caching.memory/1.1.1",
       "hashPath": "microsoft.extensions.caching.memory.1.1.1.nupkg.sha512"
     },
-    "microsoft.extensions.caching.redis/1.1.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-xVglqWN+29wvJIorTR6yfFw0waD+l9ND/RAaYZyezR/N4WRaYTkl6YNJ4qgqocFrYT1FQJDo+2k+w63nyJEnZQ==",
-      "path": "microsoft.extensions.caching.redis/1.1.1",
-      "hashPath": "microsoft.extensions.caching.redis.1.1.1.nupkg.sha512"
-    },
     "microsoft.extensions.configuration/1.1.1": {
       "type": "package",
       "serviceable": true,
@@ -3775,13 +3721,6 @@
       "sha512": "sha512-zDcaq8B0novjPGm6m7Mv9ZrsCGum+IIIYRzkIHXCBKzny7Knj8MBPEujwbkb7nAPMHBelkT1mqi4wBCVEtZa9w==",
       "path": "servicestack.text.core/1.0.40",
       "hashPath": "servicestack.text.core.1.0.40.nupkg.sha512"
-    },
-    "stackexchange.redis.strongname/1.1.605": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-KfEOwWxRomytavYbyhQhAWGOzG5oUfmiJfruwGjYXpu/DztUrxJciDLvrLlsoyGCIJ6m9NA5sW4nVY3bLW1BSg==",
-      "path": "stackexchange.redis.strongname/1.1.605",
-      "hashPath": "stackexchange.redis.strongname.1.1.605.nupkg.sha512"
     },
     "system.collections.nongeneric/4.3.0": {
       "type": "package",
